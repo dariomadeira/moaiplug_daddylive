@@ -16,8 +16,8 @@ final class Config {
         "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 "
             + "(KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36";
 
-    static final int CONNECT_TIMEOUT_MS = 4000;
-    static final int READ_TIMEOUT_MS = 4500;
+    static final int CONNECT_TIMEOUT_MS = 3500;
+    static final int READ_TIMEOUT_MS = 3500;
 
     /** Presupuesto máximo de un resolve() en el plugin (el host corta a 20 s). */
     static final long RESOLVE_BUDGET_MS = 18L * 1000L;
