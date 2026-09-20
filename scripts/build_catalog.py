@@ -144,6 +144,14 @@ CATEGORY_MOVIE = [
     "hallmark"
 ]
 
+CATEGORY_ADULT = [
+    "pornhub", "xvideos", "xnxx", "xhamster", "youporn", "spankbang", "redtube",
+    "brazzers", "realitykings", "bangbros", "naughtyamerica", "beeg", "eporner",
+    "tube8", "pornhd", "tnaflix", "drtuber", "porntrex", "sexvid", "motherless",
+    "playboy", "hustler", "penthouse", "venus", "sextreme", "xxx", "erotic",
+    "dorcel", "vivid", "babes", "x-rated", "18+", "+18", "adultos"
+]
+
 LOGO_RULES = [
     (r"\bespn", "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png"),
     (r"\bfox sports|\bfox hd|\bfoxny|\bfox\b", "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png"),
@@ -207,8 +215,14 @@ def country_of(name):
     return ""
 
 
-def category_of(name):
+def category_of(name, cid=None):
     low = name.lower()
+    if cid and str(cid).isdigit() and 501 <= int(cid) <= 520:
+        return "Adultos"
+    if "adult swim" in low:
+        return "General"
+    if any(k in low for k in CATEGORY_ADULT):
+        return "Adultos"
     if any(k in low for k in CATEGORY_SPORTS):
         return "Deportes"
     if any(k in low for k in CATEGORY_NEWS):
@@ -237,12 +251,14 @@ def build_channel(raw):
     cid = m.group(1)
     if not re.fullmatch(r"[0-9]+", cid):
         return None
+    cat = category_of(name, cid)
+    country = "Adultos" if cat == "Adultos" else country_of(name)
     return {
         "id": cid,
         "nombre": name,
         "logo": logo_of(name),
-        "categoria": category_of(name),
-        "pais": country_of(name),
+        "categoria": cat,
+        "pais": country,
     }
 
 
