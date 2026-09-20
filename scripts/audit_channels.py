@@ -30,7 +30,7 @@ def check_channel(channel):
         with urllib.request.urlopen(req, timeout=3.5) as r:
             html = r.read().decode("utf-8", "replace").replace("\/", "/")
 
-        m = re.search(r"https?://(?:www\.)?freetvspor\.cfd/live/stream-[^"'\s]+", html)
+        m = re.search(r"https?://(?:www\.)?freetvspor\.cfd/live/stream-[^\"'\s]+", html)
         if not m:
             return {"id": cid, "name": name, "online": False, "status": "no_slot", "time": round(time.time() - t0, 2)}
         slot_url = m.group(0)
