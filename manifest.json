@@ -2,11 +2,11 @@
   "id": "moai_daddylive",
   "tag": "Daddy",
   "nombre": "Moai Daddylive",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "minContrato": 1,
   "maxContrato": 1,
   "clase": "com.infomak.moai.daddylive.DaddylivePlugin",
-  "sha256": "25fbebcddda98985d43b8bde3cc93a31669b5ab2150d581d3bacbb8170b23b3c",
+  "sha256": "ab0b6542f1b460ecff8c9e42e31612039a73e81bf84141b2c4a469a9aeb4f957",
   "canales":
 [
   {
@@ -14,7 +14,7 @@
     "nombre": "Indosiar",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "2",
@@ -35,7 +35,7 @@
     "nombre": "Hub Premier",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5",
@@ -49,35 +49,35 @@
     "nombre": "V Sport Premium",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7",
     "nombre": "Thmanyah",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "8",
     "nombre": "NBA League Pass",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9",
     "nombre": "V Sport Football",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "10",
     "nombre": "Al Iraqiya Sports",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "11",
@@ -105,7 +105,7 @@
     "nombre": "NHL Gamecenter",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nhl-network-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "15",
@@ -168,7 +168,7 @@
     "nombre": "NLSE",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "24",
@@ -210,14 +210,14 @@
     "nombre": "Magenta Sport 302",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "30",
     "nombre": "Magenta Sport 306",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "31",
@@ -259,7 +259,7 @@
     "nombre": "Sky Sports+ Plus",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "37",
@@ -273,7 +273,7 @@
     "nombre": "Sky Sports Main Event",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "39",
@@ -287,7 +287,7 @@
     "nombre": "Tennis Channel",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "41",
@@ -308,7 +308,7 @@
     "nombre": "PDC TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "44",
@@ -399,7 +399,7 @@
     "nombre": "Supersport Football",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "57",
@@ -434,7 +434,7 @@
     "nombre": "beIN Sports MENA English 1",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "62",
@@ -462,7 +462,7 @@
     "nombre": "Sky Sports Cricket",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "66",
@@ -490,7 +490,7 @@
     "nombre": "Magenta Sport 307",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "70",
@@ -539,14 +539,14 @@
     "nombre": "Magenta Sport 305",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "77",
     "nombre": "Movistar Liga de Campeones 9",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "78",
@@ -595,7 +595,7 @@
     "nombre": "Movistar Laliga",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "85",
@@ -637,77 +637,77 @@
     "nombre": "beIN Sports MENA English 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "91",
     "nombre": "beIN Sports 1 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "92",
     "nombre": "beIN Sports 2 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "93",
     "nombre": "beIN Sports 3 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "94",
     "nombre": "beIN Sports 4 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "95",
     "nombre": "beIN Sports 5 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "96",
     "nombre": "beIN Sports 6 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "97",
     "nombre": "beIN Sports 7 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "98",
     "nombre": "beIN Sports 8 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "99",
     "nombre": "beIN Sports 9 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "100",
     "nombre": "beIN SPORTS XTRA 1",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "101",
@@ -763,14 +763,14 @@
     "nombre": "LALIGA TV Hypermotion 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "109",
     "nombre": "Peacock Feed",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "110",
@@ -784,35 +784,35 @@
     "nombre": "TSN1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "112",
     "nombre": "TSN2",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "113",
     "nombre": "TSN3",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "114",
     "nombre": "TSN4",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "115",
     "nombre": "TSN5",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "116",
@@ -868,28 +868,28 @@
     "nombre": "Astro SuperSport 1",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "124",
     "nombre": "Astro SuperSport 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "125",
     "nombre": "Astro SuperSport 3",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "126",
     "nombre": "Astro SuperSport 4",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "127",
@@ -917,42 +917,42 @@
     "nombre": "Sky sports Premier League",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "131",
     "nombre": "Telemundo",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "132",
     "nombre": "Univision",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "133",
     "nombre": "Unimas",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "134",
     "nombre": "Arena Sport 1 Premium",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/arena-sport-1-rs.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "135",
     "nombre": "Arena Sport 2 Premium",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/arena-sport-1-rs.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "136",
@@ -980,7 +980,7 @@
     "nombre": "Arena Sport 3 Premium",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/arena-sport-1-rs.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "140",
@@ -1078,21 +1078,21 @@
     "nombre": "KHL Tv",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "154",
     "nombre": "KHL Prime",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "155",
     "nombre": "3 Schweiz",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "156",
@@ -1113,7 +1113,7 @@
     "nombre": "SPFL Feed",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "159",
@@ -1134,14 +1134,14 @@
     "nombre": "DAZN PPV",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "162",
     "nombre": "Magenta Sport 308",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "163",
@@ -1155,7 +1155,7 @@
     "nombre": "Magenta Sport 304",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "165",
@@ -1169,7 +1169,7 @@
     "nombre": "Movistar Liga de Campeones 7",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "167",
@@ -1197,42 +1197,42 @@
     "nombre": "TG4",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "171",
     "nombre": "ESPN Select",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "172",
     "nombre": "Movistar Liga de Campeones 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "173",
     "nombre": "SRF Info",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "174",
     "nombre": "Victory+",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "175",
     "nombre": "FloHockey",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "176",
@@ -1253,7 +1253,7 @@
     "nombre": "Next Level Sports",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "179",
@@ -1302,7 +1302,7 @@
     "nombre": "FUBO Sports",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "186",
@@ -1337,7 +1337,7 @@
     "nombre": "Paramount+",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/paramount-network-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "191",
@@ -1358,7 +1358,7 @@
     "nombre": "Peacock",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "194",
@@ -1372,7 +1372,7 @@
     "nombre": "Tring Sport 1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "196",
@@ -1393,7 +1393,7 @@
     "nombre": "TVMSport+ Malta",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "199",
@@ -1414,7 +1414,7 @@
     "nombre": "GAA",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "202",
@@ -1442,14 +1442,14 @@
     "nombre": "DAZN LaLiga 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "206",
     "nombre": "AHC (American Heroes Channel)",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "207",
@@ -1505,14 +1505,14 @@
     "nombre": "Big Ten Plus",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "215",
     "nombre": "GAA+",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "216",
@@ -1547,7 +1547,7 @@
     "nombre": "JOJ Sport",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "221",
@@ -1582,35 +1582,35 @@
     "nombre": "Darts borad 2",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "226",
     "nombre": "DAZN Baloncesto",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "227",
     "nombre": "DAZN Baloncesto 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "228",
     "nombre": "Event PPV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "229",
     "nombre": "Netflix PPV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "230",
@@ -1624,14 +1624,14 @@
     "nombre": "Eurosport 1 SW",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/eurosport-1-fr.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "232",
     "nombre": "Eurosport 2 SW",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/eurosport-1-fr.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "233",
@@ -1666,14 +1666,14 @@
     "nombre": "Triller TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "239",
     "nombre": "Magenta Sport 301",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "240",
@@ -1701,7 +1701,7 @@
     "nombre": "Ictimai TV Azerbaijan",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "244",
@@ -1722,7 +1722,7 @@
     "nombre": "M+ LALIGA TV 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "247",
@@ -1750,7 +1750,7 @@
     "nombre": "UFC Fight Pass",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "251",
@@ -1764,7 +1764,7 @@
     "nombre": "FloRacing",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "253",
@@ -1820,14 +1820,14 @@
     "nombre": "Vodafone Sport",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "261",
     "nombre": "VTV3 Vietnam",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "262",
@@ -1841,14 +1841,14 @@
     "nombre": "Celtic TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "264",
     "nombre": "Fussball.TV 2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "265",
@@ -1876,14 +1876,14 @@
     "nombre": "A Sport PK",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "270",
     "nombre": "T Sports BD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "271",
@@ -1904,7 +1904,7 @@
     "nombre": "Canal+ Formula 1",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-f1-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "274",
@@ -1932,14 +1932,14 @@
     "nombre": "NBC10 Philadelphia",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "278",
     "nombre": "Law & Crime Network",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "279",
@@ -1981,7 +1981,7 @@
     "nombre": "StarzPlay CricLife 1 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "285",
@@ -2009,7 +2009,7 @@
     "nombre": "ESPNews",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "289",
@@ -2044,35 +2044,35 @@
     "nombre": "Reelz Channel",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "294",
     "nombre": "Science Channel",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "295",
     "nombre": "Adult Swim",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "296",
     "nombre": "Hallmark Movies & Mysterie",
     "logo": "",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "297",
     "nombre": "Fox Business",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "298",
@@ -2086,7 +2086,7 @@
     "nombre": "Magnolia Network",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "300",
@@ -2100,7 +2100,7 @@
     "nombre": "Freeform",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "302",
@@ -2121,14 +2121,14 @@
     "nombre": "Animal Planet",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "305",
     "nombre": "BBC America (BBCA)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/bbc-one-uk.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "306",
@@ -2149,7 +2149,7 @@
     "nombre": "CBS Sports Network (CBSSN)",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "309",
@@ -2163,42 +2163,42 @@
     "nombre": "Comedy Central",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "311",
     "nombre": "Discovery Life Channel",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/discovery-channel-us.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "312",
     "nombre": "Disney Channel",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/disney-channel-us.png",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "313",
     "nombre": "Discovery Channel",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/discovery-channel-us.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "314",
     "nombre": "Disney XD",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/disney-channel-us.png",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "315",
     "nombre": "E! Entertainment Television",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "316",
@@ -2226,14 +2226,14 @@
     "nombre": "Game Show Network",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "320",
     "nombre": "The Hallmark Channel",
     "logo": "",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "321",
@@ -2254,7 +2254,7 @@
     "nombre": "Headline News",
     "logo": "",
     "categoria": "Noticias",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "324",
@@ -2275,49 +2275,49 @@
     "nombre": "Lifetime Network",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "327",
     "nombre": "MSNBC",
     "logo": "",
     "categoria": "Noticias",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "328",
     "nombre": "National Geographic (NGC)",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "329",
     "nombre": "NICK JR",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nickelodeon-us.png",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "330",
     "nombre": "NICK",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nickelodeon-us.png",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "331",
     "nombre": "Oprah Winfrey Network (OWN)",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "332",
     "nombre": "Oxygen True Crime",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "333",
@@ -2331,14 +2331,14 @@
     "nombre": "Paramount Network",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/paramount-network-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "335",
     "nombre": "Starz",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "336",
@@ -2352,7 +2352,7 @@
     "nombre": "TLC",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "338",
@@ -2366,14 +2366,14 @@
     "nombre": "Cartoon Network",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/cartoon-network-us.png",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "340",
     "nombre": "Travel Channel",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "341",
@@ -2387,7 +2387,7 @@
     "nombre": "TVLAND",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "343",
@@ -2415,28 +2415,28 @@
     "nombre": "Willow Cricket",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "347",
     "nombre": "Fox News",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
     "categoria": "Noticias",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "348",
     "nombre": "Dave",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "349",
     "nombre": "BBC News Channel HD",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/bbc-one-uk.png",
     "categoria": "Noticias",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "350",
@@ -2520,35 +2520,35 @@
     "nombre": "Sky Witness HD",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "362",
     "nombre": "Sky Atlantic",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "363",
     "nombre": "E4 Channel",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "364",
     "nombre": "RTE 1",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "365",
     "nombre": "RTE 2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "366",
@@ -2569,21 +2569,21 @@
     "nombre": "SuperSport Cricket",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "369",
     "nombre": "Fox Cricket",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "370",
     "nombre": "Astro Cricket",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "371",
@@ -2597,7 +2597,7 @@
     "nombre": "beIN SPORTS en Espanol",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "373",
@@ -2618,14 +2618,14 @@
     "nombre": "ESPN Deportes",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "376",
     "nombre": "WWE Network",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "377",
@@ -2660,14 +2660,14 @@
     "nombre": "FX Movie Channel",
     "logo": "",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "382",
     "nombre": "HGTV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "383",
@@ -2681,7 +2681,7 @@
     "nombre": "The Food Network",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "385",
@@ -2716,14 +2716,14 @@
     "nombre": "Lifetime Movies Network",
     "logo": "",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "390",
     "nombre": "RTL7 Netherland",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "391",
@@ -2737,7 +2737,7 @@
     "nombre": "Win Sports+ Columbia",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "393",
@@ -2751,7 +2751,7 @@
     "nombre": "The Weather Channel",
     "logo": "",
     "categoria": "Noticias",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "395",
@@ -2828,140 +2828,140 @@
     "nombre": "NFL Network",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nfl-network-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "406",
     "nombre": "Sportsnet Ontario",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "407",
     "nombre": "Sportsnet West",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "408",
     "nombre": "Sportsnet East",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "409",
     "nombre": "Sportsnet 360",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "410",
     "nombre": "Sportsnet World",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "411",
     "nombre": "Sportsnet One",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "412",
     "nombre": "SuperSport Grandstand",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "413",
     "nombre": "SuperSport PSL",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "414",
     "nombre": "SuperSport Premier league",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "415",
     "nombre": "SuperSport LaLiga",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "416",
     "nombre": "SuperSport Variety 1",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "417",
     "nombre": "SuperSport Variety 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "418",
     "nombre": "SuperSport Variety 3",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "419",
     "nombre": "SuperSport Variety 4",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "420",
     "nombre": "SuperSport Action",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "421",
     "nombre": "SuperSport Rugby",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "422",
     "nombre": "SuperSport Golf",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "423",
     "nombre": "SuperSport Tennis",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "424",
     "nombre": "SuperSport Motorsport",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "425",
@@ -3038,7 +3038,7 @@
     "nombre": "Movistar Liga de Campeones",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "436",
@@ -3143,7 +3143,7 @@
     "nombre": "PTV Sports",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "451",
@@ -3157,7 +3157,7 @@
     "nombre": "TVP INFO",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "453",
@@ -3241,7 +3241,7 @@
     "nombre": "Canal+ Sport360",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "465",
@@ -3395,35 +3395,35 @@
     "nombre": "Canal+ Sport 1 Afrique",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "487",
     "nombre": "Canal+ Sport 2 Afrique",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "488",
     "nombre": "Canal+ Sport 3 Afrique",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "489",
     "nombre": "Canal+ Sport 4 Afrique",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "490",
     "nombre": "Canal+ Sport 5 Afrique",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "491",
@@ -3759,14 +3759,14 @@
     "nombre": "DAZN LaLiga",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "539",
     "nombre": "LaLiga SmartBank TV",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "540",
@@ -3899,7 +3899,7 @@
     "nombre": "Sky Sport Bundesliga 1 HD",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "559",
@@ -3990,14 +3990,14 @@
     "nombre": "SportDigital Fussball",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "572",
     "nombre": "SuperSport MaXimo 1",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "573",
@@ -4046,7 +4046,7 @@
     "nombre": "Arena Sport 1 BiH",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/arena-sport-1-rs.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "580",
@@ -4074,28 +4074,28 @@
     "nombre": "Prima Sport 1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "584",
     "nombre": "Prima Sport 2",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "585",
     "nombre": "Prima Sport 3",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "586",
     "nombre": "Prima Sport 4",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "587",
@@ -4179,7 +4179,7 @@
     "nombre": "Willow 2 Cricket",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "599",
@@ -4214,7 +4214,7 @@
     "nombre": "Smithsonian Channel",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "604",
@@ -4242,7 +4242,7 @@
     "nombre": "Rally Tv",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "608",
@@ -4256,21 +4256,21 @@
     "nombre": "Abu Dhabi Sports 1 Premium",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "610",
     "nombre": "Abu Dhabi Sports 2 Premium",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "611",
     "nombre": "OnTime Sports",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "612",
@@ -4291,119 +4291,119 @@
     "nombre": "SSC Sport 1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "615",
     "nombre": "SSC Sport 2",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "616",
     "nombre": "SSC Sport 3",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "617",
     "nombre": "SSC Sport 4",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "618",
     "nombre": "SSC Sport 5",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "619",
     "nombre": "SSC Sport Extra 1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "620",
     "nombre": "SSC Sport Extra 2",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "621",
     "nombre": "SSC Sport Extra 3",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "622",
     "nombre": "Cosmote Sport 1 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "623",
     "nombre": "Cosmote Sport 2 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "624",
     "nombre": "Cosmote Sport 3 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "625",
     "nombre": "Cosmote Sport 4 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "626",
     "nombre": "Cosmote Sport 5 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "627",
     "nombre": "Cosmote Sport 6 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "628",
     "nombre": "Cosmote Sport 7 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "629",
     "nombre": "Cosmote Sport 8 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "630",
     "nombre": "Cosmote Sport 9 HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "631",
@@ -4529,35 +4529,35 @@
     "nombre": "Boomerang",
     "logo": "",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "649",
     "nombre": "Nicktoons",
     "logo": "",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "650",
     "nombre": "TeenNick",
     "logo": "",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "651",
     "nombre": "Destination America",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "652",
     "nombre": "Disney JR",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/disney-channel-us.png",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "653",
@@ -4592,21 +4592,21 @@
     "nombre": "Discovery Family",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/discovery-channel-us.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "658",
     "nombre": "Sundance TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "659",
     "nombre": "VICE TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "660",
@@ -4620,7 +4620,7 @@
     "nombre": "Discovery Turbo",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/discovery-channel-us.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "662",
@@ -4648,21 +4648,21 @@
     "nombre": "FYI",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "666",
     "nombre": "Nick Music",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nickelodeon-us.png",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "667",
     "nombre": "NFL RedZone",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nfl-network-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "668",
@@ -4788,14 +4788,14 @@
     "nombre": "Sky Crime",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "686",
     "nombre": "Sky History",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/history-channel-us.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "687",
@@ -4886,63 +4886,63 @@
     "nombre": "Great American Family Channel (GAC)",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "700",
     "nombre": "TV4 Hockey",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "701",
     "nombre": "TV4 Tennis",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "702",
     "nombre": "TV4 Motor",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "703",
     "nombre": "TV4 Sport Live 1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "704",
     "nombre": "TV4 Sport Live 2",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "705",
     "nombre": "TV4 Sport Live 3",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "706",
     "nombre": "TV4 Sport Live 4",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "707",
     "nombre": "TV4 Sportkanalen",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "708",
@@ -4956,7 +4956,7 @@
     "nombre": "Tennis+ 10",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "710",
@@ -4970,35 +4970,35 @@
     "nombre": "Tennis+ 12",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "712",
     "nombre": "beIN Sports 1 Malaysia",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "713",
     "nombre": "beIN Sports 2 Malaysia",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "714",
     "nombre": "beIN Sports 3 Malaysia",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "715",
     "nombre": "Cleo TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "716",
@@ -5180,7 +5180,7 @@
     "nombre": "Ten Sports PK",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "742",
@@ -5201,7 +5201,7 @@
     "nombre": "Fashion TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "745",
@@ -5243,56 +5243,56 @@
     "nombre": "C SPAN 1",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "751",
     "nombre": "FETV - Family Entertainment Television",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "752",
     "nombre": "Grit Channel",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "753",
     "nombre": "NBC Sports Bay Area",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nbc-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "754",
     "nombre": "NBC Sports Boston",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nbc-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "755",
     "nombre": "NBC Sports California",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nbc-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "756",
     "nombre": "FOX Soccer Plus",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "757",
     "nombre": "Fight Network",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "758",
@@ -5306,21 +5306,21 @@
     "nombre": "SportsNet New York (SNY)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "760",
     "nombre": "Globo SP",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "761",
     "nombre": "Globo RIO",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "762",
@@ -5341,7 +5341,7 @@
     "nombre": "Spectrum Sportsnet LA",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "765",
@@ -5383,7 +5383,7 @@
     "nombre": "Marquee Sports Network",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "771",
@@ -5418,28 +5418,28 @@
     "nombre": "Fox Weather Channel",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
     "categoria": "Noticias",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "776",
     "nombre": "Chicago Sports Network",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "777",
     "nombre": "NBC Sports Philadelphia",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nbc-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "778",
     "nombre": "Monumental Sports Network",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "779",
@@ -5460,28 +5460,28 @@
     "nombre": "Alkass One",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "782",
     "nombre": "Alkass Two",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "783",
     "nombre": "Alkass Three",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "784",
     "nombre": "Alkass Four",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "785",
@@ -5495,7 +5495,7 @@
     "nombre": "DSTV Mzansi Magic",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "787",
@@ -5698,14 +5698,14 @@
     "nombre": "V Film Premiere",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "816",
     "nombre": "V Film Family",
     "logo": "",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "817",
@@ -5719,7 +5719,7 @@
     "nombre": "TV2 Zulu",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "819",
@@ -5775,21 +5775,21 @@
     "nombre": "Liverpool TV (LFC TV)",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "827",
     "nombre": "DSTV M-Net",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "828",
     "nombre": "DSTV kykNET & kie",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "829",
@@ -5810,7 +5810,7 @@
     "nombre": "Citytv",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "832",
@@ -5824,14 +5824,14 @@
     "nombre": "TVA Sports",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "834",
     "nombre": "TVA Sports 2",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "835",
@@ -5908,7 +5908,7 @@
     "nombre": "NBC Universo",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nbc-us.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "846",
@@ -6055,7 +6055,7 @@
     "nombre": "CW Philly",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "867",
@@ -6125,7 +6125,7 @@
     "nombre": "ITV Quiz",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "877",
@@ -6188,21 +6188,21 @@
     "nombre": "SONY TEN 1",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "886",
     "nombre": "SONY TEN 2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "887",
     "nombre": "SONY TEN 3",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "888",
@@ -6216,84 +6216,84 @@
     "nombre": "TRT Spor TR",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "890",
     "nombre": "FanDuel Sports Network Arizona",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "891",
     "nombre": "FanDuel Sports Network Detroit",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "892",
     "nombre": "FanDuel Sports Network Florida",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "893",
     "nombre": "FanDuel Sports Network Great Lakes",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "894",
     "nombre": "FanDuel Sports Network Indiana",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "895",
     "nombre": "FanDuel Sports Network Kansas City",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "896",
     "nombre": "FanDuel Sports Network Midwest",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "897",
     "nombre": "FanDuel Sports Network New Orleans",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "898",
     "nombre": "FanDuel Sports Network North",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "899",
     "nombre": "FanDuel Sports Network Ohio",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "900",
     "nombre": "FanDuel Sports Network Oklahoma",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "901",
@@ -6307,49 +6307,49 @@
     "nombre": "FanDuel Sports Network SoCal",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "903",
     "nombre": "FanDuel Sports Network South",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "904",
     "nombre": "FanDuel Sports Network Southeast",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "905",
     "nombre": "FanDuel Sports Network Sun",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "906",
     "nombre": "FanDuel Sports Network West",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "907",
     "nombre": "FanDuel Sports Network Wisconsin",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "910",
     "nombre": "CBS Sports Golazo",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "911",
@@ -6419,35 +6419,35 @@
     "nombre": "Root Sports Northwest",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "921",
     "nombre": "Space City Home Network",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "922",
     "nombre": "SportsNet Pittsburgh",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "923",
     "nombre": "Altitude Sports",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "924",
     "nombre": "Las Estrellas",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "925",
@@ -6538,21 +6538,21 @@
     "nombre": "V Sport Golf",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "938",
     "nombre": "Fussball.TV 3",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "939",
     "nombre": "Fast Sports Armenia",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "940",
@@ -6601,28 +6601,28 @@
     "nombre": "Sky Sport Bundesliga 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "947",
     "nombre": "Sky Sport Bundesliga 3",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "948",
     "nombre": "Sky Sport Bundesliga 4",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "949",
     "nombre": "Sky Sport Bundesliga 5",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "950",
@@ -6706,7 +6706,7 @@
     "nombre": "Automoto La chaine",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "962",
@@ -6741,7 +6741,7 @@
     "nombre": "Bein Sports MAX 1 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "967",
@@ -6755,98 +6755,98 @@
     "nombre": "beIN SPORTS XTRA 3 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "969",
     "nombre": "beIN SPORTS XTRA 4 Arabic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "970",
     "nombre": "Starz Cinema",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "971",
     "nombre": "Starz Comedy",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "972",
     "nombre": "Starz Edge",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "973",
     "nombre": "Starz In Black",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "974",
     "nombre": "Starz Kids & Family",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Infantil",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "975",
     "nombre": "Starz Encore",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "976",
     "nombre": "Starz Encore Action",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "977",
     "nombre": "Starz Encore Black",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "978",
     "nombre": "Starz Encore Classic",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "979",
     "nombre": "Starz Encore Family",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "980",
     "nombre": "Starz Encore Suspense",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "981",
     "nombre": "Starz Encore Westerns",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/starz-us.png",
     "categoria": "Cine",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "982",
@@ -7021,7 +7021,7 @@
     "nombre": "TV8,5",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1010",
@@ -7385,14 +7385,14 @@
     "nombre": "Court Live Feed",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1071",
     "nombre": "Tennis TV HD",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1073",
@@ -7406,14 +7406,14 @@
     "nombre": "Tennis HD Stream",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1076",
     "nombre": "ACCNX",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1078",
@@ -7427,21 +7427,21 @@
     "nombre": "Live Feed",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1092",
     "nombre": "Event SD Stream",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1122",
     "nombre": "Flotv",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1133",
@@ -7455,14 +7455,14 @@
     "nombre": "Dirtgvision",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1161",
     "nombre": "PPV Feed",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1166",
@@ -7476,63 +7476,63 @@
     "nombre": "FloSports",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1206",
     "nombre": "Event SD Stream Stream",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1216",
     "nombre": "Event SD Sream",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1233",
     "nombre": "Event SD Strea",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1501",
     "nombre": "Tennis Stream",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1507",
     "nombre": "Tennis Stream 1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1508",
     "nombre": "T. Tennis Channel",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1515",
     "nombre": "LINK 2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1558",
     "nombre": "Tennis Stream 2",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1563",
@@ -7553,7 +7553,7 @@
     "nombre": "Tennis Court Feed",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "1926",
@@ -7567,105 +7567,105 @@
     "nombre": "UFC Channel",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "2020",
     "nombre": "PDC Board 2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "2024",
     "nombre": "UFCTV",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "2028",
     "nombre": "Apple TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "2070",
     "nombre": "AppleTV F1",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-f1-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "2906",
     "nombre": "Sport TV5 Poutugal",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3001",
     "nombre": "BBC One",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/bbc-one-uk.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3002",
     "nombre": "NFL Game Pass",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nfl-network-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3003",
     "nombre": "beIN SPORTS 3 Austrlia",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3004",
     "nombre": "ITV 4",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3005",
     "nombre": "Prime Video",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3006",
     "nombre": "DAZN PPP",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3007",
     "nombre": "Sky Sports F1",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3008",
     "nombre": "CBS Sports Network",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3009",
     "nombre": "SBS",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3010",
@@ -7679,7 +7679,7 @@
     "nombre": "ORF eins",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3012",
@@ -7707,14 +7707,14 @@
     "nombre": "DF1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3016",
     "nombre": "Blue Sport D 1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3017",
@@ -7735,14 +7735,14 @@
     "nombre": "Sportdigital FUSSBAL",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3020",
     "nombre": "RSI La 2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3021",
@@ -7770,14 +7770,14 @@
     "nombre": "Nova Sports Start",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3026",
     "nombre": "TV Galicia",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3027",
@@ -7798,7 +7798,7 @@
     "nombre": "M. Liga de Campeones",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3030",
@@ -7812,35 +7812,35 @@
     "nombre": "beIN Sports 1 Austrelia",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3032",
     "nombre": "beIN SPORTS 2 Austrelia",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3033",
     "nombre": "beIN Sports English 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3034",
     "nombre": "SportsNet+",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3037",
     "nombre": "Fox Sports Racing",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3038",
@@ -7861,14 +7861,14 @@
     "nombre": "beIN Sports Español",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3041",
     "nombre": "Oneplay Sport",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3042",
@@ -7889,7 +7889,7 @@
     "nombre": "DAZN Pro League 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3046",
@@ -7910,7 +7910,7 @@
     "nombre": "La Une Belgim 2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3050",
@@ -7973,7 +7973,7 @@
     "nombre": "Hajduk TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3059",
@@ -7994,7 +7994,7 @@
     "nombre": "VG+",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3062",
@@ -8022,14 +8022,14 @@
     "nombre": "ETV 2 Estonia",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3066",
     "nombre": "M4 Sports Hungry",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3067",
@@ -8043,7 +8043,7 @@
     "nombre": "MEGOGO Football 1 Ukrain",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3069",
@@ -8064,35 +8064,35 @@
     "nombre": "MTV Urheilu 1",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3072",
     "nombre": "TV4",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3073",
     "nombre": "Viaplay 3 Urheilu",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3074",
     "nombre": "Ruutu+",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3075",
     "nombre": "Sport Bladet Play",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3076",
@@ -8106,7 +8106,7 @@
     "nombre": "MTV3",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3078",
@@ -8155,7 +8155,7 @@
     "nombre": "Fox Deportes 2",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3088",
@@ -8169,7 +8169,7 @@
     "nombre": "TRT 1 TR",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3093",
@@ -8183,7 +8183,7 @@
     "nombre": "SÝN Sport 2 Island",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3095",
@@ -8197,14 +8197,14 @@
     "nombre": "SÝN Sport 1 Ísland",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3098",
     "nombre": "RTRS Moldova",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "3099",
@@ -8225,28 +8225,28 @@
     "nombre": "DAZN Mundial",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "4081",
     "nombre": "WNBA Stream",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "4096",
     "nombre": "NHL Game Pass",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nhl-network-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "4111",
     "nombre": "Event Steam",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "4118",
@@ -8267,14 +8267,14 @@
     "nombre": "PPV Events",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5001",
     "nombre": "Sky Sports F1 4K",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5002",
@@ -8295,21 +8295,21 @@
     "nombre": "KSWTV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5005",
     "nombre": "WWE PPV",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5006",
     "nombre": "PPV Event",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5007",
@@ -8323,175 +8323,182 @@
     "nombre": "UFC Fight Pass 1",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5011",
     "nombre": "IMCA.TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5012",
     "nombre": "FLORacing PPV",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5013",
     "nombre": "PPV Event 1",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5014",
     "nombre": "PPV Event 2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5015",
     "nombre": "UFC Fight Night",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5016",
     "nombre": "(NBC UNIVERSO)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nbc-us.png",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5017",
     "nombre": "DirtTrackPPV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5018",
     "nombre": "FloRacing II",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5020",
     "nombre": "ESPN+ Boxing",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
+  },
+  {
+    "id": "5021",
+    "nombre": "Event Stream 4K",
+    "logo": "",
+    "categoria": "General",
+    "pais": "General"
   },
   {
     "id": "5022",
     "nombre": "Event PPV Boxing",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5025",
     "nombre": "Netflix",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5029",
     "nombre": "FAMEMMATV",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5030",
     "nombre": "Bein Arabic Baclup",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5031",
     "nombre": "Court 6 Tennis",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5032",
     "nombre": "Court 7 Tennis",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5033",
     "nombre": "Court 2 Tennis",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5034",
     "nombre": "WNBA Season Pass",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5035",
     "nombre": "Court Suzanne Lenglen",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5036",
     "nombre": "Court Simonne Mathieu",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5037",
     "nombre": "Court 14 Tennis",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5041",
     "nombre": "WNBA League Pass",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5064",
     "nombre": "(Fusball TV 1)",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5072",
     "nombre": "Event PPV 2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5101",
     "nombre": "NFL Redzone Stream",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nfl-network-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "5215",
@@ -8512,14 +8519,14 @@
     "nombre": "SuperSports PSL",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "6003",
     "nombre": "Sports Stream",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "6004",
@@ -8533,14 +8540,14 @@
     "nombre": "Temmis Channel",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "6007",
     "nombre": "Sports Channel",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "6034",
@@ -8554,14 +8561,14 @@
     "nombre": "DAZN PPV Box",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "6069",
     "nombre": "Kazach TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "6414",
@@ -8575,14 +8582,14 @@
     "nombre": "Event Stream",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7002",
     "nombre": "Live Stream",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7003",
@@ -8596,77 +8603,77 @@
     "nombre": "Winsportsplus",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7005",
     "nombre": "Winsports2",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7006",
     "nombre": "ECDF",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7011",
     "nombre": "Migu TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7012",
     "nombre": "BRTV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7013",
     "nombre": "RCTI+",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7015",
     "nombre": "VTV6",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7024",
     "nombre": "Event Streams",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7034",
     "nombre": "Soccer Stream",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7036",
     "nombre": "UFC Stream",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7057",
     "nombre": "WinPlus",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "7068",
@@ -8687,14 +8694,14 @@
     "nombre": "SD Stream",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "8002",
     "nombre": "TNT Sports 3",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "8005",
@@ -8708,7 +8715,7 @@
     "nombre": "TNT Sports 4",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/tnt-sports-1-uk.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "8016",
@@ -8743,14 +8750,14 @@
     "nombre": "beIN Sports 1 English",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "8056",
     "nombre": "NFL Sunday Ticket",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nfl-network-us.png",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "8071",
@@ -8764,161 +8771,161 @@
     "nombre": "UPL.TV",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9005",
     "nombre": "Morocco Stream",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9007",
     "nombre": "Ontime Sports Stream",
     "logo": "",
     "categoria": "Deportes",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9019",
     "nombre": "Center Court",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9020",
     "nombre": "Center Court 4K",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9021",
     "nombre": "Court No.1",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9022",
     "nombre": "Court No.2",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9023",
     "nombre": "Court No.3",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9024",
     "nombre": "Court No.4",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9025",
     "nombre": "Court No.5",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9026",
     "nombre": "Court No.6",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9027",
     "nombre": "Court No.7",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9028",
     "nombre": "Court No.8",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9029",
     "nombre": "Court No.9",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9030",
     "nombre": "Court No.10",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9031",
     "nombre": "Court No.11",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9032",
     "nombre": "Court No.12",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9033",
     "nombre": "Court No.13",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9034",
     "nombre": "Court No.14",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9035",
     "nombre": "Court No.15",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9036",
     "nombre": "Court No.16",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9037",
     "nombre": "Court No.17",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9038",
     "nombre": "Court No.18",
     "logo": "",
     "categoria": "General",
-    "pais": ""
+    "pais": "General"
   },
   {
     "id": "9262",

@@ -212,7 +212,7 @@ def country_of(name):
     for tok in tokens:
         if tok in CODE_MAP:
             return CODE_MAP[tok]
-    return ""
+    return "General"
 
 
 def category_of(name, cid=None):
