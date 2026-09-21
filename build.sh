@@ -8,7 +8,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 SDK="${ANDROID_HOME:-$HOME/Android/Sdk}"
 BUILD_TOOLS="${ANDROID_BUILD_TOOLS:-$SDK/build-tools/36.0.0}"
-VERSION="0.3.2"
+VERSION="0.3.3"
 
 pick_platform() {
     for dir in "$SDK"/platforms/*; do
@@ -69,6 +69,7 @@ cat > "$ROOT/manifest.json" <<EOF
   "maxContrato": 1,
   "clase": "com.infomak.moai.daddylive.DaddylivePlugin",
   "sha256": "$SHA256",
+  "canalInicial": "1",
   "canales":
 EOF
 cat "$ROOT/build/canales.json" >> "$ROOT/manifest.json"
