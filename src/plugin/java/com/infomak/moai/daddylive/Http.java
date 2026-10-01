@@ -5,11 +5,45 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.cert.X509Certificate;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 /** HTTP mínimo con HttpURLConnection (mismo patrón que moaiplug_telefe). */
 final class Http {
+
+    private static final SSLSocketFactory TRUST_ALL_SSL;
+    private static final HostnameVerifier TRUST_ALL_HOSTS = new HostnameVerifier() {
+        @Override
+        public boolean verify(String hostname, SSLSession session) {
+            return true;
+        }
+    };
+
+    static {
+        SSLSocketFactory sf = null;
+        try {
+            TrustManager[] trustAll = new TrustManager[] {
+                new X509TrustManager() {
+                    public X509Certificate[] getAcceptedIssuers() { return new X509Certificate[0]; }
+                    public void checkClientTrusted(X509Certificate[] c, String a) {}
+                    public void checkServerTrusted(X509Certificate[] c, String a) {}
+                }
+            };
+            SSLContext sc = SSLContext.getInstance("TLS");
+            sc.init(null, trustAll, new java.security.SecureRandom());
+            sf = sc.getSocketFactory();
+        } catch (Exception ignored) {
+        }
+        TRUST_ALL_SSL = sf;
+    }
 
     private Http() {
     }
@@ -40,6 +74,11 @@ final class Http {
         HttpURLConnection conn = null;
         try {
             conn = (HttpURLConnection) new URL(url).openConnection();
+            if (conn instanceof HttpsURLConnection && TRUST_ALL_SSL != null) {
+                HttpsURLConnection sconn = (HttpsURLConnection) conn;
+                sconn.setSSLSocketFactory(TRUST_ALL_SSL);
+                sconn.setHostnameVerifier(TRUST_ALL_HOSTS);
+            }
             conn.setConnectTimeout(Config.CONNECT_TIMEOUT_MS);
             conn.setReadTimeout(Config.READ_TIMEOUT_MS);
             conn.setInstanceFollowRedirects(true);
@@ -96,7 +135,7 @@ final class Http {
         try {
             while ((n = in.read(buf)) != -1) {
                 bos.write(buf, 0, n);
-                if (bos.size() > 256 * 1024) {
+                if (bos.size() > 2 * 1024 * 1024) {
                     break;
                 }
             }

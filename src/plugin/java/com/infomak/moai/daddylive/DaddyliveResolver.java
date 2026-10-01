@@ -52,6 +52,16 @@ final class DaddyliveResolver {
         Pattern.compile("[?&]e=(\\d{10})");
     private static final Pattern HOST_IN_URL_RE =
         Pattern.compile("^(?:https?://)?([^/:#?]+)");
+    // Scheme D: JSON embebido con source/url
+    private static final Pattern JSON_SOURCE_RE =
+        Pattern.compile("\"source\"\\s*:\\s*\"((?:[^\"\\\\]|\\\\.)*)\"");
+    private static final Pattern JSON_URL_RE =
+        Pattern.compile("\"url\"\\s*:\\s*\"((?:[^\"\\\\]|\\\\.)*)\"");
+    // Scheme E: m3u8 en atributo data-src o src
+    private static final Pattern DATA_SRC_RE =
+        Pattern.compile("data-src\\s*=\\s*[\"']([^\"']+\\.m3u8[^\"']*)[\"']");
+    private static final Pattern SRC_M3U8_RE =
+        Pattern.compile("src\\s*=\\s*[\"']([^\"']+\\.m3u8[^\"']*)[\"']");
 
     private static final Map<String, String> NO_HEADERS =
         new LinkedHashMap<String, String>();
@@ -170,13 +180,19 @@ final class DaddyliveResolver {
             return validatedResult(slot.url, originOf(embedUrl) + "/", deadline);
         }
 
-        Map<String, String> slotHeaders = new LinkedHashMap<String, String>();
-        slotHeaders.put("Referer", embedUrl);
-
         checkBudget(deadline);
-        String page = Http.get(slot.url, slotHeaders);
+        String page;
+        try {
+            page = Http.get(slot.url, headersOf("Referer", originOf(slot.url) + "/"));
+        } catch (Exception e) {
+            try {
+                page = Http.get(slot.url, headersOf("Referer", embedUrl));
+            } catch (Exception e2) {
+                page = Http.get(slot.url, NO_HEADERS);
+            }
+        }
 
-        // Seguir un iframe de primer nivel (p. ej. freetvspor -> tiestep)
+        // Seguir un iframe de primer nivel (p. ej. freetvspor -> tiestep o pandastreams)
         Matcher im = IFRAME_SRC_RE.matcher(page);
         String targetUrl = slot.url;
         String targetHtml = page;
@@ -198,14 +214,8 @@ final class DaddyliveResolver {
         if (url == null) {
             return null;
         }
-        // En Scheme B el origin del player v9 es el que desbloquea los segmentos.
-        boolean fromEconfig = targetHtml.indexOf("_econfig") != -1
-            && ECONFIG_RE.matcher(targetHtml).find();
-        if (fromEconfig) {
-            refererRoot = originOf(targetUrl) + "/";
-        } else if (isV9Like(targetUrl)) {
-            refererRoot = originOf(targetUrl) + "/";
-        }
+        // En Scheme B o iframe el origin del targetUrl es el que desbloquea los segmentos.
+        refererRoot = originOf(targetUrl) + "/";
         checkBudget(deadline);
         return validatedResult(url, refererRoot, deadline);
     }
@@ -221,8 +231,9 @@ final class DaddyliveResolver {
         return h.contains("tiestep") || h.contains("tostep") || h.contains("freetvspor");
     }
 
-    /** Scheme B > A > C sobre el HTML (orden de moaiServer pero B primero: es el vivo). */
+    /** Scheme B > A > C > D > E sobre el HTML (orden de moaiServer pero B primero: es el vivo). */
     private static String extractSource(String html) {
+        // Scheme B: _econfig (el más común y confiable)
         Matcher ec = ECONFIG_RE.matcher(html);
         if (ec.find()) {
             try {
@@ -237,9 +248,10 @@ final class DaddyliveResolver {
                     return url;
                 }
             } catch (Exception e) {
-                // fallar grave pero seguir a Scheme A/C
+                // fallar grave pero seguir a Scheme A/C/D/E
             }
         }
+        // Scheme A: source: window.atob('...')
         Matcher am = ATOB_SOURCE_RE.matcher(html);
         if (am.find()) {
             try {
@@ -252,9 +264,48 @@ final class DaddyliveResolver {
                 // seguir
             }
         }
+        // Scheme C: m3u8 directo en el HTML
         Matcher dm = DIRECT_M3U8_RE.matcher(html);
         if (dm.find()) {
             String u = dm.group(1);
+            if (u.startsWith("//")) {
+                u = "https:" + u;
+            }
+            return u;
+        }
+        // Scheme D: JSON embebido con source/url
+        Matcher js = JSON_SOURCE_RE.matcher(html);
+        if (js.find()) {
+            String u = unescape(js.group(1));
+            if (u.contains(".m3u8")) {
+                if (u.startsWith("//")) {
+                    u = "https:" + u;
+                }
+                return u;
+            }
+        }
+        Matcher ju = JSON_URL_RE.matcher(html);
+        if (ju.find()) {
+            String u = unescape(ju.group(1));
+            if (u.contains(".m3u8")) {
+                if (u.startsWith("//")) {
+                    u = "https:" + u;
+                }
+                return u;
+            }
+        }
+        // Scheme E: m3u8 en data-src o src
+        Matcher ds = DATA_SRC_RE.matcher(html);
+        if (ds.find()) {
+            String u = ds.group(1);
+            if (u.startsWith("//")) {
+                u = "https:" + u;
+            }
+            return u;
+        }
+        Matcher sm = SRC_M3U8_RE.matcher(html);
+        if (sm.find()) {
+            String u = sm.group(1);
             if (u.startsWith("//")) {
                 u = "https:" + u;
             }
@@ -321,9 +372,30 @@ final class DaddyliveResolver {
         headers.put("User-Agent", Config.USER_AGENT);
         headers.put("Referer", refererRoot);
 
-        Http.Response r = Http.getResponse(url, headers, true);
-        if (r.code < 200 || r.code >= 300 || !startsWith(r.body, "#EXTM3U")) {
-            throw new IllegalStateException("m3u8 no reproducible (HTTP " + r.code
+        Http.Response r;
+        try {
+            r = Http.getResponse(url, headers, true);
+        } catch (Exception e) {
+            r = null;
+        }
+
+        if (r == null || r.code < 200 || r.code >= 300 || !startsWith(r.body, "#EXTM3U")) {
+            // Reintentar sin Referer por si el CDN lo rechaza
+            Map<String, String> h2 = new LinkedHashMap<String, String>();
+            h2.put("User-Agent", Config.USER_AGENT);
+            try {
+                Http.Response r2 = Http.getResponse(url, h2, true);
+                if (r2.code >= 200 && r2.code < 300 && startsWith(r2.body, "#EXTM3U")) {
+                    r = r2;
+                    headers = h2;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+
+        if (r == null || r.code < 200 || r.code >= 300 || !startsWith(r.body, "#EXTM3U")) {
+            int code = r != null ? r.code : 0;
+            throw new IllegalStateException("m3u8 no reproducible (HTTP " + code
                 + ") en " + url);
         }
 

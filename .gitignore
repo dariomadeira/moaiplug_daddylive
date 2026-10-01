@@ -1,5 +1,9 @@
 build/
+bin/
 *.swp
 .DS_Store
 __pycache__/
 *.pyc
+data/*_partial.json
+
+

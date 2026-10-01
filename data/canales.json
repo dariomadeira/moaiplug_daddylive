@@ -1,14 +1,4 @@
-{
-  "id": "moai_daddylive",
-  "tag": "Daddy",
-  "nombre": "Moai Daddylive",
-  "version": "0.4.1",
-  "minContrato": 1,
-  "maxContrato": 1,
-  "clase": "com.infomak.moai.daddylive.DaddylivePlugin",
-  "sha256": "b434417a5044abcd7c40b1f2d6a7d332875dfca524963306b85c755167dbe1b2",
-  "canalInicial": "1",
-  "canales": [
+[
   {
     "id": "1",
     "nombre": "Indosiar",
@@ -3083,4 +3073,3 @@
     "pais": "Eslovaquia"
   }
 ]
-}
