@@ -170,7 +170,7 @@ final class DaddyliveResolver {
 
     private static boolean isDeadSlot(String url) {
         String h = url.toLowerCase();
-        return h.contains("nontongo");
+        return h.contains("nontongo") || h.contains("worldsportz4u");
     }
 
     private Result trySlot(Slot slot, String embedUrl, long deadline) {
@@ -187,11 +187,7 @@ final class DaddyliveResolver {
             try {
                 page = Http.get(slot.url, headersOf("Referer", embedUrl));
             } catch (Exception e2) {
-                try {
-                    page = Http.get(slot.url, NO_HEADERS);
-                } catch (Exception e3) {
-                    return null;
-                }
+                return null;
             }
         }
 

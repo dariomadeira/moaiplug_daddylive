@@ -15,11 +15,11 @@ final class Config {
         "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 "
             + "(KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36";
 
-    static final int CONNECT_TIMEOUT_MS = 3500;
-    static final int READ_TIMEOUT_MS = 4500;
+    static final int CONNECT_TIMEOUT_MS = 1500;
+    static final int READ_TIMEOUT_MS = 2000;
 
     /** Presupuesto máximo de un resolve() en el plugin (máximo 18s para encajar en límite 20s de Android). */
-    static final long RESOLVE_BUDGET_MS = 18L * 1000L;
+    static final long RESOLVE_BUDGET_MS = 14L * 1000L;
 
     /** Margen de seguridad restado a `e` (expiry) antes de invalidar el cache. */
     static final long EXPIRY_MARGIN_MS = 30L * 1000L;
@@ -35,7 +35,7 @@ final class Config {
     static final String PLUGIN_ID = "moai_daddylive";
     static final String PLUGIN_TAG = "Daddy";
     static final String PLUGIN_NOMBRE = "Moai Daddylive";
-    static final String PLUGIN_VERSION = "0.4.7";
+    static final String PLUGIN_VERSION = "0.4.8";
     static final String PLUGIN_CLASE = "com.infomak.moai.daddylive.DaddylivePlugin";
 
     private Config() {
