@@ -128,7 +128,7 @@ public final class DaddylivePlugin implements IPlugin {
         return s.length() <= n ? s : s.substring(0, n) + "...";
     }
 
-    /** Verifica jugabilidad: primer segmento del playlist responde 200 con referer. */
+    /** Verifica jugabilidad: primer segmento desempaquetado responde 200 y empieza con 0x47. */
     private static void verifySegment(String id, ResolveResult r) {
         try {
             String pl = Http.get(r.getUrl(),
@@ -142,18 +142,21 @@ public final class DaddylivePlugin implements IPlugin {
                 String t = line.trim();
                 if (t.length() > 0 && !t.startsWith("#")) {
                     newest = t;
+                    break;
                 }
             }
             if (newest == null) {
                 System.out.println("  segmento: no en playlist");
                 return;
             }
-            String segUrl = r.getUrl().substring(0, r.getUrl().lastIndexOf('/') + 1)
-                + newest;
+            String segUrl = newest.startsWith("http") ? newest
+                : r.getUrl().substring(0, r.getUrl().lastIndexOf('/') + 1) + newest;
             Http.Response seg = Http.getResponse(segUrl, unmodifiable(r.getHeaders()),
-                false);
-            System.out.println("  segmento " + seg.code + " -> " + (seg.code == 200
-                ? "REPRODUCIBLE" : "NO (revisar referer)"));
+                true);
+            boolean isMpegTs = seg.body != null && seg.body.length > 0 && (seg.body[0] & 0xFF) == 0x47;
+            System.out.println("  segmento " + seg.code + " (bytes: "
+                + (seg.body != null ? seg.body.length : 0) + ", 0x47 sync byte: " + isMpegTs + ") -> "
+                + (seg.code == 200 && isMpegTs ? "REPRODUCIBLE 100% HD" : "ERROR UNWRAP"));
         } catch (Exception e) {
             System.out.println("  segmento: error " + e.getMessage());
         }

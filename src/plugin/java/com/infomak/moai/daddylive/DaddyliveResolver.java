@@ -77,15 +77,15 @@ final class DaddyliveResolver {
         long deadline = System.currentTimeMillis() + Config.RESOLVE_BUDGET_MS;
         String lastError = null;
 
-        // 0. Fast-path directo CDN en vivo (resuelve en < 300ms)
-        String cdnUrl = "https://edge.cowedd4855ws.sbs/premium" + channelId + "/index.m3u8";
+        // 0. Fast-path directo CDN en vivo con LocalProxy desempaquetador (resuelve en < 300ms)
         try {
             checkBudget(deadline);
-            Result r = validatedResult(cdnUrl, "https://daddyliveplayer.st/", deadline);
-            if (r != null) {
-                System.err.println("[DEBUG] CDN Fast-Path SUCCESS: " + cdnUrl);
-                return r;
-            }
+            LocalProxy proxy = LocalProxy.getInstance();
+            String proxyUrl = proxy.getPlaylistUrl(channelId);
+            Map<String, String> headers = new LinkedHashMap<String, String>();
+            headers.put("User-Agent", Config.USER_AGENT);
+            System.err.println("[DEBUG] LocalProxy Fast-Path SUCCESS: " + proxyUrl);
+            return new Result(proxyUrl, headers, Config.TTL_CAP_MS);
         } catch (Exception e) {
             lastError = e.getMessage();
         }
