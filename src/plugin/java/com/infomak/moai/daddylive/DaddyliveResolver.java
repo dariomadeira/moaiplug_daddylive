@@ -76,22 +76,17 @@ final class DaddyliveResolver {
         }
         long deadline = System.currentTimeMillis() + Config.RESOLVE_BUDGET_MS;
         String lastError = null;
-        for (int attempt = 0; attempt < 2; attempt++) {
-            for (String domain : Config.EMBED_DOMAINS) {
-                if (System.currentTimeMillis() > deadline) {
-                    throw new IllegalStateException("Daddylive: presupuesto "
-                        + Config.RESOLVE_BUDGET_MS + " ms superado resolviendo "
-                        + channelId);
-                }
-                try {
-                    return resolveWithDomain(channelId, domain, deadline);
-                } catch (Exception e) {
-                    lastError = e.getMessage();
-                }
+        for (String domain : Config.EMBED_DOMAINS) {
+            if (System.currentTimeMillis() > deadline) {
+                throw new IllegalStateException("Daddylive: presupuesto "
+                    + Config.RESOLVE_BUDGET_MS + " ms superado resolviendo "
+                    + channelId);
             }
-            // Un solo reintento completo: algunos CDN dan 404/403 transitorio
-            // justo tras firmar (PLAN 4d). Si vuelve a fallar, el canal está
-            // realmente caído o el layout cambió.
+            try {
+                return resolveWithDomain(channelId, domain, deadline);
+            } catch (Exception e) {
+                lastError = e.getMessage();
+            }
         }
         throw new IllegalStateException("Daddylive: todos los dominios fallaron para "
             + channelId + (lastError != null ? " (" + lastError + ")" : ""));
