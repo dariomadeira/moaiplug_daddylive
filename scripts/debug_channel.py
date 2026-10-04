@@ -17,7 +17,7 @@ def fetch(url, headers=None, timeout=10):
     with urllib.request.urlopen(req, timeout=timeout, context=ssl_context) as r:
         b = r.read().decode("utf-8", "replace")
         print(f"--- BODY OF {url} ---")
-        print(b[:2000])
+        print(b[2000:8000])
         print("--- END BODY ---")
         return r.status, b
 
@@ -53,7 +53,7 @@ def decrypt_econfig(encoded):
 def extract_m3u8(html):
     """Extraer m3u8 del HTML usando múltiples esquemas."""
     # Scheme B: _econfig
-    m = re.search(r'window\._econfig\s*=\s*["\']([^"\']+)["\']', html)
+    m = re.search(r'window(?:\._econfig|\[[\'"][^\'"]+[\'"]\])\s*=\s*[\'"]([^\'"]{50,})[\'"]', html)
     if m:
         print(f"  _econfig encontrado, intentando decrypt...")
         try:
@@ -137,8 +137,38 @@ try:
         
         non_spam_slots = slots
         
-        # Probar cada slot no spam
-        for src, hls in non_spam_slots:
+        # Probar nontongo directo
+        nontongo_view = f"https://www.nontongo.win/livetv/view/{channel_id}"
+        print(f"\nProbando nontongo view directo: {nontongo_view}")
+        try:
+            code_view, body_view = fetch(nontongo_view, {"User-Agent": UA, "Referer": f"https://www.nontongo.win/livetv/{channel_id}"})
+            print(f"Status view: {code_view}")
+            print(f"Body view len: {len(body_view)}")
+            
+            # Buscar patrones en body_view
+            print("Buscando _econfig...")
+            for m in re.finditer(r'_econfig\s*=\s*["\']([^"\']+)["\']', body_view):
+                print(f"  Encontrado _econfig: {m.group(1)[:50]}...")
+            
+            print("Buscando atob...")
+            for m in re.finditer(r'atob\(\s*["\']([^"\']+)["\']\s*\)', body_view):
+                print(f"  Encontrado atob: {m.group(1)[:50]}...")
+                try:
+                    dec = base64.b64decode(m.group(1)).decode("utf-8", "replace")
+                    print(f"  Decodificado atob: {dec[:100]}")
+                except Exception as e:
+                    print(f"  Error decodificando atob: {e}")
+                    
+            print("Buscando .m3u8...")
+            for m in re.finditer(r'["\']((?:https?:)?//[^"\']+\.m3u8[^"\']*)["\']', body_view):
+                print(f"  Encontrado m3u8: {m.group(1)}")
+                
+            print("Buscando source: ...")
+            for m in re.finditer(r'source\s*:\s*["\']([^"\']+)["\']', body_view):
+                print(f"  Encontrado source: {m.group(1)}")
+                
+        except Exception as e:
+            print(f"Error en nontongo view: {e}")
             if src.startswith("//"):
                 src = "https:" + src
             elif src.startswith("/"):

@@ -34,7 +34,7 @@ final class Config {
     static final String PLUGIN_ID = "moai_daddylive";
     static final String PLUGIN_TAG = "Daddy";
     static final String PLUGIN_NOMBRE = "Moai Daddylive";
-    static final String PLUGIN_VERSION = "0.4.5";
+    static final String PLUGIN_VERSION = "0.4.6";
     static final String PLUGIN_CLASE = "com.infomak.moai.daddylive.DaddylivePlugin";
 
     private Config() {

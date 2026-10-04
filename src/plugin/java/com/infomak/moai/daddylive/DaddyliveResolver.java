@@ -39,7 +39,7 @@ final class DaddyliveResolver {
     private static final Pattern IFRAME_SRC_RE =
         Pattern.compile("<iframe[^>]+src\\s*=\\s*[\"']([^\"']+)[\"']");
     private static final Pattern ECONFIG_RE =
-        Pattern.compile("window\\._econfig\\s*=\\s*['\"]([^'\"]+)['\"]");
+        Pattern.compile("window(?:\\._econfig|\\[['\"][^'\"]+['\"]\\])\\s*=\\s*['\"]([^'\"]{50,})['\"]");
     private static final Pattern ATOB_SOURCE_RE =
         Pattern.compile("source\\s*:\\s*window\\.atob\\(\\s*['\"]([^'\"]+)['\"]\\s*\\)");
     private static final Pattern DIRECT_M3U8_RE =
