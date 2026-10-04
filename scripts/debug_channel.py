@@ -15,7 +15,11 @@ UA = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) 
 def fetch(url, headers=None, timeout=10):
     req = urllib.request.Request(url, headers=headers or {})
     with urllib.request.urlopen(req, timeout=timeout, context=ssl_context) as r:
-        return r.status, r.read().decode("utf-8", "replace")
+        b = r.read().decode("utf-8", "replace")
+        print(f"--- BODY OF {url} ---")
+        print(b[:2000])
+        print("--- END BODY ---")
+        return r.status, b
 
 def decrypt_econfig(encoded):
     """Port del decrypt de DaddyliveResolver.java (Scheme B)."""
@@ -131,10 +135,7 @@ try:
         for i, (src, hls) in enumerate(slots[:5]):
             print(f"  [{i}] {src} (hls={hls})")
         
-        # Filtrar slots spam
-        spam = ["nontongo", "gomstream", "worldsportz4u"]
-        non_spam_slots = [(src, hls) for src, hls in slots if not any(s in src.lower() for s in spam)]
-        print(f"Slots no spam: {len(non_spam_slots)}")
+        non_spam_slots = slots
         
         # Probar cada slot no spam
         for src, hls in non_spam_slots:

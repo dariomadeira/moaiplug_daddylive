@@ -115,10 +115,8 @@ final class DaddyliveResolver {
         List<Slot> backup = new ArrayList<Slot>();
         for (Slot slot : slots) {
             if (isSpamFamily(slot.url)) {
-                System.err.println("[DEBUG] Skipping spam slot: " + slot.url);
-                continue;
-            }
-            if (slot.hlsDirect || isV9Like(slot.url)) {
+                backup.add(slot);
+            } else if (slot.hlsDirect || isV9Like(slot.url)) {
                 preferred.add(slot);
             } else {
                 backup.add(slot);
@@ -236,8 +234,7 @@ final class DaddyliveResolver {
     }
 
     private static boolean isV9Like(String url) {
-        String h = url.toLowerCase();
-        return h.contains("tiestep") || h.contains("tostep") || h.contains("freetvspor") || h.contains("daddyliveplayer") || h.contains("castnet");
+        return url != null && url.length() > 0;
     }
 
     /** Scheme B > A > C > D > E sobre el HTML (orden de moaiServer pero B primero: es el vivo). */

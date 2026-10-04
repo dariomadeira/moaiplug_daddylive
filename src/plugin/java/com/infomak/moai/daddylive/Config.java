@@ -1,7 +1,5 @@
 package com.infomak.moai.daddylive;
 
-import java.util.LinkedHashMap;
-
 /** Configuración central del plugin (dominios, UA, timeouts y límites). */
 final class Config {
 
@@ -36,7 +34,7 @@ final class Config {
     static final String PLUGIN_ID = "moai_daddylive";
     static final String PLUGIN_TAG = "Daddy";
     static final String PLUGIN_NOMBRE = "Moai Daddylive";
-    static final String PLUGIN_VERSION = "0.4.4";
+    static final String PLUGIN_VERSION = "0.4.5";
     static final String PLUGIN_CLASE = "com.infomak.moai.daddylive.DaddylivePlugin";
 
     private Config() {
