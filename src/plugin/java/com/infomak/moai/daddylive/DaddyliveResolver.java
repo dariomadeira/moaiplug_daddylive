@@ -103,12 +103,14 @@ final class DaddyliveResolver {
         Map<String, String> embedHeaders = new LinkedHashMap<String, String>();
         embedHeaders.put("Referer", "https://" + domain + "/");
 
+        System.err.println("[DEBUG] Fetching embed: " + embedUrl);
         String embedHtml = Http.get(embedUrl, embedHeaders);
         Matcher pm = PLAYERS_RE.matcher(embedHtml);
         if (!pm.find()) {
             throw new IllegalStateException("Sin array PLAYERS en " + embedUrl);
         }
         List<Slot> slots = parseSlots(pm.group(1), embedUrl);
+        System.err.println("[DEBUG] Total slots parsed: " + slots.size());
         if (slots.isEmpty()) {
             throw new IllegalStateException("PLAYERS vacío en " + embedUrl);
         }
@@ -118,6 +120,7 @@ final class DaddyliveResolver {
         List<Slot> backup = new ArrayList<Slot>();
         for (Slot slot : slots) {
             if (isSpamFamily(slot.url)) {
+                System.err.println("[DEBUG] Skipping spam slot: " + slot.url);
                 continue;
             }
             if (slot.hlsDirect || isV9Like(slot.url)) {
@@ -131,12 +134,15 @@ final class DaddyliveResolver {
         for (Slot slot : preferred) {
             checkBudget(deadline);
             try {
+                System.err.println("[DEBUG] Trying slot: " + slot.url);
                 Result r = trySlot(slot, embedUrl, deadline);
                 if (r != null) {
+                    System.err.println("[DEBUG] Slot SUCCESS: " + r.url);
                     return r;
                 }
             } catch (Exception e) {
-                // probar siguiente slot
+                System.err.println("[DEBUG] Slot FAILED (" + slot.url + "): " + e.getMessage());
+                e.printStackTrace(System.err);
             }
         }
         throw new IllegalStateException("Ningún slot rindió m3u8 en " + domain
@@ -188,7 +194,11 @@ final class DaddyliveResolver {
             try {
                 page = Http.get(slot.url, headersOf("Referer", embedUrl));
             } catch (Exception e2) {
-                page = Http.get(slot.url, NO_HEADERS);
+                try {
+                    page = Http.get(slot.url, NO_HEADERS);
+                } catch (Exception e3) {
+                    return null;
+                }
             }
         }
 
@@ -206,8 +216,12 @@ final class DaddyliveResolver {
             }
             targetUrl = sub;
             checkBudget(deadline);
-            targetHtml = Http.get(sub, headersOf("Referer", slot.url));
-            refererRoot = originOf(sub) + "/";
+            try {
+                targetHtml = Http.get(sub, headersOf("Referer", slot.url));
+                refererRoot = originOf(sub) + "/";
+            } catch (Exception e) {
+                return null;
+            }
         }
 
         String url = extractSource(targetHtml);
@@ -228,7 +242,7 @@ final class DaddyliveResolver {
 
     private static boolean isV9Like(String url) {
         String h = url.toLowerCase();
-        return h.contains("tiestep") || h.contains("tostep") || h.contains("freetvspor");
+        return h.contains("tiestep") || h.contains("tostep") || h.contains("freetvspor") || h.contains("daddyliveplayer") || h.contains("castnet");
     }
 
     /** Scheme B > A > C > D > E sobre el HTML (orden de moaiServer pero B primero: es el vivo). */
