@@ -126,6 +126,10 @@ try:
     
     # Buscar PLAYERS
     pm = re.search(r"PLAYERS\s*=\s*(\[[\s\S]*?\])", body)
+    print("--- IFRAMES IN EMBED.PHP ---")
+    for iframe in re.findall(r'<iframe[^>]+src=["\']([^"\']+)["\']', body):
+        print(f"  iframe src: {iframe}")
+    print("--- END IFRAMES ---")
     if pm:
         print(f"PLAYERS encontrado!")
         slots = re.findall(r'\{\s*"src"\s*:\s*"([^"]+)"\s*,\s*"hls"\s*:\s*(true|false)\s*\}', pm.group(1))

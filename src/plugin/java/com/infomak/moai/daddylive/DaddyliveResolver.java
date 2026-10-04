@@ -76,6 +76,29 @@ final class DaddyliveResolver {
         }
         long deadline = System.currentTimeMillis() + Config.RESOLVE_BUDGET_MS;
         String lastError = null;
+
+        // 0. Fast-path directo: daddyliveplayer.st y dlhd.so (enlaces directos HLS)
+        String[] fastUrls = {
+            "https://daddyliveplayer.st/premiumtv/freetvspor.php?id=" + channelId,
+            "https://dlhd.so/stream/stream-" + channelId + ".php"
+        };
+        for (String fastUrl : fastUrls) {
+            checkBudget(deadline);
+            try {
+                String host = originOf(fastUrl);
+                String html = Http.get(fastUrl, headersOf("Referer", host + "/"));
+                String streamUrl = extractSource(html);
+                if (streamUrl != null && streamUrl.length() > 0) {
+                    Result r = validatedResult(streamUrl, host + "/", deadline);
+                    if (r != null) {
+                        return r;
+                    }
+                }
+            } catch (Exception e) {
+                lastError = e.getMessage();
+            }
+        }
+
         for (String domain : Config.EMBED_DOMAINS) {
             if (System.currentTimeMillis() > deadline) {
                 throw new IllegalStateException("Daddylive: presupuesto "
