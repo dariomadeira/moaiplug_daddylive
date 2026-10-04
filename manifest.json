@@ -2,11 +2,11 @@
   "id": "moai_daddylive",
   "tag": "Daddy",
   "nombre": "Moai Daddylive",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "minContrato": 1,
   "maxContrato": 1,
   "clase": "com.infomak.moai.daddylive.DaddylivePlugin",
-  "sha256": "934cfe3df833a752d1a27677a0f27d16c07c44b76df909361d61c127a1aa9eaa",
+  "sha256": "89f918868d8e0d310c177de90fefb1462cf500a20844ae06a2012eb418dc64d0",
   "canalInicial": "1",
   "canales": [
   {
