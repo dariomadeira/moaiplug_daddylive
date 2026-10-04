@@ -10,7 +10,7 @@ $ErrorActionPreference = "Stop"
 $Root = $PSScriptRoot
 if (-not $Root) { $Root = Get-Location }
 
-$Version = "0.4.1"
+$Version = "0.4.2"
 $DataDir = Join-Path $Root "data"
 New-Item -ItemType Directory -Force -Path $DataDir | Out-Null
 
