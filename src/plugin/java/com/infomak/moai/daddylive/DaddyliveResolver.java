@@ -77,28 +77,6 @@ final class DaddyliveResolver {
         long deadline = System.currentTimeMillis() + Config.RESOLVE_BUDGET_MS;
         String lastError = null;
 
-        // 0. Fast-path directo: daddyliveplayer.st y dlhd.so (enlaces directos HLS)
-        String[] fastUrls = {
-            "https://daddyliveplayer.st/premiumtv/freetvspor.php?id=" + channelId,
-            "https://dlhd.so/stream/stream-" + channelId + ".php"
-        };
-        for (String fastUrl : fastUrls) {
-            checkBudget(deadline);
-            try {
-                String host = originOf(fastUrl);
-                String html = Http.get(fastUrl, headersOf("Referer", host + "/"));
-                String streamUrl = extractSource(html);
-                if (streamUrl != null && streamUrl.length() > 0) {
-                    Result r = validatedResult(streamUrl, host + "/", deadline);
-                    if (r != null) {
-                        return r;
-                    }
-                }
-            } catch (Exception e) {
-                lastError = e.getMessage();
-            }
-        }
-
         for (String domain : Config.EMBED_DOMAINS) {
             if (System.currentTimeMillis() > deadline) {
                 throw new IllegalStateException("Daddylive: presupuesto "
@@ -133,16 +111,13 @@ final class DaddyliveResolver {
             throw new IllegalStateException("PLAYERS vacío en " + embedUrl);
         }
 
-        // Happy path primero (directo o player v9), el resto como backup.
         List<Slot> preferred = new ArrayList<Slot>();
         List<Slot> backup = new ArrayList<Slot>();
         for (Slot slot : slots) {
-            if (isSpamFamily(slot.url)) {
+            if (isDeadSlot(slot.url)) {
                 backup.add(slot);
-            } else if (slot.hlsDirect || isV9Like(slot.url)) {
-                preferred.add(slot);
             } else {
-                backup.add(slot);
+                preferred.add(slot);
             }
         }
         preferred.addAll(backup);
@@ -183,6 +158,8 @@ final class DaddyliveResolver {
             boolean direct = "true".equals(m.group(2));
             if (src.startsWith("//")) {
                 src = "https:" + src;
+            } else if (src.startsWith("http://")) {
+                src = "https://" + src.substring(7);
             } else if (src.startsWith("/")) {
                 src = originOf(embedUrl) + src;
             }
@@ -191,9 +168,9 @@ final class DaddyliveResolver {
         return out;
     }
 
-    private static boolean isSpamFamily(String url) {
+    private static boolean isDeadSlot(String url) {
         String h = url.toLowerCase();
-        return h.contains("nontongo") || h.contains("gomstream") || h.contains("worldsportz4u");
+        return h.contains("nontongo");
     }
 
     private Result trySlot(Slot slot, String embedUrl, long deadline) {
@@ -227,6 +204,8 @@ final class DaddyliveResolver {
             String sub = im.group(1);
             if (sub.startsWith("//")) {
                 sub = "https:" + sub;
+            } else if (sub.startsWith("http://")) {
+                sub = "https://" + sub.substring(7);
             } else if (sub.startsWith("/")) {
                 sub = originOf(slot.url) + sub;
             }
