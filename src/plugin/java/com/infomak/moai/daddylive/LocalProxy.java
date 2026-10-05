@@ -128,8 +128,9 @@ public final class LocalProxy implements Runnable {
             headers.put("Referer", "https://daddyliveplayer.st/");
 
             Http.Response resp = Http.getResponse(cdnUrl, headers, true);
-            if (resp.code != 200 || resp.body == null) {
-                sendResponse(os, 502, "text/plain", ("Error CDN " + resp.code).getBytes(StandardCharsets.UTF_8));
+            if (resp.code != 200 || resp.body == null || !startsWith(resp.body, "#EXTM3U")) {
+                int errCode = (resp.code >= 400 && resp.code < 600) ? resp.code : 404;
+                sendResponse(os, errCode, "text/plain", ("Canal fuera de emision (HTTP " + errCode + ")").getBytes(StandardCharsets.UTF_8));
                 return;
             }
 
@@ -250,6 +251,18 @@ public final class LocalProxy implements Runnable {
         }
 
         return raw;
+    }
+
+    private static boolean startsWith(byte[] body, String prefix) {
+        if (body == null || body.length < prefix.length()) {
+            return false;
+        }
+        for (int i = 0; i < prefix.length(); i++) {
+            if ((char) (body[i] & 0xFF) != prefix.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static int indexOf(byte[] array, byte[] target) {

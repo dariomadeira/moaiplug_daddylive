@@ -63,9 +63,6 @@ final class DaddyliveResolver {
     private static final Pattern SRC_M3U8_RE =
         Pattern.compile("src\\s*=\\s*[\"']([^\"']+\\.m3u8[^\"']*)[\"']");
 
-    private static final Map<String, String> NO_HEADERS =
-        new LinkedHashMap<String, String>();
-
     DaddyliveResolver() {
     }
 
@@ -78,14 +75,23 @@ final class DaddyliveResolver {
         String lastError = null;
 
         // 0. Fast-path directo CDN en vivo con LocalProxy desempaquetador (resuelve en < 300ms)
+        String cdnUrl = "https://edge.cowedd4855ws.sbs/premium" + channelId + "/index.m3u8";
         try {
             checkBudget(deadline);
-            LocalProxy proxy = LocalProxy.getInstance();
-            String proxyUrl = proxy.getPlaylistUrl(channelId);
-            Map<String, String> headers = new LinkedHashMap<String, String>();
-            headers.put("User-Agent", Config.USER_AGENT);
-            System.err.println("[DEBUG] LocalProxy Fast-Path SUCCESS: " + proxyUrl);
-            return new Result(proxyUrl, headers, Config.TTL_CAP_MS);
+            Map<String, String> testHeaders = new LinkedHashMap<String, String>();
+            testHeaders.put("User-Agent", Config.USER_AGENT);
+            testHeaders.put("Referer", "https://daddyliveplayer.st/");
+            Http.Response checkResp = Http.getResponse(cdnUrl, testHeaders, true);
+            if (checkResp.code == 200 && checkResp.body != null && startsWith(checkResp.body, "#EXTM3U")) {
+                LocalProxy proxy = LocalProxy.getInstance();
+                String proxyUrl = proxy.getPlaylistUrl(channelId);
+                Map<String, String> headers = new LinkedHashMap<String, String>();
+                headers.put("User-Agent", Config.USER_AGENT);
+                System.err.println("[DEBUG] LocalProxy Fast-Path SUCCESS: " + proxyUrl);
+                return new Result(proxyUrl, headers, Config.TTL_CAP_MS);
+            } else {
+                System.err.println("[DEBUG] CDN Fast-Path returned " + checkResp.code + " for channel " + channelId + ", trying fallback domains...");
+            }
         } catch (Exception e) {
             lastError = e.getMessage();
         }
@@ -139,7 +145,7 @@ final class DaddyliveResolver {
             checkBudget(deadline);
             try {
                 System.err.println("[DEBUG] Trying slot: " + slot.url);
-                Result r = trySlot(slot, embedUrl, deadline);
+                Result r = trySlot(channelId, slot, embedUrl, deadline);
                 if (r != null) {
                     System.err.println("[DEBUG] Slot SUCCESS: " + r.url);
                     return r;
@@ -183,10 +189,10 @@ final class DaddyliveResolver {
 
     private static boolean isDeadSlot(String url) {
         String h = url.toLowerCase();
-        return h.contains("nontongo") || h.contains("worldsportz4u");
+        return h.contains("deadslotdomainxxxx");
     }
 
-    private Result trySlot(Slot slot, String embedUrl, long deadline) {
+    private Result trySlot(String channelId, Slot slot, String embedUrl, long deadline) {
         if (slot.hlsDirect && slot.url.contains(".m3u8")) {
             checkBudget(deadline);
             return validatedResult(slot.url, originOf(embedUrl) + "/", deadline);
@@ -231,6 +237,9 @@ final class DaddyliveResolver {
         String url = extractSource(targetHtml);
         if (url == null) {
             return null;
+        }
+        if (url.contains("cowedd4855ws.sbs")) {
+            url = LocalProxy.getInstance().getPlaylistUrl(channelId);
         }
         // En Scheme B o iframe el origin del targetUrl es el que desbloquea los segmentos.
         refererRoot = originOf(targetUrl) + "/";
