@@ -5,5 +5,8 @@ bin/
 __pycache__/
 *.pyc
 data/*_partial.json
+.classpath
+.project
+
 
 
