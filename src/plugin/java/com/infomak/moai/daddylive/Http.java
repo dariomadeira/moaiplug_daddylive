@@ -71,6 +71,12 @@ final class Http {
 
     /** GET devolviendo la Response completa (no lanza por código de estado). */
     static Response getResponse(String url, Map<String, String> headers, boolean readBody) {
+        return getResponse(url, headers, readBody, Config.READ_TIMEOUT_MS);
+    }
+
+    /** Igual que {@link #getResponse(String, Map, boolean)} pero con read timeout propio. */
+    static Response getResponse(String url, Map<String, String> headers, boolean readBody,
+        int readTimeoutMs) {
         HttpURLConnection conn = null;
         try {
             conn = (HttpURLConnection) new URL(url).openConnection();
@@ -80,7 +86,7 @@ final class Http {
                 sconn.setHostnameVerifier(TRUST_ALL_HOSTS);
             }
             conn.setConnectTimeout(Config.CONNECT_TIMEOUT_MS);
-            conn.setReadTimeout(Config.READ_TIMEOUT_MS);
+            conn.setReadTimeout(readTimeoutMs > 0 ? readTimeoutMs : Config.READ_TIMEOUT_MS);
             conn.setInstanceFollowRedirects(true);
             conn.setRequestProperty("User-Agent", Config.USER_AGENT);
             conn.setRequestProperty("Accept", "*/*");
@@ -129,13 +135,13 @@ final class Http {
         if (in == null) {
             return new byte[0];
         }
-        ByteArrayOutputStream bos = new ByteArrayOutputStream(8192);
-        byte[] buf = new byte[8192];
+        ByteArrayOutputStream bos = new ByteArrayOutputStream(16384);
+        byte[] buf = new byte[16384];
         int n;
         try {
             while ((n = in.read(buf)) != -1) {
                 bos.write(buf, 0, n);
-                if (bos.size() > 2 * 1024 * 1024) {
+                if (bos.size() > Config.MAX_BODY_BYTES) {
                     break;
                 }
             }

@@ -17,6 +17,11 @@ final class Config {
 
     static final int CONNECT_TIMEOUT_MS = 1500;
     static final int READ_TIMEOUT_MS = 2000;
+    /** Los segmentos enmascarados pesan 1.2-2.7 MB: necesitan mas margen. */
+    static final int SEGMENT_TIMEOUT_MS = 15000;
+    static final int PLAYLIST_TIMEOUT_MS = 6000;
+    /** Techo de descarga por peticion. Los segmentos van a ~2.7 MB. */
+    static final int MAX_BODY_BYTES = 24 * 1024 * 1024;
 
     /** Presupuesto máximo de un resolve() en el plugin (máximo 18s para encajar en límite 20s de Android). */
     static final long RESOLVE_BUDGET_MS = 14L * 1000L;
@@ -35,7 +40,7 @@ final class Config {
     static final String PLUGIN_ID = "moai_daddylive";
     static final String PLUGIN_TAG = "Daddy";
     static final String PLUGIN_NOMBRE = "Moai Daddylive";
-    static final String PLUGIN_VERSION = "0.4.9";
+    static final String PLUGIN_VERSION = "0.4.12";
     static final String PLUGIN_CLASE = "com.infomak.moai.daddylive.DaddylivePlugin";
 
     private Config() {

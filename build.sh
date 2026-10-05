@@ -18,7 +18,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 SDK="${ANDROID_HOME:-$HOME/Android/Sdk}"
 BUILD_TOOLS="${ANDROID_BUILD_TOOLS:-$SDK/build-tools/36.0.0}"
-VERSION="0.4.1"
+VERSION="0.4.12"
 
 # IMPORTANTE: los resultados de verificación NUNCA van en build/, porque
 # este script borra build/ por completo (rm -rf). Van en data/, que es permanente.

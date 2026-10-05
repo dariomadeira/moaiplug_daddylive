@@ -1,10 +1,10 @@
 # Moai DaddyLive — plugin .dex (Contrato moai v1)
 
-Plugin del motor moai3 que aporta canales 24/7 de DaddyLive resueltos directamente en el cliente mediante el contrato de plugins v1. El plugin resuelve la señal entregando la URL directa con los headers necesarios (`Referer`, `User-Agent`); el motor ExoPlayer de moai3 reproduce la transmisión sin requerir servidor proxy intermediario.
+Plugin del motor moai3 que aporta canales 24/7 de DaddyLive resueltos directamente en el cliente mediante el contrato de plugins v1. Como el CDN enmascara cada segmento `.image` (PNG con el MPEG-TS escondido dentro de los píxeles), el plugin levanta un proxy HTTP local en `127.0.0.1` que desempaqueta los segmentos y se los entrega en MPEG-TS puro al motor ExoPlayer de moai3, sin servidor intermediario.
 
 - **Tag:** `Daddy`
 - **ID:** `moai_daddylive`
-- **Versión:** `0.4.1`
+- **Versión:** `0.4.12`
 - **Canales:** Catálogo categorizado y filtrado por canales online verificados.
 
 ## Instalación en moai3
