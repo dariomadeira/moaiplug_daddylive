@@ -361,6 +361,65 @@ def assign_logo(channel: dict) -> dict:
     return channel
 
 
+COUNTRY_FLAGS = {
+    "Albania": "al",
+    "Alemania": "de",
+    "Argentina": "ar",
+    "Australia": "au",
+    "Austria": "at",
+    "Bélgica": "be",
+    "Brasil": "br",
+    "Bulgaria": "bg",
+    "Canadá": "ca",
+    "Catar": "qa",
+    "Chile": "cl",
+    "Chipre": "cy",
+    "Colombia": "co",
+    "Croacia": "hr",
+    "Dinamarca": "dk",
+    "Emiratos Árabes": "ae",
+    "Eslovaquia": "sk",
+    "Eslovenia": "si",
+    "España": "es",
+    "Estados Unidos": "us",
+    "Finlandia": "fi",
+    "Francia": "fr",
+    "Grecia": "gr",
+    "Hungría": "hu",
+    "India": "in",
+    "Irlanda": "ie",
+    "Israel": "il",
+    "Italia": "it",
+    "México": "mx",
+    "Noruega": "no",
+    "Nueva Zelanda": "nz",
+    "Países Bajos": "nl",
+    "Perú": "pe",
+    "Polonia": "pl",
+    "Portugal": "pt",
+    "Reino Unido": "gb",
+    "República Checa": "cz",
+    "Rumania": "ro",
+    "Rusia": "ru",
+    "Serbia": "rs",
+    "Suecia": "se",
+    "Suiza": "ch",
+    "Turquía": "tr",
+    "Ucrania": "ua",
+    "Uruguay": "uy",
+}
+
+FLAG_BASE_URL = "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags"
+
+
+def assign_flag(channel: dict) -> dict:
+    pais = channel.get("pais", "")
+    code = COUNTRY_FLAGS.get(pais)
+    if code:
+        channel["flag"] = f"{FLAG_BASE_URL}/{code}.png"
+    return channel
+
+
 def main():
     ap = argparse.ArgumentParser(description="Generar logos para canales")
     ap.add_argument("--input", required=True, help="Archivo JSON con canales")
@@ -373,10 +432,14 @@ def main():
     
     print(f"[logos] Procesando {len(channels)} canales...", file=sys.stderr)
     
-    # Asignar logos
+    # Asignar logos y banderas
     stats = {"rules": 0, "country": 0, "category": 0, "initials": 0}
+    flags_count = 0
     for channel in channels:
         channel = assign_logo(channel)
+        channel = assign_flag(channel)
+        if "flag" in channel:
+            flags_count += 1
         source = channel.get("logo_source", "unknown")
         stats[source] = stats.get(source, 0) + 1
         channel.pop("logo_source", None)
@@ -389,12 +452,12 @@ def main():
     # Estadísticas
     print(f"\n[logos] {'='*60}", file=sys.stderr)
     print(f"[logos] RESULTADO:", file=sys.stderr)
-    print(f"[logos]   ✓ Con logo (reglas): {stats['rules']}", file=sys.stderr)
-    print(f"[logos]   ✓ Con logo (país): {stats['country']}", file=sys.stderr)
-    print(f"[logos]   ✓ Con logo (categoría): {stats['category']}", file=sys.stderr)
-    print(f"[logos]   ✓ Con logo (iniciales): {stats['initials']}", file=sys.stderr)
+    print(f"[logos]   * Con logo (reglas): {stats['rules']}", file=sys.stderr)
+    print(f"[logos]   * Con logo (pais): {stats['country']}", file=sys.stderr)
+    print(f"[logos]   * Con logo (categoria): {stats['category']}", file=sys.stderr)
+    print(f"[logos]   * Con logo (iniciales): {stats['initials']}", file=sys.stderr)
+    print(f"[logos]   * Con bandera asignada: {flags_count}", file=sys.stderr)
     print(f"[logos]   Total: {len(channels)}", file=sys.stderr)
-    print(f"[logos]   Canales con logo: {len(channels)} (100%)", file=sys.stderr)
 
 
 if __name__ == "__main__":
