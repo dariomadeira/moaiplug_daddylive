@@ -28,6 +28,9 @@ final class Http {
     };
 
     static {
+        // El CDN exige `Origin`; la JVM de escritorio lo descarta salvo con
+        // esta propiedad (Android lo envía siempre). Solo afecta al autotest.
+        System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
         SSLSocketFactory sf = null;
         try {
             TrustManager[] trustAll = new TrustManager[] {
@@ -78,6 +81,7 @@ final class Http {
     static Response getResponse(String url, Map<String, String> headers, boolean readBody,
         int readTimeoutMs) {
         HttpURLConnection conn = null;
+        boolean reusable = false;
         try {
             conn = (HttpURLConnection) new URL(url).openConnection();
             if (conn instanceof HttpsURLConnection && TRUST_ALL_SSL != null) {
@@ -107,12 +111,16 @@ final class Http {
             } else {
                 body = new byte[0];
             }
-            return new Response(code, headersToString(conn), body);
+            Response response = new Response(code, headersToString(conn), body);
+            reusable = readBody;
+            return response;
         } catch (IOException e) {
             throw new IllegalStateException("Error HTTP en " + url + ": "
                 + e.getMessage(), e);
         } finally {
-            if (conn != null) {
+            // Con el cuerpo leído y cerrado, la conexión vuelve al pool
+            // keep-alive: el próximo pedido al mismo host evita otro handshake TLS.
+            if (conn != null && !reusable) {
                 conn.disconnect();
             }
         }

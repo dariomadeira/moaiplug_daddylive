@@ -7,21 +7,46 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.URI;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.zip.DataFormatException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.Inflater;
 
 /**
- * Servidor HTTP local en 127.0.0.1 para desempaquetar segmentos MPEG-TS
- * enmascarados del CDN de DaddyLive.
+ * Servidor HTTP local en 127.0.0.1 que sirve los canales de DaddyLive al
+ * reproductor (v0.5.0, fuentes vistas en vivo el 2026-10-24).
  *
- * Los segmentos llegan como archivos ".image" y el layout vigente (verificado
- * en vivo el 2026-10-05) es:
+ * Playlist (`/playlist.m3u8?id=N`):
+ *   1. CDN de DaddyLive con token por espectador ({@link EdgeTokens}); un
+ *      canal frío tarda en publicar segmentos, así que se reintenta como el
+ *      player oficial.
+ *   2. Si el CDN falla: API de tvnow247, que entrega un playlist propio con
+ *      los mismos segmentos enmascarados.
+ *   Si un refresco falla se sirve el último playlist bueno unos segundos, para
+ *   que el reproductor no corte por un error momentáneo.
+ *
+ * Segmentos (`/segment?url=`): se bajan con reintentos, se desempaquetan de a
+ * uno (como el player oficial; acota memoria y CPU) y quedan en un LRU chico.
+ * Al servir el playlist se precargan los más nuevos, así el reproductor los
+ * encuentra listos en vez de esperar descarga + desempaquetado.
+ *
+ * Los segmentos llegan como archivos ".image" y el layout vigente es:
  *
  *   PNG (IHDR 8-bit RGB/RGBA, no entrelazado)
  *     -> IDAT concatenado -> inflate zlib -> scanlines con filtro PNG
@@ -31,8 +56,7 @@ import java.util.zip.Inflater;
  *     -> pixeles[12 .. 12+n) = gzip( MPEG-TS )
  *
  * Se aceptan tambien los layouts legacy (TRAW / TSGZ / TS tras IEND de PNG /
- * TS en el chunk EXIF de un WebP) replicando el unwrap() del player oficial
- * (daddyliveplayer.st/premiumtv/*.php), para no depender de un unico formato.
+ * TS en el chunk EXIF de un WebP) replicando el unwrap() del player oficial.
  */
 public final class LocalProxy implements Runnable {
 
@@ -77,11 +101,211 @@ public final class LocalProxy implements Runnable {
             try {
                 Socket client = serverSocket.accept();
                 client.setSoTimeout(10000);
-                new Thread(new RequestWorker(client)).start();
+                Thread worker = new Thread(new RequestWorker(client), "Moai-DaddyLive-Req");
+                worker.setDaemon(true);
+                worker.start();
             } catch (Exception e) {
                 if (!running) break;
             }
         }
+    }
+
+    // =====================================================================
+    // Playlist del canal
+    // =====================================================================
+
+    /** Playlist de origen ya validado (#EXTM3U) y la URL contra la que se resuelven rutas relativas. */
+    static final class Upstream {
+        final String body;
+        final String baseUrl;
+
+        Upstream(String body, String baseUrl) {
+            this.body = body;
+            this.baseUrl = baseUrl;
+        }
+    }
+
+    /** Resultado de buscar el playlist: [upstream] o el último código de error. */
+    static final class PlaylistResult {
+        final Upstream upstream;
+        final int errorCode;
+        final String error;
+
+        PlaylistResult(Upstream upstream, int errorCode, String error) {
+            this.upstream = upstream;
+            this.errorCode = errorCode;
+            this.error = error;
+        }
+    }
+
+    private static final Pattern TVNOW_URL_RE =
+        Pattern.compile("\"(?:proxyPlaylistUrl|m3u8)\"\\s*:\\s*\"([^\"]+)\"");
+
+    /** Último playlist bueno por canal (respaldo ante un refresco fallido). */
+    private static final ConcurrentHashMap<String, Object[]> LAST_GOOD =
+        new ConcurrentHashMap<String, Object[]>();
+    /** URL de tvnow247 ya resuelta por canal. */
+    private static final ConcurrentHashMap<String, String> TVNOW_URLS =
+        new ConcurrentHashMap<String, String>();
+
+    /**
+     * Busca el playlist del canal: CDN con token (reintentando el arranque en
+     * frío) y, si falla, tvnow247. No espera más allá de [deadline].
+     */
+    static PlaylistResult fetchPlaylist(String channelId, long deadline) {
+        // Un canal que ya se estaba sirviendo no está frío: menos espera.
+        Object[] last = LAST_GOOD.get(channelId);
+        boolean warm = last != null
+            && System.currentTimeMillis() - (Long) last[1] < 60000L;
+        int tries = warm ? 2 : Config.COLD_START_TRIES;
+
+        int code = 0;
+        String error = null;
+        boolean newToken = false;
+        for (int i = 0; i < tries && System.currentTimeMillis() < deadline; i++) {
+            try {
+                String token = EdgeTokens.get(channelId, newToken);
+                newToken = false;
+                String url = EdgeTokens.playlistUrl(channelId, token);
+                Http.Response r = Http.getResponse(url, EdgeTokens.playerHeaders(), true,
+                    Config.PLAYLIST_TIMEOUT_MS);
+                code = r.code;
+                if (r.code == 200 && startsWith(r.body, "#EXTM3U")) {
+                    return ok(channelId, new Upstream(new String(r.body, StandardCharsets.UTF_8), url));
+                }
+                if (r.code == 401 || r.code == 403) {
+                    newToken = true;
+                    continue;
+                }
+            } catch (Exception e) {
+                error = e.getMessage();
+            }
+            sleepUntil(Config.COLD_START_DELAY_MS, deadline);
+        }
+
+        Upstream tv = fetchTvnow(channelId, deadline);
+        if (tv != null) return ok(channelId, tv);
+        return new PlaylistResult(null, code == 0 ? 502 : code, error);
+    }
+
+    private static PlaylistResult ok(String channelId, Upstream u) {
+        LAST_GOOD.put(channelId, new Object[] {u, System.currentTimeMillis()});
+        return new PlaylistResult(u, 200, null);
+    }
+
+    private static Upstream fetchTvnow(String channelId, long deadline) {
+        for (int i = 0; i < 2 && System.currentTimeMillis() < deadline; i++) {
+            try {
+                String url = TVNOW_URLS.get(channelId);
+                if (url == null || i > 0) {
+                    Map<String, String> h = new LinkedHashMap<String, String>();
+                    h.put("Referer", Config.TVNOW_ORIGIN + "/");
+                    h.put("Origin", Config.TVNOW_ORIGIN);
+                    String json = Http.get(Config.TVNOW_RESOLVE_API + channelId, h);
+                    Matcher m = TVNOW_URL_RE.matcher(json);
+                    if (!m.find()) return null;
+                    url = m.group(1).replace("\\/", "/");
+                    TVNOW_URLS.put(channelId, url);
+                }
+                Map<String, String> h = new LinkedHashMap<String, String>();
+                h.put("Referer", Config.TVNOW_ORIGIN + "/");
+                Http.Response r = Http.getResponse(url, h, true, Config.PLAYLIST_TIMEOUT_MS);
+                if (r.code == 200 && startsWith(r.body, "#EXTM3U")) {
+                    return new Upstream(new String(r.body, StandardCharsets.UTF_8), url);
+                }
+            } catch (Exception ignored) {
+                // se reintenta resolviendo la URL de nuevo
+            }
+        }
+        return null;
+    }
+
+    private static void sleepUntil(long ms, long deadline) {
+        long wait = Math.min(ms, deadline - System.currentTimeMillis());
+        if (wait <= 0) return;
+        try {
+            Thread.sleep(wait);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    // =====================================================================
+    // Segmentos: descarga con reintentos, desempaquetado serializado y LRU
+    // =====================================================================
+
+    private static final ExecutorService DOWNLOADS =
+        Executors.newFixedThreadPool(Config.DOWNLOAD_THREADS, new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread t = new Thread(r, "Moai-DaddyLive-Seg");
+                t.setDaemon(true);
+                return t;
+            }
+        });
+    private static final Object UNWRAP_LOCK = new Object();
+    private static final Map<String, Future<byte[]>> SEGMENTS =
+        new LinkedHashMap<String, Future<byte[]>>(16, 0.75f, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry<String, Future<byte[]>> eldest) {
+                return size() > Config.SEGMENT_CACHE_SIZE;
+            }
+        };
+
+    /** Segmento desempaquetado (en curso o listo). Lo baja si no estaba. */
+    static Future<byte[]> segment(final String url) {
+        synchronized (SEGMENTS) {
+            Future<byte[]> f = SEGMENTS.get(url);
+            if (f == null) {
+                f = DOWNLOADS.submit(new Callable<byte[]>() {
+                    @Override
+                    public byte[] call() {
+                        return downloadSegment(url);
+                    }
+                });
+                SEGMENTS.put(url, f);
+            }
+            return f;
+        }
+    }
+
+    private static void forget(String url) {
+        synchronized (SEGMENTS) {
+            SEGMENTS.remove(url);
+        }
+    }
+
+    private static byte[] downloadSegment(String url) {
+        Map<String, String> headers = new LinkedHashMap<String, String>();
+        headers.put("User-Agent", Config.USER_AGENT);
+        headers.put("Referer", Config.PLAYER_ORIGIN + "/");
+        String last = null;
+        for (int i = 0; i <= Config.SEGMENT_RETRIES; i++) {
+            try {
+                Http.Response r = Http.getResponse(url, headers, true, Config.SEGMENT_TIMEOUT_MS);
+                if (r.code == 200 && r.body != null) {
+                    byte[] ts;
+                    synchronized (UNWRAP_LOCK) {
+                        ts = unwrapBytes(r.body);
+                    }
+                    if (ts != null && ts.length >= 188 && (ts[0] & 0xFF) == 0x47) {
+                        return ts;
+                    }
+                    last = "segmento no MPEG-TS (" + r.body.length + " bytes)";
+                } else {
+                    last = "HTTP " + r.code;
+                }
+            } catch (Exception e) {
+                last = e.getMessage();
+            }
+            try {
+                Thread.sleep(400L * (i + 1));
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+        }
+        throw new IllegalStateException(last != null ? last : "segmento fallido");
     }
 
     private final class RequestWorker implements Runnable {
@@ -151,34 +375,42 @@ public final class LocalProxy implements Runnable {
                 return;
             }
 
-            String cdnUrl = "https://edge.cowedd4855ws.sbs/premium" + channelId + "/index.m3u8";
-            Http.Response resp;
-            try {
-                resp = Http.getResponse(cdnUrl, cdnHeaders(), true, Config.PLAYLIST_TIMEOUT_MS);
-            } catch (Exception e) {
-                sendResponse(os, 502, "Bad Gateway", "text/plain", ("Error playlist: " + e.getMessage()).getBytes(StandardCharsets.UTF_8));
-                return;
+            PlaylistResult pr = fetchPlaylist(channelId,
+                System.currentTimeMillis() + Config.RESOLVE_BUDGET_MS);
+            Upstream up = pr.upstream;
+            if (up == null) {
+                Object[] last = LAST_GOOD.get(channelId);
+                if (last != null && System.currentTimeMillis() - (Long) last[1] < Config.STALE_PLAYLIST_MS) {
+                    up = (Upstream) last[0];
+                }
             }
-            if (resp.code != 200 || resp.body == null || !startsWith(resp.body, "#EXTM3U")) {
-                int errCode = (resp.code >= 400 && resp.code < 600) ? resp.code : 404;
+            if (up == null) {
+                int errCode = (pr.errorCode >= 400 && pr.errorCode < 600) ? pr.errorCode : 502;
                 sendResponse(os, errCode, reason(errCode), "text/plain",
                     ("Canal fuera de emision (HTTP " + errCode + ")").getBytes(StandardCharsets.UTF_8));
                 return;
             }
 
-            String playlistText = new String(resp.body, StandardCharsets.UTF_8);
-            String[] lines = playlistText.split("\n");
+            URI base = URI.create(up.baseUrl);
+            String[] lines = up.body.split("\n");
             StringBuilder sb = new StringBuilder();
+            List<String> segments = new ArrayList<String>();
 
             for (String line : lines) {
                 String trimmed = line.trim();
                 if (trimmed.length() > 0 && !trimmed.startsWith("#")) {
-                    String encUrl = URLEncoder.encode(trimmed, "UTF-8");
+                    String abs = base.resolve(trimmed).toString();
+                    segments.add(abs);
                     sb.append("http://127.0.0.1:").append(port)
-                      .append("/segment?url=").append(encUrl).append("\n");
+                      .append("/segment?url=").append(URLEncoder.encode(abs, "UTF-8")).append("\n");
                 } else {
                     sb.append(line).append("\n");
                 }
+            }
+
+            // Precarga de los más nuevos: es lo que el reproductor pide a continuación.
+            for (int i = Math.max(0, segments.size() - Config.PREFETCH_SEGMENTS); i < segments.size(); i++) {
+                segment(segments.get(i));
             }
 
             byte[] outBytes = sb.toString().getBytes(StandardCharsets.UTF_8);
@@ -192,32 +424,18 @@ public final class LocalProxy implements Runnable {
                 return;
             }
 
-            Http.Response resp;
+            byte[] ts;
             try {
-                resp = Http.getResponse(targetUrl, cdnHeaders(), true, Config.SEGMENT_TIMEOUT_MS);
+                long wait = (long) Config.SEGMENT_TIMEOUT_MS * (Config.SEGMENT_RETRIES + 1) + 5000L;
+                ts = segment(targetUrl).get(wait, TimeUnit.MILLISECONDS);
             } catch (Exception e) {
-                sendResponse(os, 502, "Bad Gateway", "text/plain", ("Error segment: " + e.getMessage()).getBytes(StandardCharsets.UTF_8));
-                return;
-            }
-            if (resp.code != 200 || resp.body == null) {
-                sendResponse(os, 502, "Bad Gateway", "text/plain", ("Error segment " + resp.code).getBytes(StandardCharsets.UTF_8));
-                return;
-            }
-
-            byte[] unwrapped = unwrapBytes(resp.body);
-            if (unwrapped == null || unwrapped.length < 188 || (unwrapped[0] & 0xFF) != 0x47) {
+                forget(targetUrl);
+                Throwable cause = e.getCause() != null ? e.getCause() : e;
                 sendResponse(os, 502, "Bad Gateway", "text/plain",
-                    ("Segmento no MPEG-TS (" + resp.body.length + " bytes raw)").getBytes(StandardCharsets.UTF_8));
+                    ("Error segment: " + cause.getMessage()).getBytes(StandardCharsets.UTF_8));
                 return;
             }
-            sendResponse(os, 200, "OK", "video/mp2t", unwrapped);
-        }
-
-        private Map<String, String> cdnHeaders() {
-            Map<String, String> headers = new HashMap<String, String>();
-            headers.put("User-Agent", Config.USER_AGENT);
-            headers.put("Referer", "https://daddyliveplayer.st/");
-            return headers;
+            sendResponse(os, 200, "OK", "video/mp2t", ts);
         }
 
         private void sendResponse(OutputStream os, int code, String reasonPhrase,
