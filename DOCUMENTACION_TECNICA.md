@@ -2,7 +2,7 @@
 
 ## 1. Resumen Ejecutivo
 
-Este documento detalla el análisis de causa raíz, la arquitectura de desempaquetado de video y los cambios implementados en el plugin **Moai DaddyLive** (`moaiplug_daddylive`) hasta la versión **0.4.11**.
+Este documento detalla el análisis de causa raíz, la arquitectura de desempaquetado de video y los cambios implementados en el plugin **Moai DaddyLive** (`moaiplug_daddylive`) hasta la versión **0.5.1**.
 
 El objetivo principal de la investigación fue resolver las fallas de reproducción, pantallas de error HTTP 403/404 y la aparición de imágenes/memes estáticos en lugar del video en vivo.
 
@@ -11,7 +11,7 @@ El objetivo principal de la investigación fue resolver las fallas de reproducci
 ## 2. Diagnóstico del Problema y Descubrimientos Clave
 
 ### 2.1 La Estructura de Segmentos Enmascarados (TikTok CDN)
-- El CDN principal utilizado por DaddyLive (`https://edge.cowedd4855ws.sbs/premium{id}/index.m3u8`) sirve listas de reproducción `.m3u8` válidas.
+- El CDN principal utilizado por DaddyLive (`https://edge.wedd48c.top/premium{id}/index.m3u8`, antes `edge.cowedd4855ws.sbs`) sirve listas de reproducción `.m3u8` válidas. El dominio `edge.*` rota, por lo que `EdgeTokens` lo descubre de `const EDGE = "..."` en la página del player y lo cachea 15 minutos.
 - Sin embargo, los segmentos de video apuntan a URLs de imágenes en el CDN de TikTok:
   `https://p16-common-sign.tiktokcdn-us.com/tiktok-obj-tx/...image`
 - **Layout vigente (verificado en vivo el 2026-10-05):** el `.image` es un **PNG válido**
@@ -48,8 +48,7 @@ El objetivo principal de la investigación fue resolver las fallas de reproducci
   de forma intermitente.
 
 ### 2.3 Canales Activos vs. Canales Inactivos (404 / 403)
-- En el catálogo de 1.285 canales, aproximadamente el **48%** corresponde a señales 24/7 activas en vivo (ej. 521 `#Vamos`, 31, 800, 1, 10, 50).
-- El resto (**~33% a 52%**) corresponde a eventos PPV/temporales o canales inactivos en la fuente origen de DaddyLive, los cuales retornan `HTTP 404 Not Found` en el CDN.
+- El catálogo vigente (899 canales 24/7 scrapeados de `24-7-channels.php`) mezcla señales activas con eventos PPV/temporales y canales inactivos en la fuente origen de DaddyLive, los cuales retornan `HTTP 404 Not Found` en el CDN.
 - Al intentar reproducir un canal inactivo, la falta de validación previa en el resolvedor provocaba que ExoPlayer recibiera un error 404 directo sin explicación.
 
 ---
@@ -62,7 +61,7 @@ Para solucionar el problema sin requerir modificaciones en la aplicación nativa
 [ ExoPlayer / App ]
        │
        ▼ (1) Solicita playlist (http://127.0.0.1:{port}/playlist.m3u8?id=521)
-[ LocalProxy.java ] ──► (2) Descarga M3U8 de CDN (edge.cowedd4855ws.sbs)
+[ LocalProxy.java ] ──► (2) Descarga M3U8 de CDN (edge.* vigente, token por espectador)
        │              ◄── Lista M3U8 con segmentos TikTok (.image)
        │
        ▼ (3) Reescritura de URLs de segmentos -> http://127.0.0.1:{port}/segment?url=...
@@ -86,10 +85,11 @@ Para solucionar el problema sin requerir modificaciones en la aplicación nativa
    - **`unwrapBytes`:** Intentos en este orden, replicando el player oficial:
      1. **WebP** con chunk `EXIF` que contiene el TS.
      2. **PNG** con el TS concatenado tras el `IEND`.
-     3. **PNG + píxeles** (layout vigente): parseo de chunks → `Inflater` sobre los `IDAT` (sin concatenarlos, para no copiar ~2.7 MB) → reversión de los 5 filtros PNG fila a fila → `TIKTIKPX` + `uint32BE` → `GZIPInputStream` → TS.
-     4. `TIKTIKRAW` + TS crudo (legacy).
-     5. `TIKTIKTSGZ` + gunzip (legacy).
-     6. Barrido de sync byte `0x47`, **solo** si desde el candidato el resto es múltiplo exacto de 188 (evita los falsos positivos dentro de datos comprimidos).
+     3. **PNG + IDAT crudo** (layout de tvnow247): IDAT único que ya contiene MPEG-TS (sin zlib).
+     4. **PNG + píxeles** (layout TikTok): parseo de chunks → `Inflater` sobre los `IDAT` (sin concatenarlos, para no copiar ~2.7 MB) → reversión de los 5 filtros PNG fila a fila → `TIKTIKPX` + `uint32BE` → `GZIPInputStream` → TS.
+     5. `TIKTIKRAW` + TS crudo (legacy).
+     6. `TIKTIKTSGZ` + gunzip (legacy).
+     7. Barrido de sync byte `0x47`, **solo** si desde el candidato el resto es múltiplo exacto de 188 (evita los falsos positivos dentro de datos comprimidos).
 
 2. **`DaddyliveResolver.java`:**
    - Valida mediante una petición HTTP ligera que la fuente responda `200 OK` y contenga `#EXTM3U` antes de entregar la URL del proxy local.
@@ -105,13 +105,15 @@ Para solucionar el problema sin requerir modificaciones en la aplicación nativa
 | **v0.4.10** | `dc4e7b7...` | Se añadió `LocalProxy.java` para interceptar segmentos y aplicar `unwrapBytes()`. Logró reproducciones comprobadas de 2.08MB de video puro con `0x47`. |
 | **v0.4.11** | `83e7fb7...` | Se agregó validación HTTP 200 y comprobación de `#EXTM3U` en `DaddyliveResolver` antes de confirmar el fast-path, evitando errores 404 en canales inactivos. |
 | **v0.4.12** | `7aa246e...` | DaddyLive cambió el enmascarado: el `.image` pasó a ser un **PNG cuyas filas de píxeles contienen `TIKTIKPX` + uint32 + gzip(TS)**. Se reescribió `unwrapBytes()` como port del `unwrap()` del player oficial (PNG → inflate IDAT → desfiltro Paeth/etc. → gunzip), se subió el tope de descarga de 2 MB a 24 MB con timeout propio para segmentos, y el proxy ahora drena las cabeceras de la petición para evitar el RST que hacía perder respuestas. |
+| **v0.5.0** | `0f7f408...` | El CDN pasó a exigir token por espectador (`/api/playlist-token?slug=premium{id}`) y Referer/Origin del player; se añadió `EdgeTokens`, precarga de segmentos y respaldo tvnow247. |
+| **v0.5.1** | `5d544d4...` | El dominio `edge.*` rotó de `edge.cowedd4855ws.sbs` a `edge.wedd48c.top`: `EdgeTokens` ahora descubre `const EDGE` de la página del player, lo cachea 15 min y lo invalida ante 401/403/DNS. La API `/api/channels` desapareció, así que el catálogo se scrapea de la grilla de `24-7-channels.php`. Se agregó el layout de tvnow247 (IDAT con TS crudo) a `unwrapBytes()`. |
 
 ---
 
 ## 5. Pruebas y Verificaciones Realizadas
 
 1. **Prueba JVM (`DaddylivePlugin.main`):**
-   - Resolución y desempaquetado comprobado en canales `521`, `800`, `31`, `1`, `10`, `50`:
+   - Resolución y desempaquetado comprobado en canales `521`, `800` y `44`:
      - Estado: `HTTP 200 OK`
      - Tamaño de paquete desempaquetado: **~2.08 MB por segmento**
      - Verificación de Sync Byte: **`0x47 sync byte: true`** (`REPRODUCIBLE 100% HD`).
@@ -119,7 +121,7 @@ Para solucionar el problema sin requerir modificaciones en la aplicación nativa
 2. **Muestreo de Catálogo:**
    - Muestreo de 15 canales con 4 segmentos cada uno (60 peticiones): **44/44 segmentos TS válidos**
      (longitud múltiplo de 188, sync `0x47`, cabecera PES de video `00 00 01 E0`).
-   - Canales offline en origen: responden `404` en `edge.cowedd4855ws.sbs/premium{id}/index.m3u8`
+   - Canales offline en origen: responden `404` en `edge.*/premium{id}/index.m3u8`
      (p. ej. 200, 1234, 8) — comportamiento esperado, no un fallo del plugin.
 
 ---
@@ -131,4 +133,4 @@ Para solucionar el problema sin requerir modificaciones en la aplicación nativa
 - `src/plugin/java/com/infomak/moai/daddylive/DaddylivePlugin.java`: Clase principal del plugin e interfaz `IPlugin`.
 - `build.ps1`: Script de compilación Java 8 + `d8` a `plugin.dex` y generación de `manifest.json`.
 - `plugin.dex`: Binario ejecutable compilado.
-- `manifest.json`: Manifest con catálogo de 1.285 canales y hash SHA-256 oficial.
+- `manifest.json`: Manifest con catálogo de 899 canales y hash SHA-256 oficial.

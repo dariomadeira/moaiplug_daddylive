@@ -10,7 +10,7 @@ $ErrorActionPreference = "Stop"
 $Root = $PSScriptRoot
 if (-not $Root) { $Root = Get-Location }
 
-$Version = "0.5.0"
+$Version = "0.5.1"
 $DataDir = Join-Path $Root "data"
 New-Item -ItemType Directory -Force -Path $DataDir | Out-Null
 
@@ -121,7 +121,7 @@ if ((Test-Path $VerifiedOnlineJson) -and ((Get-Item $VerifiedOnlineJson).Length 
     Write-Host ">> Usando canales online verificados existentes ($VerifiedOnlineJson)..." -ForegroundColor Cyan
     & $PythonCmd @PythonArgs (Join-Path $Root "scripts\build_catalog.py") --out $CanalesJson --online-only $VerifiedOnlineJson
 } else {
-    Write-Host ">> Generando catálogo desde /api/channels (sin filtro online)..." -ForegroundColor Yellow
+    Write-Host ">> Generando catálogo desde la grilla web (sin filtro online)..." -ForegroundColor Yellow
     & $PythonCmd @PythonArgs (Join-Path $Root "scripts\build_catalog.py") --out $CanalesJson
 }
 
@@ -129,6 +129,7 @@ Write-Host ">> Enriqueciendo canales con logos..." -ForegroundColor Cyan
 & $PythonCmd @PythonArgs (Join-Path $Root "scripts\generate_logos.py") --input $CanalesJson --output $CanalesJson
 
 $CanalesRaw = Get-Content $CanalesJson -Raw -Encoding UTF8
+$CanalInicial = (& $PythonCmd @PythonArgs -c "import json,sys;print(json.load(open(sys.argv[1],encoding='utf-8'))[0]['id'])" $CanalesJson).Trim()
 $ManifestFile = Join-Path $Root "manifest.json"
 $ManifestHeader = @"
 {
@@ -140,7 +141,7 @@ $ManifestHeader = @"
   "maxContrato": 1,
   "clase": "com.infomak.moai.daddylive.DaddylivePlugin",
   "sha256": "$Sha256",
-  "canalInicial": "1",
+  "canalInicial": "$CanalInicial",
   "canales": 
 "@
 

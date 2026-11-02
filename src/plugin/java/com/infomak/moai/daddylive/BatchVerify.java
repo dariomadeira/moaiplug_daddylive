@@ -415,6 +415,12 @@ public class BatchVerify {
         }
 
         if (json == null) {
+            // Catálogo vigente: grilla de la web (la API /api/channels ya no existe).
+            list = loadSiteChannels();
+            if (!list.isEmpty()) return list;
+        }
+
+        if (json == null) {
             // Descargar desde api/channels
             for (String domain : Config.EMBED_DOMAINS) {
                 try {
@@ -447,6 +453,48 @@ public class BatchVerify {
             }
         }
         return list;
+    }
+
+    /** Tarjetas de la grilla: enlace a watch.php?id=N + título visible. */
+    private static final Pattern SITE_CARD_RE = Pattern.compile(
+        "href=\"/watch\\.php\\?id=(\\d+)\"[\\s\\S]{0,1200}?<div class=\"card__title\">([^<]*)</div>");
+
+    /** Catálogo vigente desde la grilla de 24-7-channels.php. */
+    private static List<ChannelInfo> loadSiteChannels() {
+        List<ChannelInfo> list = new ArrayList<>();
+        try {
+            Map<String, String> headers = new LinkedHashMap<>();
+            headers.put("User-Agent", Config.USER_AGENT);
+            headers.put("Referer", Config.SITE_ORIGIN + "/");
+            String html = Http.get(Config.CATALOG_PAGE, headers);
+            if (html == null) return list;
+            Matcher m = SITE_CARD_RE.matcher(html);
+            Set<String> seen = new HashSet<>();
+            while (m.find()) {
+                String id = m.group(1);
+                String nombre = unescapeHtml(m.group(2)).trim();
+                if (nombre.length() == 0) nombre = "Canal " + id;
+                if (seen.add(id)) {
+                    list.add(new ChannelInfo(id, nombre));
+                }
+            }
+            System.err.println("[batch-verify] Catálogo de la web: " + list.size() + " canales.");
+        } catch (Exception e) {
+            System.err.println("[batch-verify] No se pudo leer el catálogo de la web: " + e.getMessage());
+        }
+        return list;
+    }
+
+    /** Entidades HTML habituales en los nombres de canal. */
+    private static String unescapeHtml(String s) {
+        if (s.indexOf('&') == -1) return s;
+        return s.replace("&amp;", "&")
+                .replace("&quot;", "\"")
+                .replace("&#39;", "'")
+                .replace("&apos;", "'")
+                .replace("&lt;", "<")
+                .replace("&gt;", ">")
+                .replace("&nbsp;", " ");
     }
 
     private static void writeFile(File f, String content) {

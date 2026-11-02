@@ -3,14 +3,40 @@ package com.infomak.moai.daddylive;
 /** Configuración central del plugin (fuentes, UA, timeouts y límites). */
 final class Config {
 
-    /** CDN de DaddyLive: sirve premium{id}/index.m3u8 con token por espectador. */
-    static final String EDGE = "https://edge.cowedd4855ws.sbs";
+    /**
+     * CDN de DaddyLive: sirve premium{id}/index.m3u8 con token por espectador.
+     * El dominio rota (visto 2026-11-02: edge.wedd48c.top; antes
+     * edge.cowedd4855ws.sbs). Solo es el valor de arranque: EdgeTokens lo
+     * redescubre de PLAYER_PAGE y lo refresca cada EDGE_TTL_MS.
+     */
+    static final String EDGE = "https://edge.wedd48c.top";
+
+    /**
+     * Página del player oficial. Contiene `const EDGE = "https://..."`, que es
+     * la fuente autoritativa del CDN mientras el dominio siga rotando.
+     */
+    static final String PLAYER_PAGE = "https://dembed.st/premiumtv/daddy.php?id=";
+
+    /** Vigencia del EDGE descubierto antes de volver a leer la página. */
+    static final long EDGE_TTL_MS = 15L * 60L * 1000L;
+
+    /** Si el descubrimiento falla, no reintentarlo en cada canal. */
+    static final long EDGE_RETRY_MS = 60L * 1000L;
 
     /**
      * Origen del player oficial (dembed.st/premiumtv/daddy.php?id=N). El CDN
      * solo entrega token y playlist con este Referer/Origin.
      */
     static final String PLAYER_ORIGIN = "https://dembed.st";
+
+    /** Web que embebe el player: Referer de la página del player. */
+    static final String SITE_ORIGIN = "https://thedaddy.pk";
+
+    /**
+     * Catálogo 24/7. La web dejó de exponer /api/channels: ahora el listado
+     * viaja en la grilla de 24-7-channels.php (enlaces a watch.php?id=N).
+     */
+    static final String CATALOG_PAGE = "https://thedaddy.pk/24-7-channels.php";
 
     /**
      * Respaldo: API de tvnow247 que resuelve el mismo id numérico y devuelve
@@ -19,7 +45,7 @@ final class Config {
     static final String TVNOW_RESOLVE_API = "https://chat.cfbu247.sbs/api/resolve-dlstream/";
     static final String TVNOW_ORIGIN = "https://tvnow247.top";
 
-    /** Dominios de DaddyLive para bajar el catálogo (/api/channels) en BatchVerify. */
+    /** Dominios legacy de DaddyLive para bajar el catálogo (/api/channels). */
     static final String[] EMBED_DOMAINS = {
         "daddylive.li",
         "daddylive.app",
@@ -74,7 +100,7 @@ final class Config {
     static final String PLUGIN_ID = "moai_daddylive";
     static final String PLUGIN_TAG = "Daddy";
     static final String PLUGIN_NOMBRE = "Moai Daddylive";
-    static final String PLUGIN_VERSION = "0.5.0";
+    static final String PLUGIN_VERSION = "0.5.1";
     static final String PLUGIN_CLASE = "com.infomak.moai.daddylive.DaddylivePlugin";
 
     private Config() {

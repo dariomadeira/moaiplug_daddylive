@@ -18,7 +18,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 SDK="${ANDROID_HOME:-$HOME/Android/Sdk}"
 BUILD_TOOLS="${ANDROID_BUILD_TOOLS:-$SDK/build-tools/36.0.0}"
-VERSION="0.4.13"
+VERSION="0.5.1"
 
 # IMPORTANTE: los resultados de verificación NUNCA van en build/, porque
 # este script borra build/ por completo (rm -rf). Van en data/, que es permanente.
@@ -121,7 +121,7 @@ else
         echo ">> Usando canales online verificados existentes ($ONLINE_JSON)..."
         python3 "$ROOT/scripts/build_catalog.py" --out "$DATA_DIR/canales.json" --online-only "$ONLINE_JSON"
     else
-        echo ">> Generando catálogo desde /api/channels (sin verificación)"
+        echo ">> Generando catálogo desde la grilla web (sin verificación)"
         python3 "$ROOT/scripts/build_catalog.py" --out "$DATA_DIR/canales.json"
     CANALES_COUNT="$(python3 -c 'import json,sys;print(len(json.load(open(sys.argv[1]))))' "$DATA_DIR/canales.json")"
 fi
@@ -129,7 +129,8 @@ fi
 echo ">> Enriqueciendo canales con logos..."
 python3 "$ROOT/scripts/generate_logos.py" --input "$DATA_DIR/canales.json" --output "$DATA_DIR/canales.json"
 CANALES_COUNT="$(python3 -c 'import json,sys;print(len(json.load(open(sys.argv[1]))))' "$DATA_DIR/canales.json")"
-echo ">> canales: $CANALES_COUNT"
+CANAL_INICIAL="$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))[0]["id"])' "$DATA_DIR/canales.json")"
+echo ">> canales: $CANALES_COUNT (inicial: $CANAL_INICIAL)"
 
 
 cat > "$ROOT/manifest.json" <<EOF
@@ -142,7 +143,7 @@ cat > "$ROOT/manifest.json" <<EOF
   "maxContrato": 1,
   "clase": "com.infomak.moai.daddylive.DaddylivePlugin",
   "sha256": "$SHA256",
-  "canalInicial": "1",
+  "canalInicial": "$CANAL_INICIAL",
   "canales":
 EOF
 cat "$DATA_DIR/canales.json" >> "$ROOT/manifest.json"

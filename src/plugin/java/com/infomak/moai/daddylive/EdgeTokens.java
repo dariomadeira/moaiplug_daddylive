@@ -8,12 +8,18 @@ import java.util.regex.Pattern;
 
 /**
  * Tokens del CDN de DaddyLive (port de fetchPlaylistToken del player oficial
- * dembed.st/premiumtv/daddy.php, visto en vivo el 2026-10-24).
+ * dembed.st/premiumtv/daddy.php, visto en vivo el 2026-11-02).
  *
  * El CDN solo entrega el playlist con `?t=TOKEN`, un token corto (ttl ~120 s)
  * atado a la IP del espectador, pedido a EDGE/api/playlist-token?slug=premium{id}
  * con Referer/Origin del player. Se renueva en segundo plano desde la mitad
  * del ttl para que un refresco del playlist nunca espere un token nuevo.
+ *
+ * El dominio del CDN rota (edge.cowedd4855ws.sbs -> edge.wedd48c.top), así que
+ * no se usa una constante fija: se lee `const EDGE = "..."` de la página del
+ * player y se cachea EDGE_TTL_MS. Si una petición falla se descarta el dominio
+ * y se vuelve a leer, de modo que un cambio de EDGE no vuelve a romper el
+ * plugin.
  */
 final class EdgeTokens {
 
@@ -21,6 +27,10 @@ final class EdgeTokens {
         Pattern.compile("\"token\"\\s*:\\s*\"([^\"]+)\"");
     private static final Pattern TTL_RE =
         Pattern.compile("\"ttl\"\\s*:\\s*(\\d+)");
+    private static final Pattern EDGE_RE =
+        Pattern.compile("(?:const\\s+)?EDGE\\s*=\\s*[\"'](https?://[^\"']+)[\"']");
+    private static final Pattern SRC_RE =
+        Pattern.compile("(?:const\\s+)?SRC\\s*=\\s*[\"'](https?://[^/\"']+)");
 
     private static final class Token {
         final String value;
@@ -39,6 +49,12 @@ final class EdgeTokens {
         new ConcurrentHashMap<String, Token>();
     private static final ConcurrentHashMap<String, Boolean> RENEWING =
         new ConcurrentHashMap<String, Boolean>();
+
+    /** EDGE vigente y cuándo se leyó por última vez. */
+    private static volatile String edge = Config.EDGE;
+    private static volatile long edgeAt = 0L;
+    /** No reintentar el descubrimiento antes de este instante. */
+    private static volatile long edgeRetryAt = 0L;
 
     private EdgeTokens() {
     }
@@ -82,10 +98,32 @@ final class EdgeTokens {
     }
 
     private static Token fetch(String channelId) {
-        String url = Config.EDGE + "/api/playlist-token?slug=premium" + channelId;
-        Http.Response r = Http.getResponse(url, playerHeaders(), true, Config.TOKEN_TIMEOUT_MS);
+        return fetch(channelId, true);
+    }
+
+    /**
+     * Token del canal. Si el EDGE actual no responde (dominio rotado o caído),
+     * se descubre uno nuevo desde la página del player y se reintenta una vez.
+     */
+    private static Token fetch(String channelId, boolean allowRediscover) {
+        String base = edge();
+        String url = base + "/api/playlist-token?slug=premium" + channelId;
+        Http.Response r;
+        try {
+            r = Http.getResponse(url, playerHeaders(), true, Config.TOKEN_TIMEOUT_MS);
+        } catch (RuntimeException e) {
+            if (allowRediscover) {
+                invalidateEdge();
+                return fetch(channelId, false);
+            }
+            throw e;
+        }
         if (r.code != 200 || r.body == null) {
-            throw new IllegalStateException("token HTTP " + r.code);
+            if (allowRediscover) {
+                invalidateEdge();
+                return fetch(channelId, false);
+            }
+            throw new IllegalStateException("token HTTP " + r.code + " en " + base);
         }
         String json = new String(r.body, java.nio.charset.StandardCharsets.UTF_8);
         Matcher tm = TOKEN_RE.matcher(json);
@@ -108,11 +146,92 @@ final class EdgeTokens {
     /** URL del playlist del canal con el token y un anti-cache, como el player oficial. */
     static String playlistUrl(String channelId, String token) {
         try {
-            return Config.EDGE + "/premium" + channelId + "/index.m3u8?t="
+            return edge() + "/premium" + channelId + "/index.m3u8?t="
                 + java.net.URLEncoder.encode(token, "UTF-8")
                 + "&_=" + System.currentTimeMillis();
         } catch (java.io.UnsupportedEncodingException e) {
             throw new IllegalStateException(e);
         }
+    }
+
+    // ------------------------------------------------------------------ EDGE
+
+    /** Descarta el EDGE actual: la próxima petición lo redescubre. */
+    static void invalidateEdge() {
+        edgeAt = 0L;
+        edgeRetryAt = 0L;
+        TOKENS.clear();
+    }
+
+    /** EDGE vigente, redescubriéndolo de la página del player si venció. */
+    static String edge() {
+        return edgeFor(null);
+    }
+
+    private static String edgeFor(String channelId) {
+        long now = System.currentTimeMillis();
+        String current = edge;
+        if (current != null && current.length() > 0 && now - edgeAt < Config.EDGE_TTL_MS) {
+            return current;
+        }
+        if (now < edgeRetryAt) {
+            return current != null && current.length() > 0 ? current : Config.EDGE;
+        }
+        return discoverEdge(channelId);
+    }
+
+    /**
+     * Lee `const EDGE = "..."` (o el host de `const SRC = "..."`) de la página
+     * del player. Si no se puede, conserva el último EDGE conocido.
+     */
+    private static synchronized String discoverEdge(String channelId) {
+        long now = System.currentTimeMillis();
+        if (edge != null && edge.length() > 0 && now - edgeAt < Config.EDGE_TTL_MS) {
+            return edge;
+        }
+        if (now < edgeRetryAt) {
+            return edge != null && edge.length() > 0 ? edge : Config.EDGE;
+        }
+
+        String found = null;
+        String id = channelId != null && channelId.length() > 0 ? channelId : "44";
+        try {
+            Map<String, String> h = playerHeaders();
+            h.put("Referer", Config.SITE_ORIGIN + "/");
+            Http.Response r = Http.getResponse(Config.PLAYER_PAGE + id, h, true,
+                Config.PLAYLIST_TIMEOUT_MS);
+            if (r.code == 200 && r.body != null) {
+                String html = new String(r.body, java.nio.charset.StandardCharsets.UTF_8);
+                Matcher m = EDGE_RE.matcher(html);
+                if (m.find()) {
+                    found = m.group(1);
+                } else {
+                    Matcher s = SRC_RE.matcher(html);
+                    if (s.find()) {
+                        found = s.group(1);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("[EdgeTokens] no se pudo leer el EDGE: " + e.getMessage());
+        }
+
+        if (found == null || found.length() == 0) {
+            // Sin dato nuevo: se sigue usando el anterior y se espera un minuto
+            // para no pedir la página del player en cada canal.
+            edgeRetryAt = System.currentTimeMillis() + Config.EDGE_RETRY_MS;
+            return edge != null && edge.length() > 0 ? edge : Config.EDGE;
+        }
+
+        if (found.endsWith("/")) {
+            found = found.substring(0, found.length() - 1);
+        }
+        if (!found.equals(edge)) {
+            System.err.println("[EdgeTokens] EDGE vigente: " + found);
+        }
+        edge = found;
+        edgeAt = System.currentTimeMillis();
+        edgeRetryAt = 0L;
+        return found;
     }
 }

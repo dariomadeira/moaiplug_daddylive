@@ -393,6 +393,7 @@ def main():
     # Ruta DISTINTA al de resultados: si coincide, el catalogo online
     # pisa los resultados completos y se pierde todo el trabajo.
     base, ext = os.path.splitext(args.out)
+    catalog_out = base + "_online.json"
     if catalog:
         with open(catalog_out, "w", encoding="utf-8") as f:
             json.dump(catalog, f, ensure_ascii=False, indent=2)

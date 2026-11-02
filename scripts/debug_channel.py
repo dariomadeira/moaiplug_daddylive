@@ -1,241 +1,169 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import urllib.request
+"""Diagnóstico punta a punta de un canal 24/7 de thedaddy.pk.
+
+Sigue la misma cadena que el plugin (v0.5.1):
+
+    thedaddy.pk/watch.php?id=N
+      -> iframe dembed.st/premiumtv/daddy.php?id=N
+      -> const EDGE = "https://edge...."  (dominio que rota)
+      -> EDGE/api/playlist-token?slug=premiumN
+      -> EDGE/premiumN/index.m3u8?t=TOKEN
+      -> primer segmento enmascarado (PNG)
+
+Uso:
+    py -3 scripts/debug_channel.py [id] [--full]
+"""
+import argparse
 import re
-import base64
 import ssl
-import json
+import struct
+import sys
+import urllib.request
 
-# Ignorar errores de certificado SSL
-ssl_context = ssl.create_default_context()
-ssl_context.check_hostname = False
-ssl_context.verify_mode = ssl.CERT_NONE
+UA = ("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36")
+SITE = "https://thedaddy.pk"
 
-UA = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"
+# Algunos CDN usan certificados que Python no valida en ciertas redes.
+SSL_CTX = ssl.create_default_context()
+SSL_CTX.check_hostname = False
+SSL_CTX.verify_mode = ssl.CERT_NONE
 
-def fetch(url, headers=None, timeout=10):
+EDGE_RE = re.compile(r"(?:const\s+)?EDGE\s*=\s*[\"'](https?://[^\"']+)")
+SRC_RE = re.compile(r"(?:const\s+)?SRC\s*=\s*[\"'](https?://[^/\"']+)")
+TOKEN_RE = re.compile(r'"token"\s*:\s*"([^"]+)"')
+IFRAME_RE = re.compile(r'<iframe[^>]+src=["\']([^"\']+)', re.I)
+
+
+def get(url, headers=None, timeout=20):
     req = urllib.request.Request(url, headers=headers or {})
-    with urllib.request.urlopen(req, timeout=timeout, context=ssl_context) as r:
-        b = r.read().decode("utf-8", "replace")
-        print(f"--- BODY OF {url} ---")
-        print(b[2000:8000])
-        print("--- END BODY ---")
-        return r.status, b
+    with urllib.request.urlopen(req, timeout=timeout, context=SSL_CTX) as r:
+        return r.status, r.read()
 
-def decrypt_econfig(encoded):
-    """Port del decrypt de DaddyliveResolver.java (Scheme B)."""
-    try:
-        dec1 = base64.b64decode(encoded)
-        total = len(dec1)
-        part_length = (total + 3) // 4
-        order = [2, 0, 3, 1]
-        parts = []
-        for i in range(4):
-            from_idx = i * part_length
-            to_idx = min(from_idx + part_length, total)
-            if from_idx >= total:
-                parts.append("")
-                continue
-            parts.append(dec1[from_idx:to_idx].decode("iso-8859-1"))
-        rearranged = []
-        for i in range(4):
-            s = parts[i]
-            if len(s) >= 4:
-                s = s[:3] + s[4:]
-            try:
-                rearranged.append(base64.b64decode(s.encode("iso-8859-1")))
-            except Exception:
-                rearranged.append(b"")
-        combined = b"".join(rearranged)
-        return base64.b64decode(combined).decode("utf-8", errors="replace")
-    except Exception as e:
-        return f"ERROR: {e}"
 
-def extract_m3u8(html):
-    """Extraer m3u8 del HTML usando múltiples esquemas."""
-    # Scheme B: _econfig
-    m = re.search(r'window(?:\._econfig|\[[\'"][^\'"]+[\'"]\])\s*=\s*[\'"]([^\'"]{50,})[\'"]', html)
-    if m:
-        print(f"  _econfig encontrado, intentando decrypt...")
+def text(data):
+    return data.decode("utf-8", "replace")
+
+
+def absolute(url, base=SITE + "/"):
+    if url.startswith("//"):
+        return "https:" + url
+    if url.startswith("/"):
+        return SITE + url
+    if not url.startswith("http"):
+        from urllib.parse import urljoin
+        return urljoin(base, url)
+    return url
+
+
+def resolve_player(channel_id):
+    """Sigue watch.php -> stream-N.php -> iframe dembed hasta hallar EDGE."""
+    url = f"{SITE}/watch.php?id={channel_id}"
+    page = ""
+    for _ in range(3):
         try:
-            json_str = decrypt_econfig(m.group(1))
-            print(f"  JSON (primeros 200 chars): {json_str[:200]}")
-            for key in ["stream_url_nop2p", "stream_url"]:
-                m2 = re.search(rf'"{key}"\s*:\s*"([^"]+)"', json_str)
-                if m2:
-                    url = m2.group(1).replace("\\/", "/").replace("\\u0026", "&").replace('\\"', '"').replace("\\\\", "\\")
-                    print(f"  URL encontrada ({key}): {url}")
-                    return url
-        except Exception as e:
-            print(f"  Error en decrypt: {e}")
-    
-    # Scheme A: source: window.atob('...')
-    m = re.search(r"source\s*:\s*window\.atob\(\s*['\"]([^'\"]+)['\"]\s*\)", html)
-    if m:
-        print(f"  Scheme A: atob encontrado")
+            _, body = get(url, {"User-Agent": UA, "Referer": SITE + "/"})
+        except Exception as e:  # noqa: BLE001
+            print(f"  aviso: {url} falló ({e})")
+            break
+        page = text(body)
+        edge = discover_edge(page)
+        if edge:
+            return url, page, edge
+        m = IFRAME_RE.search(page)
+        if not m:
+            break
+        url = absolute(m.group(1))
+    return url, page, None
+
+
+def discover_edge(page):
+    m = EDGE_RE.search(page)
+    if not m:
+        m = SRC_RE.search(page)
+    return m.group(1).rstrip("/") if m else None
+
+
+def unwrap_layout(raw):
+    """Identifica el layout del segmento sin reproducirlo."""
+    if raw[:8] == b"\x89PNG\r\n\x1a\n":
+        off, idat = 8, b""
+        while off + 12 <= len(raw):
+            n = struct.unpack(">I", raw[off:off + 4])[0]
+            tag = raw[off + 4:off + 8]
+            if tag == b"IDAT":
+                idat += raw[off + 8:off + 8 + n]
+            off += 12 + n
+        if idat[:1] == b"\x47" and len(idat) % 188 == 0:
+            return "PNG con IDAT = MPEG-TS crudo (tvnow247)"
         try:
-            decoded = base64.b64decode(m.group(1)).decode("utf-8")
-            if ".m3u8" in decoded:
-                print(f"  URL encontrada: {decoded.strip()}")
-                return decoded.strip()
-        except Exception as e:
-            print(f"  Error en atob: {e}")
-    
-    # Scheme C: m3u8 directo
-    m = re.search(r'["\']((?:https?:)?//[^"\']+\.m3u8[^"\']*)["\']', html)
-    if m:
-        url = m.group(1)
-        if url.startswith("//"):
-            url = "https:" + url
-        print(f"  Scheme C: m3u8 directo: {url}")
-        return url
-    
-    # Scheme D: JSON con source/url
-    for key in ["source", "url"]:
-        m = re.search(rf'"{key}"\s*:\s*"([^"]+)"', html)
-        if m:
-            url = m.group(1).replace("\\/", "/")
-            if ".m3u8" in url:
-                if url.startswith("//"):
-                    url = "https:" + url
-                print(f"  Scheme D: {key}: {url}")
-                return url
-    
-    # Scheme E: data-src o src con m3u8
-    for attr in ["data-src", "src"]:
-        m = re.search(rf'{attr}\s*=\s*["\']([^"\']+\.m3u8[^"\']*)["\']', html)
-        if m:
-            url = m.group(1)
-            if url.startswith("//"):
-                url = "https:" + url
-            print(f"  Scheme E: {attr}: {url}")
-            return url
-    
-    return None
+            import zlib
+            data = zlib.decompress(idat)
+        except Exception:  # noqa: BLE001
+            return "PNG (IDAT no inflable)"
+        if b"TIKTIKPX" in data:
+            return "PNG + TIKTIKPX + gzip(TS) (TikTok CDN)"
+        return "PNG (layout de píxeles desconocido)"
+    if raw[:4] == b"RIFF" and raw[8:12] == b"WEBP":
+        return "WebP (posible TS en EXIF)"
+    if raw[:1] == b"\x47" and len(raw) % 188 == 0:
+        return "MPEG-TS crudo"
+    if b"TIKTIKRAW" in raw[:4096]:
+        return "TIKTIKRAW + TS"
+    return "desconocido (primeros bytes: %s)" % raw[:8].hex()
 
-channel_id = "521"
-domain = "daddylive.li"
-embed_url = f"https://{domain}/player/embed.php?id={channel_id}"
 
-print(f"Probando canal {channel_id} en {domain}...")
-print(f"URL: {embed_url}")
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("channel_id", nargs="?", default="521")
+    ap.add_argument("--full", action="store_true",
+                    help="muestra también el inicio del playlist")
+    args = ap.parse_args()
+    cid = args.channel_id
 
-try:
-    code, body = fetch(embed_url, {"User-Agent": UA, "Referer": f"https://{domain}/"})
-    print(f"Status: {code}")
-    print(f"Body length: {len(body)}")
-    
-    # Buscar PLAYERS
-    pm = re.search(r"PLAYERS\s*=\s*(\[[\s\S]*?\])", body)
-    print("--- IFRAMES IN EMBED.PHP ---")
-    for iframe in re.findall(r'<iframe[^>]+src=["\']([^"\']+)["\']', body):
-        print(f"  iframe src: {iframe}")
-    print("--- END IFRAMES ---")
-    if pm:
-        print(f"PLAYERS encontrado!")
-        slots = re.findall(r'\{\s*"src"\s*:\s*"([^"]+)"\s*,\s*"hls"\s*:\s*(true|false)\s*\}', pm.group(1))
-        # Unescape URLs
-        slots = [(src.replace("\\/", "/").replace("\\\\", "\\"), hls) for src, hls in slots]
-        print(f"Slots encontrados: {len(slots)}")
-        for i, (src, hls) in enumerate(slots[:5]):
-            print(f"  [{i}] {src} (hls={hls})")
-        
-        non_spam_slots = slots
-        
-        # Probar nontongo directo
-        nontongo_view = f"https://www.nontongo.win/livetv/view/{channel_id}"
-        print(f"\nProbando nontongo view directo: {nontongo_view}")
-        try:
-            code_view, body_view = fetch(nontongo_view, {"User-Agent": UA, "Referer": f"https://www.nontongo.win/livetv/{channel_id}"})
-            print(f"Status view: {code_view}")
-            print(f"Body view len: {len(body_view)}")
-            
-            # Buscar patrones en body_view
-            print("Buscando _econfig...")
-            for m in re.finditer(r'_econfig\s*=\s*["\']([^"\']+)["\']', body_view):
-                print(f"  Encontrado _econfig: {m.group(1)[:50]}...")
-            
-            print("Buscando atob...")
-            for m in re.finditer(r'atob\(\s*["\']([^"\']+)["\']\s*\)', body_view):
-                print(f"  Encontrado atob: {m.group(1)[:50]}...")
-                try:
-                    dec = base64.b64decode(m.group(1)).decode("utf-8", "replace")
-                    print(f"  Decodificado atob: {dec[:100]}")
-                except Exception as e:
-                    print(f"  Error decodificando atob: {e}")
-                    
-            print("Buscando .m3u8...")
-            for m in re.finditer(r'["\']((?:https?:)?//[^"\']+\.m3u8[^"\']*)["\']', body_view):
-                print(f"  Encontrado m3u8: {m.group(1)}")
-                
-            print("Buscando source: ...")
-            for m in re.finditer(r'source\s*:\s*["\']([^"\']+)["\']', body_view):
-                print(f"  Encontrado source: {m.group(1)}")
-                
-        except Exception as e:
-            print(f"Error en nontongo view: {e}")
-            if src.startswith("//"):
-                src = "https:" + src
-            elif src.startswith("/"):
-                src = f"https://{domain}" + src
-            print(f"\nProbando slot: {src}")
-            
-            try:
-                ref = re.match(r"https?://[^/]+", src).group(0) + "/"
-                code2, body2 = fetch(src, {"User-Agent": UA, "Referer": ref})
-                print(f"Status: {code2}")
-                print(f"Body length: {len(body2)}")
-                
-                # Buscar iframe
-                iframe = re.search(r'<iframe[^>]+src=["\']([^"\']+)["\']', body2)
-                if iframe:
-                    sub = iframe.group(1)
-                    if sub.startswith("//"):
-                        sub = "https:" + sub
-                    elif sub.startswith("/"):
-                        sub = f"https://{domain}" + sub
-                    print(f"Iframe encontrado: {sub}")
-                    
-                    code3, body3 = fetch(sub, {"User-Agent": UA, "Referer": src})
-                    print(f"Status iframe: {code3}")
-                    print(f"Body length: {len(body3)}")
-                    
-                    # Extraer m3u8
-                    m3u8_url = extract_m3u8(body3)
-                    if m3u8_url:
-                        print(f"\nValidando m3u8: {m3u8_url}")
-                        try:
-                            code4, body4 = fetch(m3u8_url, {"User-Agent": UA, "Referer": sub})
-                            print(f"Status m3u8: {code4}")
-                            if body4.startswith("#EXTM3U"):
-                                print("✓ CANAL ONLINE!")
-                            else:
-                                print(f"✗ m3u8 no válido: {body4[:100]}")
-                        except Exception as e:
-                            print(f"Error validando m3u8: {e}")
-                    else:
-                        print("No se encontró m3u8 en el iframe")
-                        # Buscar m3u8 directo en el body del iframe
-                        m3u8 = re.search(r'["\']((?:https?:)?//[^"\']+\.m3u8[^"\']*)["\']', body3)
-                        if m3u8:
-                            print(f"m3u8 directo en iframe: {m3u8.group(1)}")
-                        else:
-                            print("m3u8 directo no encontrado")
-                            print(f"Body preview: {body3[:500]}")
-                else:
-                    print("Iframe no encontrado")
-                    # Buscar m3u8 directo
-                    m3u8 = re.search(r'["\']((?:https?:)?//[^"\']+\.m3u8[^"\']*)["\']', body2)
-                    if m3u8:
-                        print(f"m3u8 directo: {m3u8.group(1)}")
-                    else:
-                        print("m3u8 directo no encontrado")
-                        print(f"Body preview: {body2[:500]}")
-            except Exception as e:
-                print(f"Error: {e}")
-    else:
-        print("PLAYERS no encontrado")
-        print(f"Body preview: {body[:500]}")
-except Exception as e:
-    print(f"Error: {e}")
-    import traceback
-    traceback.print_exc()
+    print(f"[1] Canal {cid} -> {SITE}/watch.php")
+    print("[2] Siguiendo watch.php -> stream -> player y buscando EDGE")
+    purl, _, edge = resolve_player(cid)
+    print(f"    player: {purl}")
+    if not edge:
+        sys.exit("    ERROR: no se encontró const EDGE / SRC")
+    print(f"    EDGE: {edge}")
+
+    headers = {"User-Agent": UA, "Referer": "https://dembed.st/",
+               "Origin": "https://dembed.st"}
+
+    print("[3] Pidiendo token")
+    code, tok = get(f"{edge}/api/playlist-token?slug=premium{cid}", headers)
+    m = TOKEN_RE.search(text(tok))
+    if code != 200 or not m:
+        sys.exit(f"    ERROR: HTTP {code} {text(tok)[:200]}")
+    print(f"    token: {m.group(1)[:16]}... ({len(m.group(1))} chars)")
+
+    print("[4] Pidiendo playlist")
+    pl_url = f"{edge}/premium{cid}/index.m3u8?t={m.group(1)}"
+    code, pl = get(pl_url, headers)
+    playlist = text(pl)
+    print(f"    HTTP {code}, {len(playlist)} bytes")
+    if not playlist.startswith("#EXTM3U"):
+        sys.exit(f"    ERROR: playlist inválido: {playlist[:200]}")
+    if args.full:
+        print(playlist[:800])
+
+    seg = next((ln.strip() for ln in playlist.splitlines()
+                if ln.strip() and not ln.startswith("#")), None)
+    if not seg:
+        sys.exit("    ERROR: playlist sin segmentos")
+    if not seg.startswith("http"):
+        seg = pl_url.rsplit("/", 1)[0] + "/" + seg
+
+    print("[5] Descargando primer segmento")
+    code, raw = get(seg, headers)
+    print(f"    HTTP {code}, {len(raw)} bytes")
+    print(f"    layout: {unwrap_layout(raw)}")
+    ok = len(raw) > 188 and unwrap_layout(raw) != "desconocido"
+    print("RESULTADO:", "OK" if ok else "REVISAR")
+
+
+if __name__ == "__main__":
+    main()

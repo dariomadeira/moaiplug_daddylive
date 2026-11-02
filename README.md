@@ -4,8 +4,9 @@ Plugin del motor moai3 que aporta canales 24/7 de DaddyLive resueltos directamen
 
 - **Tag:** `Daddy`
 - **ID:** `moai_daddylive`
-- **Versión:** `0.4.12`
-- **Canales:** Catálogo categorizado y filtrado por canales online verificados.
+- **Versión:** `0.5.1`
+- **Canales:** Catálogo vigente scrapeado de `https://thedaddy.pk/24-7-channels.php` (899 canales 24/7 el 2026-11-02).
+- **CDN:** el dominio `edge.*` rota; el plugin lo descubre de la página del player (`const EDGE`) y lo refresca solo.
 
 ## Instalación en moai3
 

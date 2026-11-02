@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
 """Genera el array `canales` del manifest.json del plugin moai_daddylive.
 
-Baja `GET https://{domain}/api/channels` (daddylive.li|.app|.mov) y escribe
-`build/canales.json` (solo el array) con PackagedPluginChannel:
+Fuente principal: la grilla de `https://thedaddy.pk/24-7-channels.php`, que
+publica cada canal 24/7 como `watch.php?id=N` + `<div class="card__title">`.
+Respaldo legacy: `GET https://{domain}/api/channels` (daddylive.li|.app|.mov).
+
+Escribe `build/canales.json` (solo el array) con PackagedPluginChannel:
     { "id": "<id numérico>", "nombre": ..., "logo": ..., "categoria": ..., "pais": ... }
 
 Filtros:
   - solo ids numéricos
   - sin canales 18+ (el endpoint no los incluye)
 Orden estable por id numérico para manifests reproducibles.
-Uso: python3 scripts/build_catalog.py [--out build/canales.json] [--domain daddylive.li]
+Uso: python3 scripts/build_catalog.py [--out build/canales.json] [--domain site|auto]
 """
 import argparse
+import html
 import json
 import os
 import re
@@ -19,6 +23,11 @@ import sys
 import urllib.request
 
 DOMAINS = ["daddylive.li", "daddylive.app", "daddylive.mov"]
+SITE_ORIGIN = "https://thedaddy.pk"
+CATALOG_PAGE = SITE_ORIGIN + "/24-7-channels.php"
+SITE_CARD_RE = re.compile(
+    r'href="/watch\.php\?id=(\d+)"[\s\S]{0,1200}?'
+    r'<div class="card__title">([^<]*)</div>')
 UA = ("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36")
 
@@ -297,6 +306,26 @@ def fetch_channels(domain):
         return json.loads(r.read().decode("utf-8", "replace"))
 
 
+def fetch_channels_site():
+    """Canales de la grilla vigente: [(id, nombre), ...] ya desescapados."""
+    req = urllib.request.Request(
+        CATALOG_PAGE, headers={"User-Agent": UA, "Referer": SITE_ORIGIN + "/"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        if r.status != 200:
+            raise RuntimeError(f"HTTP {r.status} en {CATALOG_PAGE}")
+        page = r.read().decode("utf-8", "replace")
+    out = []
+    seen = set()
+    for cid, name in SITE_CARD_RE.findall(page):
+        if cid in seen:
+            continue
+        seen.add(cid)
+        out.append((cid, html.unescape(name).strip() or f"Canal {cid}"))
+    if not out:
+        raise RuntimeError("la grilla no devolvió canales (¿cambió el HTML?)")
+    return out
+
+
 def country_of(name):
     low = name.lower()
     for kb, country in COUNTRY_MAP.items():
@@ -342,9 +371,13 @@ def build_channel(raw):
     m = re.search(r"id=([0-9]+)", url)
     if not m:
         return None
-    cid = m.group(1)
-    if not re.fullmatch(r"[0-9]+", cid):
+    return build_site_channel(m.group(1), name)
+
+
+def build_site_channel(cid, name):
+    if not re.fullmatch(r"[0-9]+", str(cid)):
         return None
+    cid = str(cid)
     cat = category_of(name, cid)
     country = "Adultos" if cat == "Adultos" else country_of(name)
     return {
@@ -359,7 +392,7 @@ def build_channel(raw):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="build/canales.json")
-    ap.add_argument("--domain", choices=DOMAINS + ["auto"], default="auto")
+    ap.add_argument("--domain", choices=DOMAINS + ["site", "auto"], default="auto")
     ap.add_argument("--online-only", default="", help="Archivo JSON con canales online (de verify_with_java.py)")
     args = ap.parse_args()
 
@@ -374,20 +407,37 @@ def main():
 
     errors = []
     channels = {}
-    for domain in ([args.domain] if args.domain != "auto" else DOMAINS):
+
+    # 1. Grilla vigente de la web (fuente principal desde 2026-11)
+    if args.domain in ("site", "auto"):
         try:
-            raw = fetch_channels(domain)
-            for item in raw:
-                c = build_channel(item) if isinstance(item, dict) else None
-                if c:
-                    # Filtrar por canales online si se especificó
-                    if online_ids is not None and c["id"] not in online_ids:
-                        continue
-                    channels[c["id"]] = c
-            print(f"[build_catalog] {domain}: {len(channels)} canales numéricos", file=sys.stderr)
-            break
+            for cid, name in fetch_channels_site():
+                c = build_site_channel(cid, name)
+                if not c:
+                    continue
+                if online_ids is not None and c["id"] not in online_ids:
+                    continue
+                channels[c["id"]] = c
+            print(f"[build_catalog] site: {len(channels)} canales numéricos", file=sys.stderr)
         except Exception as e:  # noqa: BLE001
-            errors.append(f"{domain}: {e}")
+            errors.append(f"site: {e}")
+
+    # 2. Respaldo legacy: /api/channels de los dominios de DaddyLive
+    if not channels and args.domain != "site":
+        for domain in ([args.domain] if args.domain != "auto" else DOMAINS):
+            try:
+                raw = fetch_channels(domain)
+                for item in raw:
+                    c = build_channel(item) if isinstance(item, dict) else None
+                    if c:
+                        # Filtrar por canales online si se especificó
+                        if online_ids is not None and c["id"] not in online_ids:
+                            continue
+                        channels[c["id"]] = c
+                print(f"[build_catalog] {domain}: {len(channels)} canales numéricos", file=sys.stderr)
+                break
+            except Exception as e:  # noqa: BLE001
+                errors.append(f"{domain}: {e}")
     if not channels:
         sys.exit("ERROR: no se pudo bajar el catálogo: " + "; ".join(errors))
 

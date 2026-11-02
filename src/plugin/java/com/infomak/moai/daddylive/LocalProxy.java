@@ -56,7 +56,8 @@ import java.util.zip.Inflater;
  *     -> pixeles[12 .. 12+n) = gzip( MPEG-TS )
  *
  * Se aceptan tambien los layouts legacy (TRAW / TSGZ / TS tras IEND de PNG /
- * TS en el chunk EXIF de un WebP) replicando el unwrap() del player oficial.
+ * TS en el chunk EXIF de un WebP) replicando el unwrap() del player oficial,
+ * y el de tvnow247 (PNG decorativo cuyo unico IDAT lleva TS crudo).
  */
 public final class LocalProxy implements Runnable {
 
@@ -174,11 +175,15 @@ public final class LocalProxy implements Runnable {
                     return ok(channelId, new Upstream(new String(r.body, StandardCharsets.UTF_8), url));
                 }
                 if (r.code == 401 || r.code == 403) {
+                    // Token rechazado o EDGE rotado: se pide uno nuevo.
+                    EdgeTokens.invalidateEdge();
                     newToken = true;
                     continue;
                 }
             } catch (Exception e) {
                 error = e.getMessage();
+                // DNS/connect/timeout: el EDGE pudo cambiar de dominio.
+                EdgeTokens.invalidateEdge();
             }
             sleepUntil(Config.COLD_START_DELAY_MS, deadline);
         }
@@ -513,6 +518,9 @@ public final class LocalProxy implements Runnable {
         ts = pngIendTs(raw);
         if (ts != null) return ts;
 
+        ts = pngIdatRawTs(raw);
+        if (ts != null) return ts;
+
         if (isPng(raw)) {
             try {
                 ts = pngPixelTs(raw);
@@ -661,6 +669,41 @@ public final class LocalProxy implements Runnable {
             }
         }
         return null;
+    }
+
+    /**
+     * Layout de tvnow247: PNG decorativo (IHDR alto 1) cuyo unico chunk IDAT
+     * lleva el MPEG-TS crudo, sin comprimir. Se valida el sync 0x47 cada 188
+     * bytes para no aceptar un PNG normal (cuyo IDAT empieza con zlib 0x78).
+     */
+    private static byte[] pngIdatRawTs(byte[] b) {
+        if (b.length < 16 || !isPng(b)) return null;
+        int off = 8;
+        ByteArrayOutputStream bos = null;
+        while (off + 8 <= b.length) {
+            int len = readIntBE(b, off);
+            if (len < 0 || len > b.length - off - 12) return null;
+            int type = readIntBE(b, off + 4);
+            if (type == TAG_IDAT && len > 0) {
+                int start = off + 8;
+                if (bos == null) {
+                    if ((b[start] & 0xFF) != 0x47) return null;
+                    bos = new ByteArrayOutputStream(len);
+                }
+                bos.write(b, start, len);
+                if (bos.size() > MAX_INTERMEDIATE) return null;
+            } else if (type == TAG_IEND) {
+                break;
+            }
+            off += 12 + len;
+        }
+        if (bos == null) return null;
+        byte[] ts = bos.toByteArray();
+        if (ts.length < 188 || ts.length % 188 != 0) return null;
+        for (int i = 0; i < ts.length; i += 188) {
+            if ((ts[i] & 0xFF) != 0x47) return null;
+        }
+        return ts;
     }
 
     /** TIKTIKRAW + TS crudo (layout legacy). */

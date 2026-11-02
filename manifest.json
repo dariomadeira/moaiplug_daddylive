@@ -2,242 +2,13 @@
   "id": "moai_daddylive",
   "tag": "Daddy",
   "nombre": "Moai Daddylive",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "minContrato": 1,
   "maxContrato": 1,
   "clase": "com.infomak.moai.daddylive.DaddylivePlugin",
-  "sha256": "0f7f408d554c19ac7075bcb3c7130d54223865105f993757d34d0d4c1b5eef8c",
-  "canalInicial": "1",
+  "sha256": "5d544d45e0368268f5049a0907f5e520034ea7a6dcc92116c004dc16d77b256a",
+  "canalInicial": "31",
   "canales": [
-  {
-    "id": "1",
-    "nombre": "Indosiar",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "2",
-    "nombre": "Tabii Spor 6 Turkey",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/flag-tr.png",
-    "categoria": "Deportes",
-    "pais": "Turquía",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/tr.png"
-  },
-  {
-    "id": "3",
-    "nombre": "Eleven Sports 4 Poland",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/portugal/eleven-sports-1-pt.png",
-    "categoria": "Deportes",
-    "pais": "Polonia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pl.png"
-  },
-  {
-    "id": "4",
-    "nombre": "Hub Premier",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5",
-    "nombre": "Sky Sport Premier League DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "6",
-    "nombre": "V Sport Premium",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "7",
-    "nombre": "Thmanyah",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "8",
-    "nombre": "NBA League Pass",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nba-tv-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "9",
-    "nombre": "V Sport Football",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "10",
-    "nombre": "Al Iraqiya Sports",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "11",
-    "nombre": "DF1 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "12",
-    "nombre": "ERT 2 Greece",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/greece/flag-gr.png",
-    "categoria": "General",
-    "pais": "Grecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/gr.png"
-  },
-  {
-    "id": "13",
-    "nombre": "ORF 1 Austria",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/austria/flag-at.png",
-    "categoria": "General",
-    "pais": "Austria",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/at.png"
-  },
-  {
-    "id": "14",
-    "nombre": "NHL Gamecenter",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nhl-network-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "15",
-    "nombre": "Arena Sport 1x2 Serbia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/arena-sport-1-rs.png",
-    "categoria": "Deportes",
-    "pais": "Serbia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/rs.png"
-  },
-  {
-    "id": "16",
-    "nombre": "4seven UK",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/flag-gb.png",
-    "categoria": "General",
-    "pais": "Reino Unido",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/gb.png"
-  },
-  {
-    "id": "17",
-    "nombre": "Sport TV7 Portugal",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Portugal",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pt.png"
-  },
-  {
-    "id": "18",
-    "nombre": "Sky Sport 4 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "19",
-    "nombre": "Sky Sport 3 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "20",
-    "nombre": "Sky Sport 2 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "21",
-    "nombre": "Sky Sport 1 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "22",
-    "nombre": "STV 1 Slovenia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovenia/rts-si.png",
-    "categoria": "General",
-    "pais": "Eslovenia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/si.png"
-  },
-  {
-    "id": "23",
-    "nombre": "NLSE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "24",
-    "nombre": "JOJ Sport Slovakia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Eslovaquia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/sk.png"
-  },
-  {
-    "id": "25",
-    "nombre": "STV 2 Slovenia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovenia/rts-si.png",
-    "categoria": "General",
-    "pais": "Eslovenia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/si.png"
-  },
-  {
-    "id": "26",
-    "nombre": "TNT Sports 5 UK",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tnt-us.png",
-    "categoria": "Deportes",
-    "pais": "Reino Unido",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/gb.png"
-  },
-  {
-    "id": "27",
-    "nombre": "svt 24 Sweden",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/sweden/flag-se.png",
-    "categoria": "General",
-    "pais": "Suecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/se.png"
-  },
-  {
-    "id": "28",
-    "nombre": "E4 UK",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/flag-gb.png",
-    "categoria": "General",
-    "pais": "Reino Unido",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/gb.png"
-  },
-  {
-    "id": "29",
-    "nombre": "Magenta Sport 302",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "30",
-    "nombre": "Magenta Sport 306",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
   {
     "id": "31",
     "nombre": "TNT Sports 1 UK",
@@ -427,14 +198,6 @@
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
   },
   {
-    "id": "55",
-    "nombre": "DAZN Zona 2 IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
     "id": "56",
     "nombre": "Supersport Football",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
@@ -456,14 +219,6 @@
     "categoria": "Deportes",
     "pais": "Polonia",
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pl.png"
-  },
-  {
-    "id": "59",
-    "nombre": "STV2 Slovenia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovenia/rts-si.png",
-    "categoria": "General",
-    "pais": "Eslovenia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/si.png"
   },
   {
     "id": "60",
@@ -528,21 +283,6 @@
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/tr.png"
   },
   {
-    "id": "68",
-    "nombre": "Canal+ Live 3 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "69",
-    "nombre": "Magenta Sport 307",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
     "id": "70",
     "nombre": "Sky Sports Golf UK",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
@@ -589,20 +329,6 @@
     "categoria": "Deportes",
     "pais": "Polonia",
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pl.png"
-  },
-  {
-    "id": "76",
-    "nombre": "Magenta Sport 305",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "77",
-    "nombre": "Movistar Liga de Campeones 9",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
   },
   {
     "id": "78",
@@ -666,14 +392,6 @@
     "categoria": "Deportes",
     "pais": "Brasil",
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/br.png"
-  },
-  {
-    "id": "86",
-    "nombre": "Canal+ Live 7 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
   },
   {
     "id": "87",
@@ -807,52 +525,6 @@
     "categoria": "Deportes",
     "pais": "Croacia",
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/hr.png"
-  },
-  {
-    "id": "105",
-    "nombre": "Canal+ Live 5 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "106",
-    "nombre": "Canal+ Live 6 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "107",
-    "nombre": "Canal+ Live 4 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "108",
-    "nombre": "LALIGA TV Hypermotion 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "109",
-    "nombre": "Peacock Feed",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "110",
-    "nombre": "ACB DAZN Spain",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
   },
   {
     "id": "111",
@@ -1159,453 +831,11 @@
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ar.png"
   },
   {
-    "id": "151",
-    "nombre": "beIN SPORTS MAX AR",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "Argentina",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ar.png"
-  },
-  {
-    "id": "152",
-    "nombre": "Sky Sport 258 IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "153",
-    "nombre": "KHL Tv",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "154",
-    "nombre": "KHL Prime",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "155",
-    "nombre": "3 Schweiz",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "156",
-    "nombre": "Sky Sport 256 Italia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "157",
-    "nombre": "Sky Sport 255 Italia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "158",
-    "nombre": "SPFL Feed",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "159",
-    "nombre": "Sky Sport 253 Italia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "160",
-    "nombre": "Sky Sport 254 Italia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "161",
-    "nombre": "DAZN PPV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "162",
-    "nombre": "Magenta Sport 308",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "163",
-    "nombre": "Polsat Sport Premium 2 Poland",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/poland/polsat-sport-1-pl.png",
-    "categoria": "Deportes",
-    "pais": "Polonia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pl.png"
-  },
-  {
-    "id": "164",
-    "nombre": "Magenta Sport 304",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "165",
-    "nombre": "SportKlub 8 Croatia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/croatia/sport-klub-1-hr.png",
-    "categoria": "Deportes",
-    "pais": "Croacia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/hr.png"
-  },
-  {
-    "id": "166",
-    "nombre": "Movistar Liga de Campeones 7",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "167",
-    "nombre": "МАТЧ! СТРАНА Russia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/russia/flag-ru.png",
-    "categoria": "General",
-    "pais": "Rusia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ru.png"
-  },
-  {
-    "id": "168",
-    "nombre": "Match Igra Russia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/russia/flag-ru.png",
-    "categoria": "General",
-    "pais": "Rusia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ru.png"
-  },
-  {
-    "id": "169",
-    "nombre": "SportKlub 5 Croatia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/croatia/sport-klub-1-hr.png",
-    "categoria": "Deportes",
-    "pais": "Croacia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/hr.png"
-  },
-  {
-    "id": "170",
-    "nombre": "TG4",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "171",
-    "nombre": "ESPN Select",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "172",
-    "nombre": "Movistar Liga de Campeones 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "173",
-    "nombre": "SRF Info",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "174",
-    "nombre": "Victory+",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "175",
-    "nombre": "FloHockey",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "176",
-    "nombre": "STV 3 Slovenia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovenia/rts-si.png",
-    "categoria": "General",
-    "pais": "Eslovenia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/si.png"
-  },
-  {
-    "id": "177",
-    "nombre": "Canal+ Live 15 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "178",
-    "nombre": "Next Level Sports",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "179",
-    "nombre": "DAZN France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "180",
-    "nombre": "Canal+ Live 13 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "181",
-    "nombre": "Esport3 Spain",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/flag-es.png",
-    "categoria": "Deportes",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "182",
-    "nombre": "Tv2 Sport 2 Norway",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Noruega",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/no.png"
-  },
-  {
-    "id": "183",
-    "nombre": "SECN+ USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/flag-us.png",
-    "categoria": "General",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "184",
-    "nombre": "Movistar Deportes 8 Spain",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "185",
-    "nombre": "FUBO Sports",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "186",
-    "nombre": "Sky Sport 254 IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "187",
-    "nombre": "Sky Sport 253 IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "188",
-    "nombre": "Sky Sport 255 IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "189",
-    "nombre": "Sky Sport 252 IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "190",
-    "nombre": "Paramount+",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/paramount-network-us.png",
-    "categoria": "Cine",
-    "pais": "General"
-  },
-  {
-    "id": "191",
-    "nombre": "ESPN+ USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
-    "categoria": "Deportes",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "192",
-    "nombre": "RTSH Sport Albania",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Albania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/al.png"
-  },
-  {
-    "id": "193",
-    "nombre": "Peacock",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "194",
-    "nombre": "Canal+ Live 2 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "195",
-    "nombre": "Tring Sport 1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "196",
-    "nombre": "beIN SPORTS MAX 1 Turkey",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "Turquía",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/tr.png"
-  },
-  {
-    "id": "197",
-    "nombre": "Sky Sport 8 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "198",
-    "nombre": "TVMSport+ Malta",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "199",
-    "nombre": "Sportklub 10 Croatia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/croatia/sport-klub-1-hr.png",
-    "categoria": "Deportes",
-    "pais": "Croacia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/hr.png"
-  },
-  {
-    "id": "200",
-    "nombre": "DYN Germany",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "General",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "201",
-    "nombre": "GAA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "202",
-    "nombre": "TV2 Direkte Norway",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/norway/flag-no.png",
-    "categoria": "General",
-    "pais": "Noruega",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/no.png"
-  },
-  {
-    "id": "203",
-    "nombre": "Canal+ Live 1 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "204",
-    "nombre": "DYN DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "General",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "205",
-    "nombre": "DAZN LaLiga 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
     "id": "206",
     "nombre": "AHC (American Heroes Channel)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
     "categoria": "General",
     "pais": "General"
-  },
-  {
-    "id": "207",
-    "nombre": "BTN+ USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/flag-us.png",
-    "categoria": "General",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "208",
-    "nombre": "TNT Sports 6 UK",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tnt-us.png",
-    "categoria": "Deportes",
-    "pais": "Reino Unido",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/gb.png"
-  },
-  {
-    "id": "209",
-    "nombre": "Polsat Sport Fight Poland",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/poland/polsat-sport-1-pl.png",
-    "categoria": "Deportes",
-    "pais": "Polonia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pl.png"
   },
   {
     "id": "210",
@@ -1616,148 +846,12 @@
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
   },
   {
-    "id": "211",
-    "nombre": "Sky Sport Austria 4",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Austria",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/at.png"
-  },
-  {
-    "id": "212",
-    "nombre": "ESPN+ ESP",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
-    "categoria": "Deportes",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "213",
-    "nombre": "МАТЧ! Igra Russia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/russia/flag-ru.png",
-    "categoria": "General",
-    "pais": "Rusia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ru.png"
-  },
-  {
-    "id": "214",
-    "nombre": "Big Ten Plus",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "215",
-    "nombre": "GAA+",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "216",
-    "nombre": "DAZN CA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "Canadá",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ca.png"
-  },
-  {
-    "id": "217",
-    "nombre": "beIN Sports 2 Max Turkey",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "Turquía",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/tr.png"
-  },
-  {
-    "id": "218",
-    "nombre": "JOJ Sport SK",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Eslovaquia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/sk.png"
-  },
-  {
-    "id": "219",
-    "nombre": "Sport 1 SK",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Eslovaquia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/sk.png"
-  },
-  {
-    "id": "220",
-    "nombre": "JOJ Sport",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "221",
-    "nombre": "Kanal 1 Sport Slovakia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Eslovaquia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/sk.png"
-  },
-  {
-    "id": "222",
-    "nombre": "Ligue1+ 3 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/flag-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
     "id": "223",
     "nombre": "TV3 Max Denmark",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/denmark/flag-dk.png",
     "categoria": "General",
     "pais": "Dinamarca",
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/dk.png"
-  },
-  {
-    "id": "224",
-    "nombre": "Sport Klub 10 Croatia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/croatia/sport-klub-1-hr.png",
-    "categoria": "Deportes",
-    "pais": "Croacia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/hr.png"
-  },
-  {
-    "id": "225",
-    "nombre": "Darts borad 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "226",
-    "nombre": "DAZN Baloncesto",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "227",
-    "nombre": "DAZN Baloncesto 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "228",
-    "nombre": "Event PPV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "229",
-    "nombre": "Netflix PPV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
   },
   {
     "id": "230",
@@ -1798,36 +892,6 @@
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/nl.png"
   },
   {
-    "id": "235",
-    "nombre": "Eurosport 1 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/eurosport-1-fr.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "237",
-    "nombre": "TV Klan Albania",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "Albania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/al.png"
-  },
-  {
-    "id": "238",
-    "nombre": "Triller TV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "239",
-    "nombre": "Magenta Sport 301",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
     "id": "240",
     "nombre": "Sky Sports 1 DE",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
@@ -1844,138 +908,6 @@
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
   },
   {
-    "id": "242",
-    "nombre": "ACCNX USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/flag-us.png",
-    "categoria": "General",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "243",
-    "nombre": "Ictimai TV Azerbaijan",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "244",
-    "nombre": "Tipik Belgium",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/belgium/flag-be.png",
-    "categoria": "General",
-    "pais": "Bélgica",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/be.png"
-  },
-  {
-    "id": "245",
-    "nombre": "Caracol TV Colombia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/colombia/caracol-tv-co.png",
-    "categoria": "General",
-    "pais": "Colombia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/co.png"
-  },
-  {
-    "id": "246",
-    "nombre": "M+ LALIGA TV 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "247",
-    "nombre": "HRT2 Croatia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/croatia/flag-hr.png",
-    "categoria": "General",
-    "pais": "Croacia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/hr.png"
-  },
-  {
-    "id": "248",
-    "nombre": "SKY Go Italia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/flag-it.png",
-    "categoria": "General",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "249",
-    "nombre": "SECN+ USA USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/flag-us.png",
-    "categoria": "General",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "250",
-    "nombre": "UFC Fight Pass",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "251",
-    "nombre": "SKY Sport 259 Italia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "252",
-    "nombre": "FloRacing",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "253",
-    "nombre": "Antena 1 Romania",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/romania/flag-ro.png",
-    "categoria": "General",
-    "pais": "Rumania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ro.png"
-  },
-  {
-    "id": "254",
-    "nombre": "RTS 1 Serbia (PTC)",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/rts-1-rs.png",
-    "categoria": "General",
-    "pais": "Serbia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/rs.png"
-  },
-  {
-    "id": "255",
-    "nombre": "RTVS Sport Slovakia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Eslovaquia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/sk.png"
-  },
-  {
-    "id": "256",
-    "nombre": "SKY Sport 257 Italia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "257",
-    "nombre": "TV4 Sweden",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/sweden/flag-se.png",
-    "categoria": "General",
-    "pais": "Suecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/se.png"
-  },
-  {
-    "id": "258",
-    "nombre": "Sportklub 9 Croatia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/croatia/sport-klub-1-hr.png",
-    "categoria": "Deportes",
-    "pais": "Croacia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/hr.png"
-  },
-  {
     "id": "259",
     "nombre": "Canal+ Sport 3 Poland",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
@@ -1988,35 +920,6 @@
     "nombre": "Vodafone Sport",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
     "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "261",
-    "nombre": "VTV3 Vietnam",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "262",
-    "nombre": "RSI LA 2 IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/flag-it.png",
-    "categoria": "General",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "263",
-    "nombre": "Celtic TV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "264",
-    "nombre": "Fussball.TV 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
     "pais": "General"
   },
   {
@@ -2818,7 +1721,7 @@
   },
   {
     "id": "372",
-    "nombre": "beIN SPORTS en Espanol",
+    "nombre": "beIN SPORTS en Espa単ol",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
     "categoria": "Deportes",
     "pais": "General"
@@ -3307,7 +2210,7 @@
   },
   {
     "id": "437",
-    "nombre": "Movistar Supercopa de Espana",
+    "nombre": "Movistar Supercopa de España",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
     "categoria": "Deportes",
     "pais": "España",
@@ -3811,140 +2714,140 @@
   },
   {
     "id": "501",
-    "nombre": "Pornhub",
+    "nombre": "18+ (Player-01)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "502",
-    "nombre": "XVideos",
+    "nombre": "18+ (Player-02)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "503",
-    "nombre": "XNXX",
+    "nombre": "18+ (Player-03)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "504",
-    "nombre": "XHamster",
+    "nombre": "18+ (Player-04)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "505",
-    "nombre": "YouPorn",
+    "nombre": "18+ (Player-05)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "506",
-    "nombre": "SpankBang",
+    "nombre": "18+ (Player-06)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "507",
-    "nombre": "RedTube",
+    "nombre": "18+ (Player-07)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "508",
-    "nombre": "Brazzers",
+    "nombre": "18+ (Player-08)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "509",
-    "nombre": "RealityKings",
+    "nombre": "18+ (Player-09)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "510",
-    "nombre": "BangBros",
+    "nombre": "18+ (Player-10)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "511",
-    "nombre": "NaughtyAmerica",
+    "nombre": "18+ (Player-11)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "512",
-    "nombre": "Beeg",
+    "nombre": "18+ (Player-12)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "513",
-    "nombre": "Eporner",
+    "nombre": "18+ (Player-13)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "514",
-    "nombre": "Tube8",
+    "nombre": "18+ (Player-14)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "515",
-    "nombre": "PornHD",
+    "nombre": "18+ (Player-15)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "516",
-    "nombre": "TNAFlix",
+    "nombre": "18+ (Player-16)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "517",
-    "nombre": "DrTuber",
+    "nombre": "18+ (Player-17)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "518",
-    "nombre": "PornTrex",
+    "nombre": "18+ (Player-18)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "519",
-    "nombre": "SexVid",
+    "nombre": "18+ (Player-19)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
   },
   {
     "id": "520",
-    "nombre": "Motherless",
+    "nombre": "18+ (Player-20)",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/adult-generic.png",
     "categoria": "Adultos",
     "pais": "Adultos"
@@ -4157,11 +3060,10 @@
   },
   {
     "id": "547",
-    "nombre": "Channel 10 Israel",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/israel/flag-il.png",
+    "nombre": "Channel 10 Israe",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
     "categoria": "General",
-    "pais": "Israel",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/il.png"
+    "pais": "General"
   },
   {
     "id": "548",
@@ -4735,64 +3637,64 @@
   },
   {
     "id": "622",
-    "nombre": "Cosmote Sport 1 HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "nombre": "Magenta Sport 1 HD",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
     "categoria": "Deportes",
     "pais": "General"
   },
   {
     "id": "623",
-    "nombre": "Cosmote Sport 2 HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "nombre": "Magenta Sport 2 HD",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
     "categoria": "Deportes",
     "pais": "General"
   },
   {
     "id": "624",
-    "nombre": "Cosmote Sport 3 HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "nombre": "Magenta Sport 3 HD",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
     "categoria": "Deportes",
     "pais": "General"
   },
   {
     "id": "625",
-    "nombre": "Cosmote Sport 4 HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "nombre": "Magenta Sport 4 HD",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
     "categoria": "Deportes",
     "pais": "General"
   },
   {
     "id": "626",
-    "nombre": "Cosmote Sport 5 HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "nombre": "Magenta Sport 5 HD",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
     "categoria": "Deportes",
     "pais": "General"
   },
   {
     "id": "627",
-    "nombre": "Cosmote Sport 6 HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "nombre": "Magenta Sport 6 HD",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
     "categoria": "Deportes",
     "pais": "General"
   },
   {
     "id": "628",
-    "nombre": "Cosmote Sport 7 HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "nombre": "Magenta Sport 7 HD",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
     "categoria": "Deportes",
     "pais": "General"
   },
   {
     "id": "629",
-    "nombre": "Cosmote Sport 8 HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "nombre": "Magenta Sport 8 HD",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
     "categoria": "Deportes",
     "pais": "General"
   },
   {
     "id": "630",
-    "nombre": "Cosmote Sport 9 HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "nombre": "Magenta Sport 9 HD",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/magenta-sport-de.png",
     "categoria": "Deportes",
     "pais": "General"
   },
@@ -5296,11 +4198,11 @@
   },
   {
     "id": "695",
-    "nombre": "Showtime SHOxBET USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/showtime-us.png",
-    "categoria": "Cine",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
+    "nombre": "Sky NEWS UK",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-news-uk.png",
+    "categoria": "Noticias",
+    "pais": "Reino Unido",
+    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/gb.png"
   },
   {
     "id": "696",
@@ -5664,7 +4566,7 @@
   },
   {
     "id": "743",
-    "nombre": "Galavision USA",
+    "nombre": "Galavisi贸n USA",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/flag-us.png",
     "categoria": "General",
     "pais": "Estados Unidos",
@@ -6193,11 +5095,11 @@
   },
   {
     "id": "812",
-    "nombre": "C More First Sweden",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/sweden/flag-se.png",
-    "categoria": "General",
-    "pais": "Suecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/se.png"
+    "nombre": "TV 2 Sport Norway",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "categoria": "Deportes",
+    "pais": "Noruega",
+    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/no.png"
   },
   {
     "id": "813",
@@ -6209,11 +5111,11 @@
   },
   {
     "id": "814",
-    "nombre": "C More Series Sweden",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/sweden/flag-se.png",
-    "categoria": "Cine",
-    "pais": "Suecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/se.png"
+    "nombre": "TV 2 Sport 2 Norway",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
+    "categoria": "Deportes",
+    "pais": "Noruega",
+    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/no.png"
   },
   {
     "id": "815",
@@ -6808,37 +5710,37 @@
   },
   {
     "id": "891",
-    "nombre": "FanDuel Sports Network Detroit",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
+    "nombre": "Big Brother S28 CAM 1",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
+    "categoria": "General",
     "pais": "General"
   },
   {
     "id": "892",
-    "nombre": "FanDuel Sports Network Florida",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
+    "nombre": "Big Brother S28 CAM 2",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
+    "categoria": "General",
     "pais": "General"
   },
   {
     "id": "893",
-    "nombre": "FanDuel Sports Network Great Lakes",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
+    "nombre": "Big Brother S28 CAM 3",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
+    "categoria": "General",
     "pais": "General"
   },
   {
     "id": "894",
-    "nombre": "FanDuel Sports Network Indiana",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
+    "nombre": "Big Brother S28 CAM 4",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
+    "categoria": "General",
     "pais": "General"
   },
   {
     "id": "895",
-    "nombre": "FanDuel Sports Network Kansas City",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
+    "nombre": "Big Brother S28 Quadview",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
+    "categoria": "General",
     "pais": "General"
   },
   {
@@ -7137,27 +6039,6 @@
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/mx.png"
   },
   {
-    "id": "937",
-    "nombre": "V Sport Golf",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "938",
-    "nombre": "Fussball.TV 3",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "939",
-    "nombre": "Fast Sports Armenia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
     "id": "940",
     "nombre": "Arena Sport 5 Serbia",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/arena-sport-1-rs.png",
@@ -7323,7 +6204,7 @@
   },
   {
     "id": "961",
-    "nombre": "Automoto La chaine",
+    "nombre": "Automoto La chaîne",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
     "categoria": "Deportes",
     "pais": "General"
@@ -7359,35 +6240,6 @@
     "categoria": "Deportes",
     "pais": "Francia",
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "966",
-    "nombre": "Bein Sports MAX 1 Arabic",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "967",
-    "nombre": "Sportklub 7 Croatia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/croatia/sport-klub-1-hr.png",
-    "categoria": "Deportes",
-    "pais": "Croacia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/hr.png"
-  },
-  {
-    "id": "968",
-    "nombre": "beIN SPORTS XTRA 3 Arabic",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "969",
-    "nombre": "beIN SPORTS XTRA 4 Arabic",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
   },
   {
     "id": "970",
@@ -7666,13 +6518,6 @@
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/tr.png"
   },
   {
-    "id": "1006",
-    "nombre": "TV8,5",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/tv8-tr.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
     "id": "1010",
     "nombre": "bein Sports 5 Turkey",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
@@ -7685,14 +6530,6 @@
     "nombre": "A Spor Turkey",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/flag-tr.png",
     "categoria": "Deportes",
-    "pais": "Turquía",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/tr.png"
-  },
-  {
-    "id": "1012",
-    "nombre": "TRT 1 Turkey",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-1-tr.png",
-    "categoria": "General",
     "pais": "Turquía",
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/tr.png"
   },
@@ -7842,7 +6679,7 @@
   },
   {
     "id": "1038",
-    "nombre": "Oneplay Sport 4 CZ",
+    "nombre": "OnePlay Sport 4 CZ",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
     "categoria": "Deportes",
     "pais": "República Checa",
@@ -7954,9 +6791,9 @@
   },
   {
     "id": "1052",
-    "nombre": "JOJ Sport SK",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
+    "nombre": "JOJ Šport SK",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovakia/flag-sk.png",
+    "categoria": "General",
     "pais": "Eslovaquia",
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/sk.png"
   },
@@ -8071,1713 +6908,6 @@
     "categoria": "Deportes",
     "pais": "Eslovaquia",
     "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/sk.png"
-  },
-  {
-    "id": "1067",
-    "nombre": "DAZN USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "1068",
-    "nombre": "Court Live Feed",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1070",
-    "nombre": "RTL+ DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "General",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "1071",
-    "nombre": "Tennis TV HD",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1073",
-    "nombre": "Sky Sport 258 Italia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "1075",
-    "nombre": "Tennis HD Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1076",
-    "nombre": "ACCNX",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1078",
-    "nombre": "Sky Sport 252 Italia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "1081",
-    "nombre": "Live Feed",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1092",
-    "nombre": "Event SD Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1122",
-    "nombre": "Flotv",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1133",
-    "nombre": "Event Stream (ESP)",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/flag-es.png",
-    "categoria": "General",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "1159",
-    "nombre": "Dirtgvision",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1161",
-    "nombre": "PPV Feed",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1166",
-    "nombre": "SECNX USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/flag-us.png",
-    "categoria": "General",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "1177",
-    "nombre": "FloSports",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1201",
-    "nombre": "F1 SD Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-f1-uk.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1202",
-    "nombre": "Event SD Strean",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1203",
-    "nombre": "Soccer SD Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1204",
-    "nombre": "Sevent SD Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1206",
-    "nombre": "Event SD Stream Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1210",
-    "nombre": "Event SD Streamm",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1216",
-    "nombre": "Event SD Sream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1233",
-    "nombre": "Event SD Strea",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1501",
-    "nombre": "Tennis Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1507",
-    "nombre": "Tennis Stream 1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1508",
-    "nombre": "T. Tennis Channel",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1515",
-    "nombre": "LINK 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "1558",
-    "nombre": "Tennis Stream 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1563",
-    "nombre": "Tennis Stream (CH-110)",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/switzerland/flag-ch.png",
-    "categoria": "Deportes",
-    "pais": "Suiza",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ch.png"
-  },
-  {
-    "id": "1574",
-    "nombre": "Tennis Stream (CH-1551) Tennis Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/switzerland/flag-ch.png",
-    "categoria": "Deportes",
-    "pais": "Suiza",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ch.png"
-  },
-  {
-    "id": "1650",
-    "nombre": "Tennis Court Feed",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1690",
-    "nombre": "F1 AppleTV+",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-f1-uk.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "1926",
-    "nombre": "ESPN 2 Mexico",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
-    "categoria": "Deportes",
-    "pais": "México",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/mx.png"
-  },
-  {
-    "id": "2003",
-    "nombre": "UFC Channel",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "2020",
-    "nombre": "PDC Board 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "2024",
-    "nombre": "UFCTV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "2028",
-    "nombre": "Apple TV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "2070",
-    "nombre": "AppleTV F1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-f1-uk.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "2906",
-    "nombre": "Sport TV5 Poutugal",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3001",
-    "nombre": "BBC One",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/bbc-one-uk.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3002",
-    "nombre": "NFL Game Pass",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nfl-network-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3003",
-    "nombre": "beIN SPORTS 3 Austrlia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3004",
-    "nombre": "ITV 4",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/itv-uk.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3005",
-    "nombre": "Prime Video",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3006",
-    "nombre": "DAZN PPP",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3007",
-    "nombre": "Sky Sports F1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3008",
-    "nombre": "CBS Sports Network",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/cbs-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3009",
-    "nombre": "SBS",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3010",
-    "nombre": "USA Network USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/flag-us.png",
-    "categoria": "General",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "3011",
-    "nombre": "ORF eins",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3012",
-    "nombre": "ProSieben MAXX DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "General",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "3013",
-    "nombre": "Sport Klub 10 Croatia (CH-26) Sport1 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/croatia/sport-klub-1-hr.png",
-    "categoria": "Deportes",
-    "pais": "Croacia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/hr.png"
-  },
-  {
-    "id": "3014",
-    "nombre": "Pro Sieben DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "General",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "3015",
-    "nombre": "DF1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3016",
-    "nombre": "Blue Sport D 1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3017",
-    "nombre": "DAZN1 DE 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "3018",
-    "nombre": "DAZN2 DE 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "3019",
-    "nombre": "Sportdigital FUSSBAL",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3020",
-    "nombre": "RSI La 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3021",
-    "nombre": "Sport TV1 Portugal 1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Portugal",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pt.png"
-  },
-  {
-    "id": "3023",
-    "nombre": "Cosmote Sport Greece",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Grecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/gr.png"
-  },
-  {
-    "id": "3024",
-    "nombre": "Alpha TV Greece",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "Grecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/gr.png"
-  },
-  {
-    "id": "3025",
-    "nombre": "Nova Sports Start",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3026",
-    "nombre": "TV Galicia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3027",
-    "nombre": "Movistar+ Spain",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "General",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "3028",
-    "nombre": "M+ Deportes 2 ES",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/flag-es.png",
-    "categoria": "Deportes",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "3029",
-    "nombre": "M. Liga de Campeones",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3030",
-    "nombre": "DAZN MotoGP ES",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "3031",
-    "nombre": "beIN Sports 1 Austrelia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3032",
-    "nombre": "beIN SPORTS 2 Austrelia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3033",
-    "nombre": "beIN Sports English 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3034",
-    "nombre": "SportsNet+",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/sportsnet-ontario-ca.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3037",
-    "nombre": "Fox Sports Racing",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3038",
-    "nombre": "beIN Sport USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "3039",
-    "nombre": "beIN Spors USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "3040",
-    "nombre": "beIN Sports Español",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3041",
-    "nombre": "Oneplay Sport",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3042",
-    "nombre": "Sport 2 CZ",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "República Checa",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/cz.png"
-  },
-  {
-    "id": "3043",
-    "nombre": "Oneplay Sport CZ",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "República Checa",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/cz.png"
-  },
-  {
-    "id": "3045",
-    "nombre": "DAZN Pro League 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3046",
-    "nombre": "Sky Sport MotoGP IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "3047",
-    "nombre": "DAZN IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "3049",
-    "nombre": "La Une Belgim 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3050",
-    "nombre": "Canal+ France (CH-121)",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "3051",
-    "nombre": "beIN Sports 1 FR",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "3052",
-    "nombre": "Ligue1+ 7 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/flag-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "3053",
-    "nombre": "Ligue1+ 2 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/flag-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "3054",
-    "nombre": "Ligue1+ 4 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/flag-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "3055",
-    "nombre": "RMC Sport France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/rmc-sport-1-fr.png",
-    "categoria": "Deportes",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "3056",
-    "nombre": "Ligue1+ 6 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/flag-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "3057",
-    "nombre": "Canal+ Sport360 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "Deportes",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "3058",
-    "nombre": "Hajduk TV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3059",
-    "nombre": "1TV Ukraine",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/ukraine/flag-ua.png",
-    "categoria": "General",
-    "pais": "Ucrania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ua.png"
-  },
-  {
-    "id": "3060",
-    "nombre": "FightKlub Poland",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/poland/flag-pl.png",
-    "categoria": "Deportes",
-    "pais": "Polonia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pl.png"
-  },
-  {
-    "id": "3061",
-    "nombre": "VG+",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3062",
-    "nombre": "SuperSport 2 Albania",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/south-africa/supersport-grandstand-za.png",
-    "categoria": "Deportes",
-    "pais": "Albania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/al.png"
-  },
-  {
-    "id": "3063",
-    "nombre": "Sport 2 Albania",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Albania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/al.png"
-  },
-  {
-    "id": "3064",
-    "nombre": "beIN Sports AR",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "Argentina",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/ar.png"
-  },
-  {
-    "id": "3065",
-    "nombre": "ETV 2 Estonia",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3066",
-    "nombre": "M4 Sports Hungry",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3067",
-    "nombre": "V sport 1 Norway",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Noruega",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/no.png"
-  },
-  {
-    "id": "3068",
-    "nombre": "MEGOGO Football 1 Ukrain",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3069",
-    "nombre": "TV2 Sport X DK",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Dinamarca",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/dk.png"
-  },
-  {
-    "id": "3070",
-    "nombre": "MTV Urheilu 1 Finland",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/finland/flag-fi.png",
-    "categoria": "General",
-    "pais": "Finlandia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fi.png"
-  },
-  {
-    "id": "3071",
-    "nombre": "MTV Urheilu 1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3072",
-    "nombre": "TV4",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3073",
-    "nombre": "Viaplay 3 Urheilu",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3074",
-    "nombre": "Ruutu+",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3075",
-    "nombre": "Sport Bladet Play",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3076",
-    "nombre": "V Sport 1 SE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Suecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/se.png"
-  },
-  {
-    "id": "3077",
-    "nombre": "MTV3",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3078",
-    "nombre": "V Sport Premium SE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Suecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/se.png"
-  },
-  {
-    "id": "3079",
-    "nombre": "V Sport Premium Finland",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Finlandia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fi.png"
-  },
-  {
-    "id": "3080",
-    "nombre": "Viaplay Sport SE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Suecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/se.png"
-  },
-  {
-    "id": "3082",
-    "nombre": "Fox Sports 2 USA 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
-    "categoria": "Deportes",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "3084",
-    "nombre": "SporTV Brazil",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/sportv-br.png",
-    "categoria": "Deportes",
-    "pais": "Brasil",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/br.png"
-  },
-  {
-    "id": "3086",
-    "nombre": "Sky Sport Austria 4 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Austria",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/at.png"
-  },
-  {
-    "id": "3087",
-    "nombre": "Fox Deportes 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fox-sports-1-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3088",
-    "nombre": "NPO 3 NL",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/netherlands/flag-nl.png",
-    "categoria": "General",
-    "pais": "Países Bajos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/nl.png"
-  },
-  {
-    "id": "3091",
-    "nombre": "TRT 1 TR",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-1-tr.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3093",
-    "nombre": "GOL Spain",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/flag-es.png",
-    "categoria": "General",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "3094",
-    "nombre": "SÝN Sport 2 Island",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3095",
-    "nombre": "Sky Sports Mix DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "3097",
-    "nombre": "SÝN Sport 1 Ísland",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "3098",
-    "nombre": "RTRS Moldova",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "3099",
-    "nombre": "DAZN DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "3978",
-    "nombre": "BTN USA",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/flag-us.png",
-    "categoria": "General",
-    "pais": "Estados Unidos",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/us.png"
-  },
-  {
-    "id": "4000",
-    "nombre": "DAZN Mundial",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "4081",
-    "nombre": "WNBA Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "4096",
-    "nombre": "NHL Game Pass",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nhl-network-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "4105",
-    "nombre": "5Sport Israel (CH-144) Event Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/israel/flag-il.png",
-    "categoria": "Deportes",
-    "pais": "Israel",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/il.png"
-  },
-  {
-    "id": "4111",
-    "nombre": "Event Steam",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "4118",
-    "nombre": "Sport 5 Plus Israel (CH-145) Event Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "Israel",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/il.png"
-  },
-  {
-    "id": "4267",
-    "nombre": "DAZN1 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "5000",
-    "nombre": "PPV Events",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5001",
-    "nombre": "Sky Sports F1 4K",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5002",
-    "nombre": "Sky Sports 1 NZ",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Nueva Zelanda",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/nz.png"
-  },
-  {
-    "id": "5003",
-    "nombre": "DAZN ES",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "5004",
-    "nombre": "KSWTV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5005",
-    "nombre": "WWE PPV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5006",
-    "nombre": "PPV Event",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5007",
-    "nombre": "F1 DE Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-f1-uk.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "5008",
-    "nombre": "mewatch 3",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5009",
-    "nombre": "UFC Fight Pass 1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5010",
-    "nombre": "mewatch 5",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5011",
-    "nombre": "IMCA.TV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5012",
-    "nombre": "FLORacing PPV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5013",
-    "nombre": "PPV Event 1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5014",
-    "nombre": "PPV Event 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5015",
-    "nombre": "UFC Fight Night",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5016",
-    "nombre": "(NBC UNIVERSO)",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nbc-us.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5017",
-    "nombre": "DirtTrackPPV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5018",
-    "nombre": "FloRacing II",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5020",
-    "nombre": "ESPN+ Boxing",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5021",
-    "nombre": "Event Stream 4K",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5022",
-    "nombre": "Event PPV Boxing",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5025",
-    "nombre": "Netflix",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5029",
-    "nombre": "FAMEMMATV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5030",
-    "nombre": "Bein Arabic Baclup",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5031",
-    "nombre": "Court 6 Tennis",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5032",
-    "nombre": "Court 7 Tennis",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5033",
-    "nombre": "Court 2 Tennis",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5034",
-    "nombre": "WNBA Season Pass",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5035",
-    "nombre": "Court Suzanne Lenglen",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5036",
-    "nombre": "Court Simonne Mathieu",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5037",
-    "nombre": "Court 14 Tennis",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5041",
-    "nombre": "WNBA League Pass",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5064",
-    "nombre": "(Fusball TV 1)",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5072",
-    "nombre": "Event PPV 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "5101",
-    "nombre": "NFL Redzone Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nfl-network-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "5215",
-    "nombre": "M+ Vamos ES",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/flag-es.png",
-    "categoria": "General",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "5670",
-    "nombre": "CANAL+ 360 Poland",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/canal-plus-sport-fr.png",
-    "categoria": "General",
-    "pais": "Polonia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pl.png"
-  },
-  {
-    "id": "6002",
-    "nombre": "SuperSports PSL",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "6003",
-    "nombre": "Sports Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "6004",
-    "nombre": "CZ Sports",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/flag-cz.png",
-    "categoria": "Deportes",
-    "pais": "República Checa",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/cz.png"
-  },
-  {
-    "id": "6005",
-    "nombre": "Temmis Channel",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "6007",
-    "nombre": "Sports Channel",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "6034",
-    "nombre": "DAZN Belgium",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "Bélgica",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/be.png"
-  },
-  {
-    "id": "6036",
-    "nombre": "DAZN PPV Box",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/dazn-1-es.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "6069",
-    "nombre": "Kazach TV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "6414",
-    "nombre": "SPORT1 DE",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/germany/flag-de.png",
-    "categoria": "Deportes",
-    "pais": "Alemania",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/de.png"
-  },
-  {
-    "id": "7001",
-    "nombre": "Event Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "7002",
-    "nombre": "Live Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "7003",
-    "nombre": "Liga 1 Max Peru",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "General",
-    "pais": "Perú",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/pe.png"
-  },
-  {
-    "id": "7004",
-    "nombre": "Winsportsplus",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "7005",
-    "nombre": "Winsports2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "7006",
-    "nombre": "ECDF",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "7011",
-    "nombre": "Migu TV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "7012",
-    "nombre": "BRTV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "7013",
-    "nombre": "RCTI+",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "7015",
-    "nombre": "VTV6",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "7024",
-    "nombre": "Event Streams",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "7034",
-    "nombre": "Soccer Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "7036",
-    "nombre": "UFC Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "7057",
-    "nombre": "WinPlus",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "7068",
-    "nombre": "Uruguay Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/uruguay/flag-uy.png",
-    "categoria": "General",
-    "pais": "Uruguay",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/uy.png"
-  },
-  {
-    "id": "8000",
-    "nombre": "Sky Sport Austria 1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Austria",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/at.png"
-  },
-  {
-    "id": "8001",
-    "nombre": "SD Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "8002",
-    "nombre": "TNT Sports 3",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tnt-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "8005",
-    "nombre": "Sky Sport Austria 2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Austria",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/at.png"
-  },
-  {
-    "id": "8006",
-    "nombre": "TNT Sports 4",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tnt-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "8016",
-    "nombre": "DAZN1 IT",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/flag-it.png",
-    "categoria": "Deportes",
-    "pais": "Italia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/it.png"
-  },
-  {
-    "id": "8028",
-    "nombre": "beIN LaLiga Spain",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/spain/movistar-plus-es.png",
-    "categoria": "Deportes",
-    "pais": "España",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/es.png"
-  },
-  {
-    "id": "8031",
-    "nombre": "Sky Sport Austria 8",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-sports-main-event-uk.png",
-    "categoria": "Deportes",
-    "pais": "Austria",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/at.png"
-  },
-  {
-    "id": "8037",
-    "nombre": "Amazon 1 France",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/flag-fr.png",
-    "categoria": "General",
-    "pais": "Francia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/fr.png"
-  },
-  {
-    "id": "8039",
-    "nombre": "beIN Sports 1 English",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bein-sports-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "8056",
-    "nombre": "NFL Sunday Ticket",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nfl-network-us.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "8071",
-    "nombre": "OTE 2 GR",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/greece/flag-gr.png",
-    "categoria": "General",
-    "pais": "Grecia",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/gr.png"
-  },
-  {
-    "id": "9000",
-    "nombre": "UPL.TV",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9005",
-    "nombre": "Morocco Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9007",
-    "nombre": "Ontime Sports Stream",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/sport-generic.png",
-    "categoria": "Deportes",
-    "pais": "General"
-  },
-  {
-    "id": "9019",
-    "nombre": "Center Court",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9020",
-    "nombre": "Center Court 4K",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9021",
-    "nombre": "Court No.1",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9022",
-    "nombre": "Court No.2",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9023",
-    "nombre": "Court No.3",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9024",
-    "nombre": "Court No.4",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9025",
-    "nombre": "Court No.5",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9026",
-    "nombre": "Court No.6",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9027",
-    "nombre": "Court No.7",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9028",
-    "nombre": "Court No.8",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9029",
-    "nombre": "Court No.9",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9030",
-    "nombre": "Court No.10",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9031",
-    "nombre": "Court No.11",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9032",
-    "nombre": "Court No.12",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9033",
-    "nombre": "Court No.13",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9034",
-    "nombre": "Court No.14",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9035",
-    "nombre": "Court No.15",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9036",
-    "nombre": "Court No.16",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9037",
-    "nombre": "Court No.17",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9038",
-    "nombre": "Court No.18",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/generic/tv-generic.png",
-    "categoria": "General",
-    "pais": "General"
-  },
-  {
-    "id": "9262",
-    "nombre": "ESPN2 Mexico",
-    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/espn-us.png",
-    "categoria": "Deportes",
-    "pais": "México",
-    "flag": "https://raw.githubusercontent.com/dariomadeira/moaiplug_daddylive/refs/heads/main/assets/flags/mx.png"
   }
 ]
 }
