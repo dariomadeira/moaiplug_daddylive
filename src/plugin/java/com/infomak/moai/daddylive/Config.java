@@ -12,6 +12,22 @@ final class Config {
     static final String EDGE = "https://edge.wedd48c.top";
 
     /**
+     * Dominios de la web de DaddyLive (rotan). El player `cast` se busca en
+     * todos en orden; el primero que responde queda como fuente del canal.
+     * Vistos en vivo el 2026-11-21: thedaddy.pk y thedaddy.li.
+     */
+    static final String[] DLHD_BASES = {
+        "https://thedaddy.pk",
+        "https://thedaddy.li",
+    };
+
+    /**
+     * Player "cast" (PLAYER 2): la vía directa que sigue funcionando sin
+     * Turnstile. Devuelve un iframe con `_econfig` y un HLS firmado.
+     */
+    static final String CAST_PATH = "/cast/stream-";
+
+    /**
      * Página del player oficial. Contiene `const EDGE = "https://..."`, que es
      * la fuente autoritativa del CDN mientras el dominio siga rotando.
      */
@@ -22,6 +38,13 @@ final class Config {
 
     /** Si el descubrimiento falla, no reintentarlo en cada canal. */
     static final long EDGE_RETRY_MS = 60L * 1000L;
+
+    /**
+     * Si el CDN niega el token (403; desde 2026-11 el player oficial lo pide
+     * con Cloudflare Turnstile), durante este tiempo se va directo a tvnow247
+     * en vez de gastar el presupuesto del resolve en reintentos.
+     */
+    static final long TOKEN_WALL_MS = 10L * 60L * 1000L;
 
     /**
      * Origen del player oficial (dembed.st/premiumtv/daddy.php?id=N). El CDN
@@ -58,10 +81,16 @@ final class Config {
 
     static final int CONNECT_TIMEOUT_MS = 4000;
     static final int READ_TIMEOUT_MS = 6000;
+    /** Páginas HTML del player cast (la del canal pesa ~660 KB). */
+    static final int PAGE_TIMEOUT_MS = 9000;
     /** Los segmentos enmascarados pesan 1.2-2.7 MB: necesitan mas margen. */
     static final int SEGMENT_TIMEOUT_MS = 15000;
     static final int PLAYLIST_TIMEOUT_MS = 8000;
     static final int TOKEN_TIMEOUT_MS = 4000;
+    /** Presupuesto de la fase cast antes de pasar a tvnow247. */
+    static final long CAST_BUDGET_MS = 10L * 1000L;
+    /** Un dominio de DaddyLive caído no se reintenta en cada canal. */
+    static final long BASE_BACKOFF_MS = 30L * 1000L;
     /** Techo de descarga por peticion. Los segmentos van a ~2.7 MB. */
     static final int MAX_BODY_BYTES = 24 * 1024 * 1024;
 
@@ -100,7 +129,7 @@ final class Config {
     static final String PLUGIN_ID = "moai_daddylive";
     static final String PLUGIN_TAG = "Daddy";
     static final String PLUGIN_NOMBRE = "Moai Daddylive";
-    static final String PLUGIN_VERSION = "0.5.1";
+    static final String PLUGIN_VERSION = "0.6.0";
     static final String PLUGIN_CLASE = "com.infomak.moai.daddylive.DaddylivePlugin";
 
     private Config() {

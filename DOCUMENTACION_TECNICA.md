@@ -2,7 +2,7 @@
 
 ## 1. Resumen Ejecutivo
 
-Este documento detalla el análisis de causa raíz, la arquitectura de desempaquetado de video y los cambios implementados en el plugin **Moai DaddyLive** (`moaiplug_daddylive`) hasta la versión **0.5.1**.
+Este documento detalla el análisis de causa raíz, la arquitectura de desempaquetado de video y los cambios implementados en el plugin **Moai DaddyLive** (`moaiplug_daddylive`) hasta la versión **0.6.0**.
 
 El objetivo principal de la investigación fue resolver las fallas de reproducción, pantallas de error HTTP 403/404 y la aparición de imágenes/memes estáticos en lugar del video en vivo.
 
@@ -50,6 +50,19 @@ El objetivo principal de la investigación fue resolver las fallas de reproducci
 ### 2.3 Canales Activos vs. Canales Inactivos (404 / 403)
 - El catálogo vigente (899 canales 24/7 scrapeados de `24-7-channels.php`) mezcla señales activas con eventos PPV/temporales y canales inactivos en la fuente origen de DaddyLive, los cuales retornan `HTTP 404 Not Found` en el CDN.
 - Al intentar reproducir un canal inactivo, la falta de validación previa en el resolvedor provocaba que ExoPlayer recibiera un error 404 directo sin explicación.
+
+### 2.4 Cloudflare Turnstile en dembed y la vía `cast` (v0.6.0)
+- Desde 2026-11 el player oficial `dembed.st/premiumtv/daddy.php` pide `/api/playlist-token` con un **Turnstile** que sólo se resuelve en el navegador. Sin ese token el CDN responde `403` y la vía `edge.*` deja de ser usable desde un cliente puro-HTTP.
+- El player **`cast`** (`/cast/stream-{id}.php`) sigue entregando la señal sin captcha:
+  ```
+  GET /cast/stream-{id}.php          -> <iframe src="https://waterera.net/e/{hash}">
+  GET {iframe}                       -> window._econfig = 'BASE64'
+  decrypt(_econfig)                  -> { stream_url, stream_url_nop2p, ... }
+  GET {stream_url}                   -> #EXTM3U con 7 segmentos MPEG-TS
+  ```
+- `_econfig` es Base64 de un Base64 partido en 4 trozos iguales: a cada trozo se le quita el 4.º carácter, se reordenan `2-0-3-1` y se decodifica. El resultado es el JSON con la URL firmada (`?s=...&e=...`, vigencia ~6 h).
+- El playlist y los segmentos del CDN `7odxv0l067ka.net` exigen `Referer` del embed y `User-Agent` de navegador. El proxy ahora propaga el `Referer` correcto por segmento (`/segment?url=...&ref=...`), algo que antes estaba fijado a `dembed.st` y rompía la vía cast.
+- Orden de fuentes en `LocalProxy.fetchPlaylist()`: **cast → tvnow247 → dembed/token**. La fuente cast se cachea por canal hasta que vence el `e=` de la URL; sólo se repite la cadena de páginas al vencer o ante `401/403/404`.
 
 ---
 
@@ -107,6 +120,7 @@ Para solucionar el problema sin requerir modificaciones en la aplicación nativa
 | **v0.4.12** | `7aa246e...` | DaddyLive cambió el enmascarado: el `.image` pasó a ser un **PNG cuyas filas de píxeles contienen `TIKTIKPX` + uint32 + gzip(TS)**. Se reescribió `unwrapBytes()` como port del `unwrap()` del player oficial (PNG → inflate IDAT → desfiltro Paeth/etc. → gunzip), se subió el tope de descarga de 2 MB a 24 MB con timeout propio para segmentos, y el proxy ahora drena las cabeceras de la petición para evitar el RST que hacía perder respuestas. |
 | **v0.5.0** | `0f7f408...` | El CDN pasó a exigir token por espectador (`/api/playlist-token?slug=premium{id}`) y Referer/Origin del player; se añadió `EdgeTokens`, precarga de segmentos y respaldo tvnow247. |
 | **v0.5.1** | `5d544d4...` | El dominio `edge.*` rotó de `edge.cowedd4855ws.sbs` a `edge.wedd48c.top`: `EdgeTokens` ahora descubre `const EDGE` de la página del player, lo cachea 15 min y lo invalida ante 401/403/DNS. La API `/api/channels` desapareció, así que el catálogo se scrapea de la grilla de `24-7-channels.php`. Se agregó el layout de tvnow247 (IDAT con TS crudo) a `unwrapBytes()`. |
+| **v0.6.0** | `1823028...` | El CDN de dembed quedó detrás de Cloudflare Turnstile (`/api/playlist-token` → 403). Se añadió `CastResolver`: player `cast` → iframe `waterera.net` → `_econfig` (Base64 partido en 4, orden 2-0-3-1) → HLS firmado ~6 h. `LocalProxy` ahora propaga el `Referer`/`Origin` de cada fuente a los segmentos (`&ref=`), cachea la fuente cast por canal y prueba cast → tvnow247 → dembed. Los dominios `thedaddy.pk`/`thedaddy.li` se prueban en orden con backoff de 30 s. |
 
 ---
 
@@ -124,11 +138,21 @@ Para solucionar el problema sin requerir modificaciones en la aplicación nativa
    - Canales offline en origen: responden `404` en `edge.*/premium{id}/index.m3u8`
      (p. ej. 200, 1234, 8) — comportamiento esperado, no un fallo del plugin.
 
+3. **Prueba JVM v0.6.0 (`DaddylivePlugin.main`, 2026-11-22):**
+   - Canales `44`, `31`, `521`, `800` y `140` resueltos por cast en **3.7–5.6 s**,
+     con segmento desempaquetado `HTTP 200`, ~1–3 MB y `0x47 sync byte: true`.
+   - `BatchVerify --sample 12 --workers 3`: **10/12 online (83 %)**; los 2 fallos
+     fueron timeouts del sitio (`cast page HTTP 0`), no del pipeline.
+   - `230` es un canal sin señal en cast (playlist `404`) y tvnow247 no respondió:
+     se reporta como fuera de emisión, comportamiento esperado.
+
 ---
 
 ## 6. Archivos del Proyecto
 
 - `src/plugin/java/com/infomak/moai/daddylive/LocalProxy.java`: Implementación del proxy HTTP local y desempaquetador MPEG-TS.
+- `src/plugin/java/com/infomak/moai/daddylive/CastResolver.java`: Player `cast` → `_econfig` → HLS firmado (fuente principal v0.6.0).
+- `src/plugin/java/com/infomak/moai/daddylive/EdgeTokens.java`: Token y descubrimiento del CDN de dembed (último recurso, detrás de Turnstile).
 - `src/plugin/java/com/infomak/moai/daddylive/DaddyliveResolver.java`: Lógica de resolución y validación de fuentes CDN.
 - `src/plugin/java/com/infomak/moai/daddylive/DaddylivePlugin.java`: Clase principal del plugin e interfaz `IPlugin`.
 - `build.ps1`: Script de compilación Java 8 + `d8` a `plugin.dex` y generación de `manifest.json`.

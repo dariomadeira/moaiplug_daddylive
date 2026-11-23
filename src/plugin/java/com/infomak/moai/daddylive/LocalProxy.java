@@ -30,18 +30,20 @@ import java.util.zip.Inflater;
 
 /**
  * Servidor HTTP local en 127.0.0.1 que sirve los canales de DaddyLive al
- * reproductor (v0.5.0, fuentes vistas en vivo el 2026-10-24).
+ * reproductor (v0.6.0, fuentes vistas en vivo el 2026-11-21).
  *
  * Playlist (`/playlist.m3u8?id=N`):
- *   1. CDN de DaddyLive con token por espectador ({@link EdgeTokens}); un
- *      canal frío tarda en publicar segmentos, así que se reintenta como el
- *      player oficial.
- *   2. Si el CDN falla: API de tvnow247, que entrega un playlist propio con
- *      los mismos segmentos enmascarados.
+ *   1. Player "cast" de DaddyLive ({@link CastResolver}): es la vía directa
+ *      que sigue operativa; el token del HLS dura ~6 h.
+ *   2. Si falla: API de tvnow247, que entrega un playlist propio con los
+ *      mismos segmentos enmascarados.
+ *   3. Si falla: CDN de dembed con token ({@link EdgeTokens}), hoy detrás de
+ *      Cloudflare Turnstile.
  *   Si un refresco falla se sirve el último playlist bueno unos segundos, para
  *   que el reproductor no corte por un error momentáneo.
  *
- * Segmentos (`/segment?url=`): se bajan con reintentos, se desempaquetan de a
+ * Segmentos (`/segment?url=&ref=`): se bajan con reintentos, con el Referer
+ * del embed que corresponda (el CDN cast lo exige), se desempaquetan de a
  * uno (como el player oficial; acota memoria y CPU) y quedan en un LRU chico.
  * Al servir el playlist se precargan los más nuevos, así el reproductor los
  * encuentra listos en vez de esperar descarga + desempaquetado.
@@ -119,10 +121,13 @@ public final class LocalProxy implements Runnable {
     static final class Upstream {
         final String body;
         final String baseUrl;
+        /** Referer que exigen el playlist y los segmentos de esta fuente. */
+        final String referer;
 
-        Upstream(String body, String baseUrl) {
+        Upstream(String body, String baseUrl, String referer) {
             this.body = body;
             this.baseUrl = baseUrl;
+            this.referer = referer;
         }
     }
 
@@ -150,10 +155,126 @@ public final class LocalProxy implements Runnable {
         new ConcurrentHashMap<String, String>();
 
     /**
-     * Busca el playlist del canal: CDN con token (reintentando el arranque en
-     * frío) y, si falla, tvnow247. No espera más allá de [deadline].
+     * Busca el playlist del canal: primero el player cast (vía directa), luego
+     * tvnow247 y por último el CDN con token. No espera más allá de [deadline].
      */
     static PlaylistResult fetchPlaylist(String channelId, long deadline) {
+        long castDeadline = Math.min(deadline,
+            System.currentTimeMillis() + Config.CAST_BUDGET_MS);
+        Upstream cast = fetchCast(channelId, castDeadline);
+        if (cast != null) {
+            return ok(channelId, mediaPlaylist(cast, deadline));
+        }
+
+        Upstream tv = fetchTvnow(channelId, deadline);
+        if (tv != null) {
+            return ok(channelId, mediaPlaylist(tv, deadline));
+        }
+
+        PlaylistResult edge = fetchEdge(channelId, deadline);
+        if (edge.upstream != null) {
+            return ok(channelId, mediaPlaylist(edge.upstream, deadline));
+        }
+        return edge;
+    }
+
+    /**
+     * Si la fuente devolvió un master playlist, baja la primera variante para
+     * que el proxy sólo tenga que reescribir segmentos.
+     */
+    private static Upstream mediaPlaylist(Upstream u, long deadline) {
+        if (u.body.indexOf("#EXT-X-STREAM-INF") < 0) {
+            return u;
+        }
+        String variant = null;
+        for (String line : u.body.split("\n")) {
+            String t = line.trim();
+            if (t.length() > 0 && !t.startsWith("#")) {
+                variant = t;
+                break;
+            }
+        }
+        if (variant == null) {
+            return u;
+        }
+        try {
+            String abs = URI.create(u.baseUrl).resolve(variant).toString();
+            Http.Response r = Http.getResponse(abs, refererHeaders(u.referer), true,
+                Config.PLAYLIST_TIMEOUT_MS);
+            if (r.code == 200 && startsWith(r.body, "#EXTM3U")) {
+                return new Upstream(new String(r.body, StandardCharsets.UTF_8), abs, u.referer);
+            }
+        } catch (Exception ignored) {
+            // se sirve el master tal cual; el reproductor no podrá seguirlo
+        }
+        return u;
+    }
+
+    private static Map<String, String> refererHeaders(String referer) {
+        Map<String, String> h = new LinkedHashMap<String, String>();
+        h.put("User-Agent", Config.USER_AGENT);
+        h.put("Referer", referer != null ? referer : Config.PLAYER_ORIGIN + "/");
+        String origin = originOf(referer);
+        if (origin != null) {
+            h.put("Origin", origin);
+        }
+        return h;
+    }
+
+    /**
+     * Player cast: reutiliza la URL firmada del canal (~6 h) y sólo repite la
+     * cadena de páginas cuando vence o el CDN la rechaza.
+     */
+    private static Upstream fetchCast(String channelId, long deadline) {
+        CastResolver.Source source = CastResolver.cached(channelId);
+        boolean fresh = false;
+        if (source == null) {
+            source = CastResolver.resolve(channelId, deadline);
+            fresh = true;
+            if (source == null) {
+                return null;
+            }
+        }
+
+        for (int i = 0; i < 2 && System.currentTimeMillis() < deadline; i++) {
+            try {
+                Http.Response r = Http.getResponse(source.playlistUrl,
+                    CastResolver.headers(source), true, Config.PLAYLIST_TIMEOUT_MS);
+                if (r.code == 200 && startsWith(r.body, "#EXTM3U")) {
+                    String text = new String(r.body, StandardCharsets.UTF_8);
+                    // Canal frío: el player oficial reintenta si aún hay pocos segmentos.
+                    if (fresh && i == 0 && countSegments(text) < 6) {
+                        sleepUntil(700L, deadline);
+                        continue;
+                    }
+                    return new Upstream(text, source.playlistUrl, source.referer);
+                }
+                if (r.code == 401 || r.code == 403 || r.code == 404) {
+                    // URL vencida o canal caído: la próxima vez se resuelve de nuevo.
+                    CastResolver.invalidate(channelId);
+                    return null;
+                }
+            } catch (Exception e) {
+                // Fallo transitorio: se conserva la fuente para el próximo refresco.
+                return null;
+            }
+        }
+        return null;
+    }
+
+    private static int countSegments(String playlist) {
+        int n = 0;
+        for (String line : playlist.split("\n")) {
+            String t = line.trim();
+            if (t.length() > 0 && !t.startsWith("#")) {
+                n++;
+            }
+        }
+        return n;
+    }
+
+    /** CDN de dembed con token por espectador (hoy detrás de Turnstile). */
+    private static PlaylistResult fetchEdge(String channelId, long deadline) {
         // Un canal que ya se estaba sirviendo no está frío: menos espera.
         Object[] last = LAST_GOOD.get(channelId);
         boolean warm = last != null
@@ -163,7 +284,11 @@ public final class LocalProxy implements Runnable {
         int code = 0;
         String error = null;
         boolean newToken = false;
+        // Con el token negado, los reintentos sólo comían el tiempo que
+        // necesita el respaldo (antes se llegaba a tvnow247 sin presupuesto).
+        if (EdgeTokens.tokenDenied()) tries = 0;
         for (int i = 0; i < tries && System.currentTimeMillis() < deadline; i++) {
+            if (i > 0 && EdgeTokens.tokenDenied()) break;
             try {
                 String token = EdgeTokens.get(channelId, newToken);
                 newToken = false;
@@ -172,7 +297,8 @@ public final class LocalProxy implements Runnable {
                     Config.PLAYLIST_TIMEOUT_MS);
                 code = r.code;
                 if (r.code == 200 && startsWith(r.body, "#EXTM3U")) {
-                    return ok(channelId, new Upstream(new String(r.body, StandardCharsets.UTF_8), url));
+                    return ok(channelId, new Upstream(new String(r.body, StandardCharsets.UTF_8),
+                        url, Config.PLAYER_ORIGIN + "/"));
                 }
                 if (r.code == 401 || r.code == 403) {
                     // Token rechazado o EDGE rotado: se pide uno nuevo.
@@ -187,9 +313,6 @@ public final class LocalProxy implements Runnable {
             }
             sleepUntil(Config.COLD_START_DELAY_MS, deadline);
         }
-
-        Upstream tv = fetchTvnow(channelId, deadline);
-        if (tv != null) return ok(channelId, tv);
         return new PlaylistResult(null, code == 0 ? 502 : code, error);
     }
 
@@ -216,7 +339,8 @@ public final class LocalProxy implements Runnable {
                 h.put("Referer", Config.TVNOW_ORIGIN + "/");
                 Http.Response r = Http.getResponse(url, h, true, Config.PLAYLIST_TIMEOUT_MS);
                 if (r.code == 200 && startsWith(r.body, "#EXTM3U")) {
-                    return new Upstream(new String(r.body, StandardCharsets.UTF_8), url);
+                    return new Upstream(new String(r.body, StandardCharsets.UTF_8), url,
+                        Config.TVNOW_ORIGIN + "/");
                 }
             } catch (Exception ignored) {
                 // se reintenta resolviendo la URL de nuevo
@@ -258,14 +382,14 @@ public final class LocalProxy implements Runnable {
         };
 
     /** Segmento desempaquetado (en curso o listo). Lo baja si no estaba. */
-    static Future<byte[]> segment(final String url) {
+    static Future<byte[]> segment(final String url, final String referer) {
         synchronized (SEGMENTS) {
             Future<byte[]> f = SEGMENTS.get(url);
             if (f == null) {
                 f = DOWNLOADS.submit(new Callable<byte[]>() {
                     @Override
                     public byte[] call() {
-                        return downloadSegment(url);
+                        return downloadSegment(url, referer);
                     }
                 });
                 SEGMENTS.put(url, f);
@@ -280,10 +404,15 @@ public final class LocalProxy implements Runnable {
         }
     }
 
-    private static byte[] downloadSegment(String url) {
+    private static byte[] downloadSegment(String url, String referer) {
         Map<String, String> headers = new LinkedHashMap<String, String>();
         headers.put("User-Agent", Config.USER_AGENT);
-        headers.put("Referer", Config.PLAYER_ORIGIN + "/");
+        headers.put("Referer", referer != null && referer.length() > 0
+            ? referer : Config.PLAYER_ORIGIN + "/");
+        String origin = originOf(referer);
+        if (origin != null) {
+            headers.put("Origin", origin);
+        }
         String last = null;
         for (int i = 0; i <= Config.SEGMENT_RETRIES; i++) {
             try {
@@ -397,6 +526,7 @@ public final class LocalProxy implements Runnable {
             }
 
             URI base = URI.create(up.baseUrl);
+            String referer = up.referer != null ? up.referer : Config.PLAYER_ORIGIN + "/";
             String[] lines = up.body.split("\n");
             StringBuilder sb = new StringBuilder();
             List<String> segments = new ArrayList<String>();
@@ -407,7 +537,8 @@ public final class LocalProxy implements Runnable {
                     String abs = base.resolve(trimmed).toString();
                     segments.add(abs);
                     sb.append("http://127.0.0.1:").append(port)
-                      .append("/segment?url=").append(URLEncoder.encode(abs, "UTF-8")).append("\n");
+                      .append("/segment?url=").append(URLEncoder.encode(abs, "UTF-8"))
+                      .append("&ref=").append(URLEncoder.encode(referer, "UTF-8")).append("\n");
                 } else {
                     sb.append(line).append("\n");
                 }
@@ -415,7 +546,7 @@ public final class LocalProxy implements Runnable {
 
             // Precarga de los más nuevos: es lo que el reproductor pide a continuación.
             for (int i = Math.max(0, segments.size() - Config.PREFETCH_SEGMENTS); i < segments.size(); i++) {
-                segment(segments.get(i));
+                segment(segments.get(i), referer);
             }
 
             byte[] outBytes = sb.toString().getBytes(StandardCharsets.UTF_8);
@@ -430,9 +561,10 @@ public final class LocalProxy implements Runnable {
             }
 
             byte[] ts;
+            String referer = getParam(path, "ref");
             try {
                 long wait = (long) Config.SEGMENT_TIMEOUT_MS * (Config.SEGMENT_RETRIES + 1) + 5000L;
-                ts = segment(targetUrl).get(wait, TimeUnit.MILLISECONDS);
+                ts = segment(targetUrl, referer).get(wait, TimeUnit.MILLISECONDS);
             } catch (Exception e) {
                 forget(targetUrl);
                 Throwable cause = e.getCause() != null ? e.getCause() : e;
@@ -485,6 +617,25 @@ public final class LocalProxy implements Runnable {
             case 502: return "Bad Gateway";
             case 503: return "Service Unavailable";
             default: return "Error";
+        }
+    }
+
+    /** `https://host[:port]` del Referer, o null si no se puede parsear. */
+    private static String originOf(String referer) {
+        if (referer == null || referer.length() == 0) {
+            return null;
+        }
+        try {
+            URI u = URI.create(referer);
+            String scheme = u.getScheme();
+            String host = u.getHost();
+            if (scheme == null || host == null) {
+                return null;
+            }
+            int port = u.getPort();
+            return scheme + "://" + host + (port > 0 ? ":" + port : "");
+        } catch (Exception e) {
+            return null;
         }
     }
 

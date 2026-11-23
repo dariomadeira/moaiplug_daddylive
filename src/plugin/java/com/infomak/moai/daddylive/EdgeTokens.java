@@ -55,8 +55,15 @@ final class EdgeTokens {
     private static volatile long edgeAt = 0L;
     /** No reintentar el descubrimiento antes de este instante. */
     private static volatile long edgeRetryAt = 0L;
+    /** Hasta cuándo se da por negado el token ({@link Config#TOKEN_WALL_MS}). */
+    private static volatile long tokenWallUntil = 0L;
 
     private EdgeTokens() {
+    }
+
+    /** El CDN viene negando el token: no vale la pena pedirlo ahora. */
+    static boolean tokenDenied() {
+        return System.currentTimeMillis() < tokenWallUntil;
     }
 
     /** Headers que el CDN exige en token y playlist. */
@@ -123,8 +130,14 @@ final class EdgeTokens {
                 invalidateEdge();
                 return fetch(channelId, false);
             }
+            if (r.code == 401 || r.code == 403) {
+                // Ni con el EDGE recién leído: el CDN no da token sin el
+                // captcha del player. Mientras tanto, directo al respaldo.
+                tokenWallUntil = System.currentTimeMillis() + Config.TOKEN_WALL_MS;
+            }
             throw new IllegalStateException("token HTTP " + r.code + " en " + base);
         }
+        tokenWallUntil = 0L;
         String json = new String(r.body, java.nio.charset.StandardCharsets.UTF_8);
         Matcher tm = TOKEN_RE.matcher(json);
         if (!tm.find()) {

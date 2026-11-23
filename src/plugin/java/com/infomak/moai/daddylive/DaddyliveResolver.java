@@ -4,17 +4,17 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Resolver del catálogo 24/7 de DaddyLive (v0.5.0, fuentes vistas en vivo el
- * 2026-10-24).
+ * Resolver del catálogo 24/7 de DaddyLive (v0.6.0, fuentes vistas en vivo el
+ * 2026-11-21).
  *
  * El id numérico del catálogo sigue siendo el canal del CDN (premium{id}).
- * El CDN ahora exige un token por espectador ({@link EdgeTokens}); si no
- * responde, tvnow247 resuelve el mismo id. Ambas fuentes entregan segmentos
- * enmascarados, así que el resultado siempre es el playlist del
- * {@link LocalProxy}, que elige la fuente en cada refresco.
+ * El CDN de dembed ahora exige Cloudflare Turnstile, así que la vía principal
+ * es el player "cast" ({@link CastResolver}): iframe con `_econfig` -> HLS
+ * firmado (~6 h). Si el canal no tiene cast, tvnow247 resuelve el mismo id.
+ * El CDN con token ({@link EdgeTokens}) queda como último recurso.
  *
- * La cadena anterior (daddylive.*\/player/embed.php -> PLAYERS) quedó vacía
- * en la web nueva y ya no se usa.
+ * Todas las fuentes pasan por el playlist del {@link LocalProxy}, que elige la
+ * fuente en cada refresco y propaga el Referer correcto a los segmentos.
  */
 final class DaddyliveResolver {
 

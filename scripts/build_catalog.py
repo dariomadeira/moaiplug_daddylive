@@ -24,6 +24,7 @@ import urllib.request
 
 DOMAINS = ["daddylive.li", "daddylive.app", "daddylive.mov"]
 SITE_ORIGIN = "https://thedaddy.pk"
+SITE_ORIGINS = ["https://thedaddy.pk", "https://thedaddy.li"]
 CATALOG_PAGE = SITE_ORIGIN + "/24-7-channels.php"
 SITE_CARD_RE = re.compile(
     r'href="/watch\.php\?id=(\d+)"[\s\S]{0,1200}?'
@@ -308,22 +309,30 @@ def fetch_channels(domain):
 
 def fetch_channels_site():
     """Canales de la grilla vigente: [(id, nombre), ...] ya desescapados."""
-    req = urllib.request.Request(
-        CATALOG_PAGE, headers={"User-Agent": UA, "Referer": SITE_ORIGIN + "/"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        if r.status != 200:
-            raise RuntimeError(f"HTTP {r.status} en {CATALOG_PAGE}")
-        page = r.read().decode("utf-8", "replace")
-    out = []
-    seen = set()
-    for cid, name in SITE_CARD_RE.findall(page):
-        if cid in seen:
-            continue
-        seen.add(cid)
-        out.append((cid, html.unescape(name).strip() or f"Canal {cid}"))
-    if not out:
-        raise RuntimeError("la grilla no devolvió canales (¿cambió el HTML?)")
-    return out
+    last = None
+    for origin in SITE_ORIGINS:
+        url = origin + "/24-7-channels.php"
+        try:
+            req = urllib.request.Request(
+                url, headers={"User-Agent": UA, "Referer": origin + "/"})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                if r.status != 200:
+                    raise RuntimeError(f"HTTP {r.status} en {url}")
+                page = r.read().decode("utf-8", "replace")
+            out = []
+            seen = set()
+            for cid, name in SITE_CARD_RE.findall(page):
+                if cid in seen:
+                    continue
+                seen.add(cid)
+                out.append((cid, html.unescape(name).strip() or f"Canal {cid}"))
+            if not out:
+                raise RuntimeError("la grilla no devolvió canales (¿cambió el HTML?)")
+            return out
+        except Exception as e:
+            last = e
+            print(f"[catalog] {url}: {e}", file=sys.stderr)
+    raise RuntimeError(f"ningún dominio devolvió el catálogo: {last}")
 
 
 def country_of(name):

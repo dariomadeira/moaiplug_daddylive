@@ -4,10 +4,11 @@ Portal completo del flujo DaddyLive de moaiServer a un plugin Java/DEX para el
 motor moai3, siguiendo el patrón de `moaiplug_telefe`. Documento de PLANEO: no
 hay código aún, solo diseño y fases.
 
-> **Nota (2026-11-02, v0.5.1):** esto refleja el plan original. La realidad
+> **Nota (2026-11-22, v0.6.0):** esto refleja el plan original. La realidad
 > cambió: `/api/channels` ya no existe y el catálogo se scrapea de
-> `24-7-channels.php`; el CDN exige token por espectador y su dominio `edge.*`
-> rota. El estado real está en `DOCUMENTACION_TECNICA.md`.
+> `24-7-channels.php`; el CDN de dembed quedó detrás de Cloudflare Turnstile y
+> el plugin usa el player `cast` como fuente principal. El estado real está en
+> `DOCUMENTACION_TECNICA.md`.
 
 ---
 

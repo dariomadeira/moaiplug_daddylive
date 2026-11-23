@@ -102,7 +102,7 @@ public final class DaddylivePlugin implements IPlugin {
         DaddylivePlugin p = new DaddylivePlugin();
         System.out.println("manifest: " + p.manifest());
 
-        String[] samples = {"521", "800", "44"};
+        String[] samples = {"44", "31", "521", "800", "140", "230"};
         for (String id : samples) {
             long t0 = System.currentTimeMillis();
             try {
@@ -141,8 +141,7 @@ public final class DaddylivePlugin implements IPlugin {
             for (String line : pl.split("\n")) {
                 String t = line.trim();
                 if (t.length() > 0 && !t.startsWith("#")) {
-                    newest = t;
-                    break;
+                    newest = t; // el último es el más reciente de la ventana
                 }
             }
             if (newest == null) {
