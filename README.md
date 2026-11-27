@@ -4,10 +4,10 @@ Plugin del motor moai3 que aporta canales 24/7 de DaddyLive resueltos directamen
 
 - **Tag:** `Daddy`
 - **ID:** `moai_daddylive`
-- **Versión:** `0.6.0`
+- **Versión:** `0.6.1`
 - **Canales:** Catálogo vigente scrapeado de `https://thedaddy.pk/24-7-channels.php` (899 canales 24/7 el 2026-11-02).
-- **Fuente principal:** player `cast` (`/cast/stream-{id}.php` → iframe `waterera.net` → `_econfig` → HLS firmado ~6 h). Es la vía que sigue operativa.
-- **Respaldo:** API de tvnow247 y, por último, el CDN de dembed con token (`edge.*`), hoy detrás de Cloudflare Turnstile.
+- **Fuente principal:** API de tvnow247: resuelve el mismo id y sus dominios funcionan aunque el DNS del televisor no vea `thedaddy.*` ni el CDN cast (v0.6.1).
+- **Respaldo:** player `cast` (`/cast/stream-{id}.php` → iframe `waterera.net` → `_econfig` → HLS firmado ~6 h) y, por último, el CDN de dembed con token (`edge.*`), hoy detrás de Cloudflare Turnstile.
 
 ## Instalación en moai3
 

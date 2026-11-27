@@ -87,7 +87,9 @@ final class Config {
     static final int SEGMENT_TIMEOUT_MS = 15000;
     static final int PLAYLIST_TIMEOUT_MS = 8000;
     static final int TOKEN_TIMEOUT_MS = 4000;
-    /** Presupuesto de la fase cast antes de pasar a tvnow247. */
+    /** Presupuesto de la fase tvnow247 (primera fuente desde v0.6.1). */
+    static final long TVNOW_BUDGET_MS = 7L * 1000L;
+    /** Presupuesto de la fase cast antes de pasar al CDN de dembed. */
     static final long CAST_BUDGET_MS = 10L * 1000L;
     /** Un dominio de DaddyLive caído no se reintenta en cada canal. */
     static final long BASE_BACKOFF_MS = 30L * 1000L;
@@ -129,7 +131,7 @@ final class Config {
     static final String PLUGIN_ID = "moai_daddylive";
     static final String PLUGIN_TAG = "Daddy";
     static final String PLUGIN_NOMBRE = "Moai Daddylive";
-    static final String PLUGIN_VERSION = "0.6.0";
+    static final String PLUGIN_VERSION = "0.6.1";
     static final String PLUGIN_CLASE = "com.infomak.moai.daddylive.DaddylivePlugin";
 
     private Config() {

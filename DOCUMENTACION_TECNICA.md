@@ -121,6 +121,7 @@ Para solucionar el problema sin requerir modificaciones en la aplicación nativa
 | **v0.5.0** | `0f7f408...` | El CDN pasó a exigir token por espectador (`/api/playlist-token?slug=premium{id}`) y Referer/Origin del player; se añadió `EdgeTokens`, precarga de segmentos y respaldo tvnow247. |
 | **v0.5.1** | `5d544d4...` | El dominio `edge.*` rotó de `edge.cowedd4855ws.sbs` a `edge.wedd48c.top`: `EdgeTokens` ahora descubre `const EDGE` de la página del player, lo cachea 15 min y lo invalida ante 401/403/DNS. La API `/api/channels` desapareció, así que el catálogo se scrapea de la grilla de `24-7-channels.php`. Se agregó el layout de tvnow247 (IDAT con TS crudo) a `unwrapBytes()`. |
 | **v0.6.0** | `1823028...` | El CDN de dembed quedó detrás de Cloudflare Turnstile (`/api/playlist-token` → 403). Se añadió `CastResolver`: player `cast` → iframe `waterera.net` → `_econfig` (Base64 partido en 4, orden 2-0-3-1) → HLS firmado ~6 h. `LocalProxy` ahora propaga el `Referer`/`Origin` de cada fuente a los segmentos (`&ref=`), cachea la fuente cast por canal y prueba cast → tvnow247 → dembed. Los dominios `thedaddy.pk`/`thedaddy.li` se prueban en orden con backoff de 30 s. |
+| **v0.6.1** | `6338270...` | En moai3 los canales aparecían pero ninguno reproducía: el DNS del televisor no ve `thedaddy.*` ni el host del CDN cast, y las resoluciones lentas agotaban el timeout de 20 s del host antes de llegar al respaldo. `fetchPlaylist()` prueba ahora **tvnow247 → cast → dembed**; tvnow247 resuelve el mismo id con dominios que sí responden y entrega segmentos TS reales. Sin cambios en moai3. |
 
 ---
 
@@ -151,7 +152,7 @@ Para solucionar el problema sin requerir modificaciones en la aplicación nativa
 ## 6. Archivos del Proyecto
 
 - `src/plugin/java/com/infomak/moai/daddylive/LocalProxy.java`: Implementación del proxy HTTP local y desempaquetador MPEG-TS.
-- `src/plugin/java/com/infomak/moai/daddylive/CastResolver.java`: Player `cast` → `_econfig` → HLS firmado (fuente principal v0.6.0).
+- `src/plugin/java/com/infomak/moai/daddylive/CastResolver.java`: Player `cast` → `_econfig` → HLS firmado (segunda fuente desde v0.6.1).
 - `src/plugin/java/com/infomak/moai/daddylive/EdgeTokens.java`: Token y descubrimiento del CDN de dembed (último recurso, detrás de Turnstile).
 - `src/plugin/java/com/infomak/moai/daddylive/DaddyliveResolver.java`: Lógica de resolución y validación de fuentes CDN.
 - `src/plugin/java/com/infomak/moai/daddylive/DaddylivePlugin.java`: Clase principal del plugin e interfaz `IPlugin`.

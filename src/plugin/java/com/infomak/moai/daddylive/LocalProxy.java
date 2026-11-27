@@ -33,10 +33,11 @@ import java.util.zip.Inflater;
  * reproductor (v0.6.0, fuentes vistas en vivo el 2026-11-21).
  *
  * Playlist (`/playlist.m3u8?id=N`):
- *   1. Player "cast" de DaddyLive ({@link CastResolver}): es la vía directa
- *      que sigue operativa; el token del HLS dura ~6 h.
- *   2. Si falla: API de tvnow247, que entrega un playlist propio con los
- *      mismos segmentos enmascarados.
+ *   1. API de tvnow247: resuelve el mismo id y entrega un playlist propio con
+ *      los mismos segmentos. Va primero porque sus dominios resolvieron incluso
+ *      donde el DNS del televisor no ve `thedaddy.*` ni el CDN cast.
+ *   2. Si falla: player "cast" de DaddyLive ({@link CastResolver}), vía directa
+ *      con HLS firmado (~6 h).
  *   3. Si falla: CDN de dembed con token ({@link EdgeTokens}), hoy detrás de
  *      Cloudflare Turnstile.
  *   Si un refresco falla se sirve el último playlist bueno unos segundos, para
@@ -155,20 +156,26 @@ public final class LocalProxy implements Runnable {
         new ConcurrentHashMap<String, String>();
 
     /**
-     * Busca el playlist del canal: primero el player cast (vía directa), luego
-     * tvnow247 y por último el CDN con token. No espera más allá de [deadline].
+     * Busca el playlist del canal. tvnow247 va PRIMERO: sus dominios resuelven
+     * incluso donde `thedaddy.*` y el CDN cast caen en el DNS del televisor (y
+     * una resolución lenta de esos dominios puede consumir el timeout de 20 s
+     * del host antes de llegar al respaldo). El player cast queda como segunda
+     * fuente y el CDN con token como último recurso. No espera más allá de
+     * [deadline].
      */
     static PlaylistResult fetchPlaylist(String channelId, long deadline) {
+        long tvDeadline = Math.min(deadline,
+            System.currentTimeMillis() + Config.TVNOW_BUDGET_MS);
+        Upstream tv = fetchTvnow(channelId, tvDeadline);
+        if (tv != null) {
+            return ok(channelId, mediaPlaylist(tv, deadline));
+        }
+
         long castDeadline = Math.min(deadline,
             System.currentTimeMillis() + Config.CAST_BUDGET_MS);
         Upstream cast = fetchCast(channelId, castDeadline);
         if (cast != null) {
             return ok(channelId, mediaPlaylist(cast, deadline));
-        }
-
-        Upstream tv = fetchTvnow(channelId, deadline);
-        if (tv != null) {
-            return ok(channelId, mediaPlaylist(tv, deadline));
         }
 
         PlaylistResult edge = fetchEdge(channelId, deadline);
